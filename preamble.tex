@@ -64,7 +64,13 @@
     \fi}
 
 % Cancels to number (arrow through with number)
-\usepackage{cancel} 
+\usepackage{cancel}
+
+% Mathcal-like caligraphy for lowercase letters with \mathscr{<letter>}
+\DeclareFontFamily{U}{mathc}{}
+\DeclareFontShape{U}{mathc}{m}{it}%
+{<->s*[1.03] mathc10}{}
+\DeclareMathAlphabet{\mathscr}{U}{mathc}{m}{it}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% OWN PHYSICS AND MATHEMATICS DEFINITIONS
