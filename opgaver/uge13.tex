@@ -1,0 +1,88 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 13 -- Big Bang}
+\setcounter{section}{13}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Hastighed af galakse ud fra rødforskydning}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Fortolk den kosmologiske rødforskydning $(\omega_0 - \omega)/\omega_0 = H l$, hvor $l$ er distancen til den rødforskudte galakse, som en Dopplereffekt og beregn hastigheden, som galaksen ser ud til at bevæge sig med ift. observatøren.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Doplereffekten er rødforskydningen grundet den relative hastighed mellem kilden til signalerne og observatøren
+\begin{align}
+    \frac{\omega - \omega_0}{\omega_0} &= \frac{v_{kilde} - v_{obs}}{v_{med}} \: ,
+\end{align}
+I vores tilfælde er $v_{med} = 1$ i naturlige enheder, og vi lader $v_{obs} = 0$ for simplicitet. Dermed får vi
+\begin{align}
+    v_{kilde} &= H l \: ,
+\end{align}
+hvor $d$ er afstanden til den rødforskudte galakse. Dette er præcis Hubbles lov.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- $\epsilon a^4 = \text{konst} \: \Rightarrow \: p = \epsilon/3$}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Vis at $\epsilon a^4 = \text{konst}$ svarer til tilstandsligningen $p = \epsilon/3$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi betragter først ligningen $\epsilon a^4 = \mathrm{konst}$, hvor vi isolerer $\epsilon$,
+\begin{align}
+    \epsilon &= \frac{\mathrm{konst}}{a^4} \: ,
+\end{align}
+hvorefter vi differentierer denne ligning med hensyn til $a$,
+\begin{align}
+    \dif{\epsilon}{a} &= \dif{}{a} \pfrac{\mathrm{konst}}{a^4}
+        = - \frac{4 \cdot \mathrm{konst}}{a^5}
+        =  - \frac{4}{a} \epsilon \: .
+\end{align}
+
+Dernæst benytter vi os af energibevarelsesloven
+\begin{align}
+    - p\, \dd V &= \dd E = \dd (\epsilon V) = V\, \dd \epsilon + \epsilon\, \dd V \: .
+\end{align}
+Heri kan vi nu indsætte $\dd \epsilon$ som udregnet ovenfor, samt volumenet på $V = a^3$ og $\dd V = 3 a^2\, \dd a$, hvorved vi får
+\begin{align}
+\begin{split}
+    - 3p a^2\, \dd a &= - p\, \dd V
+        = V\, \dd \epsilon + \epsilon\, \dd V
+        = a^3\, \dd \epsilon + 3 \epsilon a^2\, \dd a \\
+    \Rightarrow
+    - 3p &= a\, \dif{\epsilon}{a} + 3 \epsilon\, \dif{a}{a}
+        = a\, \dif{\epsilon}{a} + 3 \epsilon
+        = - a \frac{4}{a} \epsilon + 3 \epsilon
+        = - 4 \epsilon + 3 \epsilon
+        = - \epsilon \: .
+\end{split}
+\end{align}
+Dermed får vi, at
+\begin{align}
+    - 3p &= - \epsilon
+        \quad \Rightarrow \quad
+    p = \frac{\epsilon}{3} \: ,
+\end{align}
+hvilket vi skule vise.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

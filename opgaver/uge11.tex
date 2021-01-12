@@ -1,0 +1,179 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 11 -- Bevægelse i Schwarzschildmetrikken}
+\setcounter{section}{11}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Bevægelsesligning for radiært frit fald mod sort hul fra uendelig}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Udled bevægelsesligningen
+\begin{align}
+    \dd t &= - \sqf{r}{r_s} \inv{1 - \frac{r_s}{r}}\, \dd r
+\end{align}
+for et objekt i et radiært frit fald fra uendelig ind mod et sort hul ved at benytte de geodætiske ligninger i Schwarzschildmetrikken.
+
+Hints: Find $\dd t / \dd s$ fra $t$-geodætligningen. Find $\dd r / \dd s$ fra $r$-geodætligningen ved at eliminere $t(s)$ ved brug af udtrykket for metrikken og integrer én gang. Divider de to.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Fritfaldende objekt i Schwarzschildmetrikken}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Et objekt falder frit og radiært mod centrum i Schwarzschildmetrikken. Hvad er dets koordinathastighed $\dd r / \dd t$ ved radius $r$? Hvad er den lokalmålte hastighed for samme $r$?
+
+Hint: I Schwarzschildmetrikken er den lokalmålte radiære afstand givet som $\dd \hat{r} = (1 - 2M/r)^{-1} \dd r^2$ og den lokalmålte tid er givet som $\dd \hat{t} = (1 - 2M/r) \dd t^2$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Masse af sort hul grundet rødforskydning}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+En radiosender falder frit radiært ind mod et sort hul. Som radiosenderen nærmer sig den gravitationelle radius måles dens radiosignal af en udenforstående observatør til at være rødforskudt med $\omega = \omega_0 \pexp{-\lambda t}$. Estimér massen af det sorte hul ud fra det målte $\lambda$.
+
+Hints: $\omega_0 = \omega / \sqrt{g_{00}}$, \cite[ligning 13]{ugeseddel10}, og $r - r_s = (r_1 - r_s)\pexp{-[t - t_1]/r_s}$, \cite[ligning 7]{ugeseddel11}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi betragter de to ligninger
+\begin{align}
+    \omega_0 &= \frac{\omega}{\sqrt{g_{00}}}
+        \quad \text{og} \quad
+    r - r_s = (r_0 - r_s)\pexp{-[t - t_0]/r_s} \: .
+\end{align}
+hvor $\omega$ er frekvensen målt af en ydre observatør, der bruger verdens koordinater $(t,\, r)$, mens $\omega_0$ er egenfrekvensen, målt af en iagttager, som sidder på selve radioen, og som bruger radioens koordinater $(t_0,\, r_0)$. Sidste ligning gør sig gældende, når $r \gtrsim r_s$, altså at vi er lige ved eller lidt over den gravitationelle radius for det sorte hul.
+
+Siden vi ved, at $g_{00} = 1 - r_s/r$ skriver vi først den første ligning ud
+\begin{align}
+    \omega &= \omega_0 \sqrt{g_{00}}
+        = \omega_0 \sqrt{1 - \frac{r_s}{r}} \: ,
+\end{align}
+hvilket giver os proportionalitetsfaktoren, som vi vil undersøge videre, da vi vil finde et udtryk for $\lambda$ ved $r_s$ og vi ved at $\omega = \omega_0 \pexp{-\lambda t}$. Kigger vi på denne faktor ser vi, at
+\begin{align}
+\begin{split}
+    \Lim{r}{r_s} \sqrt{1 - \frac{r_s}{r}} &= \Lim{r}{r_s} \sqf{r - r_s}{r} \\
+        &= \sqf{(r_0 - r_s) \pexp{-\frac{t - t_0}{r_s}}}{r_s} \\
+        &= \sqf{r_0 - r_s}{r_s} \sqrt{\pexp{-\frac{t - t_0}{r_s}}} \\
+        &= \sqf{r_0 - r_s}{r_s} \pexp{-\frac{t - t_0}{2 r_s}}
+\end{split}
+\end{align}
+hvor vi har benyttet anden ligning i hintet. Sammenligner vi med $\omega = \omega_0 \pexp{-\lambda t}$ får vi, at
+\begin{align}
+    \lambda &= \inv{2 r_s} \: ,
+\end{align}
+og da vi ved, at $r_s = 2GM/c^2$, så har vi, at massen af det sorte hul er relateret til rødforskydningen ved
+\begin{align}
+    M &= \frac{c^2 r_s}{2 G}
+        = \frac{c^2}{4 G \lambda}
+        \approx \inv{4\lambda} \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Egentid for Lemaitreur i sort hul}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Beregn egentiden (eng: proper time) det tager for et Lemaitreur at falde fra den gravitationelle radius til centrum af et sort hul. Specificer svaret i sekunder for et sort hul med masse som Solen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Egentiden, som det tager for et Lamaitreur at falde fra en radius $r_1$ til en mindre radius $r_2$, er givet ved \cite[ligning 8]{ugeseddel11}
+\begin{align}
+    \Delta \tau &= \frac{2}{3} \pfrac{r_1^{3/2} - r_2^{3/2}}{r_s^{1/2}} \: ,
+\end{align}
+så hvis vi indsætter $r_1$ værende den gravitationelle radius, $r_1 = r_s = 2GM_\odot/c^2$, hvor $M_\odot$ er solens masse, og $r_2$ værende centrum af det sorte hul, $r_2 = 0$, så får vi
+\begin{align}
+    \Delta \tau &= \frac{2}{3} \pfrac{r_s^{3/2} - 0^{3/2}}{r_s^{1/2}} 
+        = \frac{2}{3} \pfrac{r_s^{3/2}}{r_s^{1/2}}
+        = \frac{2}{3} r_s
+        = \frac{2}{3}\, \frac{2GM_\odot}{c^2}
+        = \frac{4GM_\odot}{3c^2} \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Cirkulær banes stabilitet overfor radiær perturbation}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Vis at en cirkulær planetbane omkring en stjerne i Newtonsk mekanik er stabil overfor små radiære perturbationer. Vis at en cirkulær planetbane i generel relativitetsteori kun er stabil overfor samme perturbation, hvis $r > 6M$.
+
+Hints: Betragt en cirkulær planetbane med en lille perturbation $u = u_0 \delta u$. Udled ligningen for $\delta u$ til laveste orden. Undersøg om perturbationen forbliver lille eller om den bliver større.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Stabilitet af ækvatorial bane i Schwarzschildmetrikken}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Vi at ækvatoriale baner i Schwarzschildmetrikken er stabile overfor små perturbationer i radius. Betragt for simplicitet en cirkulær bane.
+
+Hint: Betragt en ækvatorial bane med lille perturbation, $\theta = \pi/2 + \delta \theta$. Udled ligningen for $\delta \theta$ til laveste orden. Vis at perturbationen forbliver lille. Fortolk løsningen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi betragter en lille perturbation til en ækvatorial bane
+\begin{align}
+    \theta &= \frac{\pi}{2} + \delta\theta \: ,
+\end{align}
+hvor $\delta \theta \ll 1$. Generelt er det bevarede impulsmoment
+\begin{align}
+    J^2 &= r^2 \left( g^{\theta\theta} u_\theta^2 + g^{\phi\phi} u_\phi^2 \right)
+        = \left[ u_\theta^2 + \inv{\sin^2(\theta)} u_\phi^2 \right] \: ,
+\end{align}
+hvor det er blevet benyttet, at $g^{\theta\theta} = 1/r^2$. Bemærk at i det ævatoriale plan reduceres den bevarede strøm til
+\begin{align}
+    J^2 &= r^2 u_\phi^2 \: .
+\end{align}
+
+\ldots Spørg Rasmus, da det ser ud til, at i (104) kommer nogle r ind, som ikke er der i (102). Hvilken af dem er rigtig? Også er r'et der i (103) men ikke i (102)? \ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

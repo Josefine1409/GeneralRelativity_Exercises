@@ -1,0 +1,407 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 8 -- Newtonsk grænse og gravitationsbølger}
+\setcounter{section}{8}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Laplaceoperator af $r^{-1}$ giver deltafunktion}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Argumentér for, at
+\begin{align}
+    \laplace{\left(\inv{r}\right)} &= - 4\pi \delta^3(\vv{r}) \: .
+\end{align}
+
+Hints:
+\begin{itemize}
+    \item Argumentér for, at $\laplace{r^{-1}} = 0$ alle steder undtagen i origo.
+    \item Benyt divergenssætningen,
+        \begin{align}
+            \int_V \left( \div{\vv{f}} \right) \dd V
+                &= \oint_{\partial V} \left( \vv{f} \cdot \vv{n} \right) \dd S \: ,
+        \end{align}
+        for at få frontfaktoren af $4\pi$.
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Først vil vi vise, at $\Grad{(r^n)} = nr^{n-1} \rhat \:\:\: \forall r \ne 0$. Til dette definerer vi først $\vv{r}$
+\begin{align}
+    \vv{r} &= \sum_i r_i \rhat_i \: ,
+\end{align}
+samt længden af denne
+\begin{align}
+    r &= \sqrt{\sum_i r_i^2} \: .
+\end{align}
+Tager vi nu gradienten med hensyn til $r_i$ får vi
+\begin{align}
+    \vgv{\nabla}_{r_i}(r^n) &= n r^{n-1} \vgv{\nabla}_{r_i}(r)
+        = n r^{n-1} \left( \inv{2} \inv{r} 2 r_i \right)
+        = n r^{n-1} \rhat_i
+\end{align}
+hvormed gradienten med hensyn til $\vv{r}$ bliver summen af disse, altså
+\begin{align} \label{eq:Uge8_Opg1_GradientOfRToPowerOfN}
+    \Grad{(r^n)} &= \sum_i \vgv{\nabla}_{r_i}(r^n)
+        = \sum_i n r^{n-1} \rhat_i
+        = n r^{n-1} \rhat \: .
+\end{align}
+\\
+
+Som det næste vises det, at $\div{(\rhat/r^2)} = 0 \:\:\: \forall r \ne 0$. Til dette benyttes det, at divergensen af en vektor $\vv{v}$ er givet som
+\begin{align}
+    \div{\vv{v}} &= \inv{r^2} \pdif{}{r} \left( r^2 v_r \right) + \inv{r \sin(\theta)} \pdif{}{\theta} \left[ \sin(\theta) v_\theta \right] + \inv{r \sin(\theta)} \pdif{}{\phi} v_\phi \: .
+\end{align}
+Lader vi nu $\vv{v} = \rhat / r^2$ således, at $\vv{v}$ peger radiært udad, så får vi
+\begin{align} \label{eq:Uge8_Opg1_DivergenceOf1DevidedeByR}
+    \div{\pfrac{\rhat}{r^2}} &= \inv{r^2} \pdif{}{r} \left( r^2 \inv{r^2} \right)
+        = \inv{r^2} \pdif{}{r} \left( 1 \right)
+        = \inv{r^2} \cdot 0
+        = 0 \: .
+\end{align}
+\\
+
+Sammensætter vi nu de to udregnede funktioner, \cref{eq:Uge8_Opg1_GradientOfRToPowerOfN,eq:Uge8_Opg1_DivergenceOf1DevidedeByR}, så får vi, at
+\begin{align}
+    \laplace{\left(\inv{r}\right)} &= \div{\left( \Grad{\left[\inv{r}\right]} \right)}
+        = \div{\left( - \frac{\rhat}{r^2} \right)}
+        = - \div{\left( \frac{\rhat}{r^2} \right)}
+        = - 0
+        = 0
+\end{align}
+for $r \ne 0$.
+\\
+
+Som det næste kigger vi på, hvad der sker, når $r = 0$. Til dette benytter vi Divergenssætningen til at integrere $\laplace{(r^{-1})}$ over en sfære $S$ med radius $a$,
+\begin{align}
+\begin{split}
+    \int_S \laplace{\left(\inv{r}\right)}\, \dd V
+        &= \int_{\Delta S} \left( - \frac{\rhat}{r^2} \right) \cdot \dd \vv{S} \\
+        &= - \int_{\Delta S} \frac{\vv{r}}{r^3} \cdot \dd \vv{S} \\
+        &= - \int_0^\pi \dd\theta\, \sin(\theta) \int_0^{2\pi} \dd\phi\, \frac{r}{r^3} r^2 \\
+        &= - \int_0^\pi \dd\theta\, \sin(\theta) \int_0^{2\pi} \dd\phi \\
+        &= - 2 \cdot 2\pi \\
+        &= - 4\pi \: .
+\end{split}
+\end{align}
+Her er $\Delta S$ overfladen af sfæren og $\dd \vv{S} = \rhat\, \dd A$, hvor $\dd A = r^2 \sin(\theta)\,\dd\phi\,\dd\theta$.
+\\
+
+Derfor er værdien af $\laplace{(r^{-1})}$ nul alle steder undtagen i centrum, og integraler over ethvert volumen indeholdende centrum er lig $-4\pi$, hvormed vi har
+\begin{align}
+    \laplace{\left(\inv{r}\right)} &= -4 \pi \delta^3(\vv{r}) \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Geodætisk ligning bliver Newtons bevægelsesligning i Newtonsk grænse}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Betragt metrikken i den Newtonske grænse
+\begin{align}
+    \dd s^2 &= \left( 1 + \frac{2\phi}{c^2} \right) c^2 \dd t^2 - \dd \vv{r}^2 \: .
+\end{align}
+Vis at den geodætiske ligning, $\DD u^a = 0$, er ækvivalent til Newtons bevægelsesligning
+\begin{align}
+    \dif{\vv{v}}{t} &= - \Grad{\phi} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Riemanntensor, Riccitensor og Einsteinligning i vakkum til laveste orden i perturbation i Minkownskimetrik}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Antag at det gravitationelle felt er svagt og at den metriske tensor $g_{ab}$ er Minkowskitensoren $\eta_{ab}$ plus en lille korrektion $h_{ab}$, hvor $\abs{h_{ab}} \ll 1$,
+\begin{align}
+    g_{ab} &= \eta_{ab} + h_{ab} \: .
+\end{align}
+
+\paragraph{a)} Beregn Riemanntensoren og Riccitensoren til laveste orden i $h_{ab}$.
+
+\paragraph{b)} Nedskriv Einsteinligningen i vakuum til samme orden (den lineariserede (eng: linearized) Einsteinligning i vakuum).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- $g_{ab} = \eta_{ab} + h_{ab} \: \Rightarrow \: ( h'^a_b - h' \delta^a_b / 2 ) = 0$}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Vis at det i svagfeltsgrænsen, $g_{ab} = \eta_{ab} + h_{ab}$, altid er muligt at finde en infinitesimal koordinattransformation
+\begin{align}
+    x^a &\rightarrow x'^a x^a + \epsilon^a
+\end{align}
+således, at
+\begin{align}
+    \left( h'^a_b - \inv{2} h' \delta^a_b \right) &= 0 \: .
+\end{align}
+
+Det er måske nødvendigt at vise, at under den infinitesimale transformation er
+\begin{align}
+    \delta g_{ab} &= - \epsilon_{a;b} - \epsilon_{b;a} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Forudsigelse af gravitationsbølgers eksistens}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+I (anden) Nonrdströmteori for gravitation er den metriske tensor givet som $g_{ab} = \pexp{2\phi/c^2}\eta_{ab}$, hvor funktionen $\phi$ er bestemt ved feltligningen $R = \kappa T$, hvor $R = g^{ab} R_{ab}$ og $T = g_{ab} T^{ab}$.
+
+\paragraph{a)} Argumentér for at i den Newtonske grænse gengiver denne teori den Newtonske tyngdekraft (med et passende valg af konstanten $\kappa$).
+
+\paragraph{b)} Argumentér for at denne teori forudsiger eksistensen af gravitationsbølger.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+I grænsen hvor feltet er svagt ($\phi \ll c^2$) kan vi Taylorudvikle eksponentialfunktionen i den metriske tensor til første orden i $\phi$
+\begin{align}
+    g_{ab} &= \pexp{2\phi/c^2}\eta_{ab}
+        \simeq \left( 1 + 2 \phi \right) \eta_{ab} \: ,
+\end{align}
+hvor $\eta_{ab} = \mathrm{diag}(1,\, -\id)$, hvorved $00$-komponenten blot bliver $g_{00} = 1 + 2\phi$.
+
+In the Newtonian limit, where all fields are weak and all velocities are small, ua = {1, 0, 0, 0},
+only the 00 component of the stress-energy-momentum tensor is non-vanishing,
+
+Grundet at vi er i den Newtonske grænse, hvor alle felter er svage og alle hastigheder er små, $u_a = \{1,\, \vv{0}\}$, da er kun $00$-komponenten af stress-energi-impulstensoren ikke-forsvindende,
+\begin{align}
+    T^{00} &= \mu c^2 \: ,
+\end{align}
+hvor $\mu$ angiver densiteten af masse, hvorfor vi kun kigger på $00$-komponenten af Einsteinligningen,
+\begin{align}
+    R &= \kappa \left( 1 + \phi \right) \eta_{ab} T^{ab}
+        = \kappa \left( 1 + \phi \right) \eta_{00} T^{00}
+        = \kappa \left( 1 + \phi \right) \mu c^2 \: .
+\end{align}
+Regner vi nu på venstresiden, da får vi
+% \begin{align}
+%     R &= g^{ab} R_{ab}
+%         = g^{0i} R_{00}
+%         = \Gamma_{00,i}^i \: .
+% \end{align}
+
+$ $\\
+
+!!!SPØRGSMÅL TIL RASMUS OMKRIGN UDREGNIGNEN I (77)!!!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+Vi starter med at konstruere vakuumligningen ved at lade $T^{ab} = 0$, så
+\begin{align}
+    R &= 0 \: .
+\end{align}
+Vi antager nu ikke længere, at $\phi$ er statisk, da gravitationsbølger er tidsafhængige, da de ellers ikke ville opfylde bølgeligningen. Derfor bliver $00$-komponenten er vakuumligningen
+\begin{align}
+    0 &= R
+        = R_{00,i}^i
+        = (1 + 2 \phi) \left( \pdif[2]{\phi}{t} - \laplace{\phi} \right) \: .
+\end{align}
+Negligerer vi de kvadratiske led i $\phi$ reduceres vakuumligningen til bølgeligningen
+\begin{align}
+    \pdif[2]{\phi}{t} &= \laplace{\phi} \: .
+\end{align}
+Dermed kan det konkluderes, at vakuum i anden Nordstrøomteori tillader løsningen, som kan fortolkes som gravitationsbølger.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- I Newtonsk grænse overholder metrikken (med regler for perturbationen) den lineariserede Einsteinligning i vakuum}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Vis at den metriske tensor $g_{ab} = \eta_{ab} + h_{ab}$, hvor $h_{ab \ne yz,zy} = 0$ og $h_{yz} = f(t - x)$, hvor $f$ er en arbitrær funktion, overholder den lineariserede (eng: linearized) Einsteinligning i vakuum, når vi er i grænsen med svage felter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- I Newtonsk grænse overholder metrikken (med andre regler for perturbationen) den lineariserede Einsteinligning i vakuum}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Vis at den metriske tensor $g_{ab} = \eta_{ab} + h_{ab}$, hvor $h_{yz} = A \sin(\omega[t-\omega])$, $h_{tt} = 2 f(t - x)$, $h_{tx} = - f(t - x)$ og alle andre $h_{ab} = 0$, hvor $f$ er en arbitrær funktion, overholder den lineariserede (eng: linearized) Einsteinligning i vakuum, når vi er i grænsen med svage felter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 8 -- Koordinattransformation til system med Christoffelsymboler værende nul}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
+
+Betragt metrikken for gravitationelt potential på Jordens overflade set fra Jordens overflade i den Newtonske grænse. Lav en koordinattransformation til referencerammen, hvor Christoffelsymbolerne er nul. Argumentér for at dette er en referenceramme i frit fald.
+
+Hint: Den generelle transformation til et lokalt inertialsystem i origo er givet ved
+\begin{align}
+    x'^a &= x^a + \inv{2} \Gamma^a_{bc}(0) x^b x^c \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Fra metrikken for det gravitationelle potential i den Newtonske grænse,
+\begin{align}
+    \dd s^2 &= \left( 1 + \frac{2\phi}{c^2} \right) c^2\, \dd t - \dd \vv{r}^2 \: ,
+\end{align}
+får vi $00$-komponenten til $g_{00} = 1 + 2\phi/c^2$.
+Lader vi nu potentialet være givet ved tyngdeaccelerationen $\mathcal{g}$ ind mod centrum af Jorden, så $\phi = \mathcal{g} z$, hvor $z$ er koordinatet (siden $\phi \equiv - GM/r$, $\mathcal{g} = - GM/r^2$ og $z \approx r$ ved koordinater lokalt på overfladen af Jorden), så får vi
+\begin{align}
+    g_{00} &= 1 + \frac{2\mathcal{g}z}{c^2} \: .
+\end{align}
+Vi kan nu benytte koordinattransformationen givet i hintet,
+\begin{align}
+    x'^a &= x^a + \inv{2} \Gamma^a_{bc}(0) x^b x^c \: ,
+\end{align}
+da denne er den generelle transformation til et lokalt inertialsystem i origo.
+Beregner vi nu Christoffelsymbolerne
+\begin{subequations}
+\begin{align}
+    \Gamma^t_{tz} &= \inv{2} g^{tt} \left( g_{tt,z} - g_{tz,t} + g_{zt,t} \right)
+        = \frac{\mathcal{g}}{c^2} \: , \quad \text{og} \\
+    \Gamma^z_{tt} &= \inv{2} g^{zz} \left( g_{zt,t} - g_{tt,z} + g_{tz,t} \right)
+        = \frac{\mathcal{g}}{c^2} \: ,
+\end{align}
+\end{subequations}
+får vi transformationerne
+\begin{align}
+    t' &= t + \inv{2} \frac{\mathcal{g}}{c^2} tz \: , \quad \text{og} \\
+    z' &= z + \inv{2} \frac{\mathcal{g}}{c^2} (ct)^2 \: .
+\end{align}
+Lader vi $z' = 0$ i hvilesystemet får vi den ikke-relativistiske ligning for et frit fald
+\begin{align}
+    z &= - \inv{2} \mathcal{g} t^2 \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 9 -- Stress-energitensoren for støv i bevægelse}
+\setcounter{subsection}{9}
+\setcounter{equation}{0}
+
+Betragt støv (ikkevekselvirkende usammenhængende (eng: incoherent) stof), hvilket er en god approksimation for vores univers lige nu. Argumentér for at dets stress-energitensor er givet som
+\begin{align} \label{eq:Uge8_Opg9_Tensor}
+    T^{ab} &= \mu u^a u^b \: ,
+\end{align}
+hvor $\mu$ er massedensiteten af støvet målt af en co-bevægende observatør, og $u^a = \dd x^a/\dd s$. Brug den følgende strategi:
+
+\paragraph{a)} Argumentér for at \cref{eq:Uge8_Opg9_Tensor} er generelt kovariant tensor.
+
+\paragraph{b)} Argumentér for at $T^{00}$ i speciel relativitetsteori er energidensiteten.
+
+\paragraph{c)} Argumentér for at tensoren i \cref{eq:Uge8_Opg9_Tensor} i speciel relativitetsteori overholder ligningen
+\begin{align}
+    T^{ab}_{,b} &= 0 \: ,
+\end{align}
+ved at argumentere for at $0$-komponenten, $T^{0b}_{,b} = 0$, repræsenterer energibevarelsesloven,
+\begin{align}
+    \pdif{\epsilon}{t} + \div{\epsilon \vv{v}} &= 0 \: ,
+\end{align}
+og at den rummelige komponent, $T^{\alpha b}_{,b} = 0$, hvor $\alpha=1,2,3$, repræsenterer Navier-Stokesligningen for støv i bevægelse
+\begin{align}
+    \pdif{\vv{v}}{t} + (\vv{v} \cdot \vgv{\nabla})\vv{v} &= 0 \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{c)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

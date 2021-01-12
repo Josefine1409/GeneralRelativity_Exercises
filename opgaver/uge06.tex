@@ -1,0 +1,235 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 6 -- Virkningsintegral for masse i GR}
+\setcounter{section}{6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Stress-energitensor fra Lagrangedensitet for elektromagnetisk felt}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Lagrangedensiteten for det elektromagnetiske felt er givet som
+\begin{align}
+    \L &= - \inv{16\pi} F_{ab} F^{ab} \: .
+\end{align}
+Beregn den tilhørende stress-energitensor (eng: stress-energy-momentum tensor), $T_{ab}$, ved brug af den ''metriske'' definition
+\begin{align}
+    \delta (\sqrt{-g} \L)_{g^{ab} \rightarrow g^{ab} + \delta g^{ab}} &= \inv{2} \sqrt{-g} T_{ab} \delta g^{ab} \: .
+\end{align}
+
+Svar:
+\begin{align}
+    T_{ab} &= \inv{16\pi} (F_{cd} F^{cd} g_{ab} - 4 F_{ac} F_b^c) \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Stress-energitensor fra virkning}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Betragt et skalarfelt $\phi$, hvis virkning i speciel relativitetsteori er givet ved
+\begin{align}
+    S &= \int \dd \Omega \left( \inv{2} \phi^{,a} \phi_{,a} - \inv{2} m^2 \phi^2 \right) \: .
+\end{align}
+
+\paragraph{a)} Beregn den translationsinvariante stress-energitensor,
+\begin{align}
+    T^a_b &= \pdif{\L}{\phi_{,a}} \phi_{,b} - \L \delta^a_b \: .
+\end{align}
+
+\paragraph{b)} Omskriv virkningen til en generel kovariant form og beregn dens ''metriske'' stress-energitensor,
+\begin{align}
+    \delta (\sqrt{-g} \L)_{g^{ab} \rightarrow g^{ab} + \delta g^{ab}} &= \inv{2} \sqrt{-g} T_{ab} \delta g^{ab} \: .
+\end{align}
+Diskuter resultatet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Variation af den metriske tensor}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Vis at for en infinitesimal koordinattransformation $x^a \rightarrow x^a + \epsilon^a$, så er variationen af den metriske tensor
+\begin{align}
+    \delta g^{ab} &= \epsilon^{a;b} + \epsilon^{b;a} \: ,
+        \quad \text{og} \quad
+    \delta g_{ab} = \epsilon_{a;b} + \epsilon_{b;a} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Stress-energitensoren for partikel med masse}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Udled stress-energitensoren for en partikel med masse $m$ ved brug af metrisk variation og argumentér for, at det er den korrekte tensor.
+
+Hint:
+\begin{itemize}
+    \item Virkningen er $S = - m \int \dd s$.
+    \item Virkningens variation over $\delta g_{ab}$ skal ligne $\delta S = - \frac{1}{2} \int \dd s\, T^{ab} \delta g_{ab}$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Bevarelseslov fra $j^a_{,a} = 0$}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Argumentér for at ligningen $j^a_{,a} = 0$ repræsenterer en bevarelseslov. Hvad med $j^a_{;a} = 0$?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Bevarelseslov fra $T^{ab}_{,a} = 0$}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Argumentér for at ligningen $T^{ab}_{,a} = 0$ repræsenterer en bevarelseslov. Hvad med $T^{ab}_{;a} = 0$?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Bevis $\int T^{ab} \epsilon_{a;b} \sqrt{-g}\, \dd \Omega = - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega$}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Bevis ligheden
+\begin{align} \label{eq:Uge6_Opg7_EqualityToBeShown}
+    \int T^{ab} \epsilon_{a;b} \sqrt{-g}\, \dd \Omega &= - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+I denne opgave vil vi benytte
+\begin{enumerate}
+    \item Leibniz' regel
+        \begin{align}
+            (AB)_{;b} = A_{;b}B + AB_{;b}
+                \quad \Rightarrow \quad
+            AB_{;b} = (AB)_{;b} - A_{;b}B \: , \quad \text{og}
+        \end{align}
+    \item identiteten fra ugeseddel 5 \cite[lign. 32]{ugeseddel5}
+        \begin{align}
+            \sqrt{-g}\, V^a_{;a} &= \left( \sqrt{-g}\, V^a \right)_{,a} \: .
+        \end{align}
+\end{enumerate}
+
+Vi kan nu starte med at kigge på venstresiden af \cref{eq:Uge6_Opg7_EqualityToBeShown}
+\begin{align} \label{eq:Uge6_Opg7_EqualityToBeShown_CalculationPart1}
+\begin{split}
+    \int T^{ab} \epsilon_{a;b} \sqrt{-g}\, \dd \Omega
+        &\xleq{1} \int \left( T^{ab} \epsilon_{a} \right)_{;b} \sqrt{-g}\, \dd \Omega - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \\
+        &\xleq{2} \int \left( T^{ab} \sqrt{-g}\, \epsilon_{a} \right)_{,b} \dd \Omega - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \\
+        &= \int T^{ab}_{,b} \sqrt{-g}\, \epsilon_{a} \dd \Omega + \int T^{ab} \left( \sqrt{-g}\, \epsilon_{a} \right)_{,b} \dd \Omega - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \\
+        &= \int \cancelto{0}{T^{ab}_{,b}}\: \sqrt{-g}\, \epsilon_{a} \dd \Omega + \int T^{ab} \left( \sqrt{-g}\, \epsilon_{a} \right)_{,b} \dd \Omega - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \\
+        &= \int T^{ab} \left( \sqrt{-g}\, \epsilon_{a} \right)_{,b} \dd \Omega - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega
+\end{split}
+\end{align}
+hvor vi igen har benyttet energibevarelse ($T^{ab}_{,b} = 0$).
+
+Benytter vi partiel integration til at udregne det første integral på højresiden i \cref{eq:Uge6_Opg7_EqualityToBeShown_CalculationPart1} fås
+\begin{align} \label{eq:Uge6_Opg7_IntegralAmountingToZero}
+\begin{split}
+    \int T^{ab} \left( \sqrt{-g}\, \epsilon_{a} \right)_{,b} \dd \Omega
+        &= T^{ab} \sqrt{-g}\, \epsilon_{a} \Big\rvert - \int T^{ab}_{,b} \sqrt{-g}\, \epsilon_{a} \dd \Omega \\
+        &= T^{ab} \sqrt{-g}\, \epsilon_{a} \Big\rvert - \int \cancelto{0}{T^{ab}_{,b}} \sqrt{-g}\, \epsilon_{a} \dd \Omega \\
+        &= T^{ab} \sqrt{-g}\, \epsilon_{a} \Big\rvert \\
+        &= \cancelto{0}{T^{ab} \sqrt{-g}\, \epsilon_{a} \Big\rvert} \\
+        &= 0 \: ,
+\end{split}
+\end{align}
+hvor vi igen har benyttet energibevarelse ($T^{ab}_{,b} = 0$), hvilket lader integralet gå ud, mens det første led forsvinder, da variationen forsvinder i grænserne.
+
+Indsættes det ovenforviste, \cref{eq:Uge6_Opg7_IntegralAmountingToZero}, i \cref{eq:Uge6_Opg7_EqualityToBeShown_CalculationPart1} får vi
+\begin{align} \label{eq:Uge6_Opg7_EqualityToBeShown_CalculationPart2}
+    \int T^{ab} \epsilon_{a;b} \sqrt{-g}\, \dd \Omega
+        &= - \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \: ,
+\end{align}
+hvilket skulle vises.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 8 -- Variation af virkning og betydning for stress-energitensor}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
+
+Argumentér for at under en arbitrær infinitesimal koordinattransformation $x^a \rightarrow x^a + \epsilon^a$ vil variationen af virkningen for masse være
+\begin{align}
+    0 &= \delta S_m
+        = - \inv{2} \int T^{ab} \delta g_{ab} \sqrt{-g}\, \dd \Omega
+        = \int T^{ab}_{;b} \epsilon_a \sqrt{-g}\, \dd \Omega \: .
+\end{align}
+
+Medfører dette at
+\paragraph{a)} $T^{ab} = 0$?
+\paragraph{b)} $T^{ab}_{;b} = 0$?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

@@ -1,0 +1,350 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 7 -- Einsteinligningen og Riemanntensorer}
+\setcounter{section}{7}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Riemanntensor med sænket indeks}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Bevis at Riemanntensoren med nedsænket indeks, $R_{abcd} \doteq g_{ae} R^{e}_{bcd}$, kan skrives som
+\begin{align} \label{eq:Uge7_Opg1_RiemannTensorToShow_FirstPart}
+    R_{abcd} &= - \Gamma_{abc,d} + \Gamma_{abd,c} + \Gamma_{eac} \Gamma^e_{bd} + \Gamma_{ead} \Gamma^e_{bc} \: ,
+\end{align}
+og som
+\begin{align} \label{eq:Uge7_Opg1_RiemannTensorToShow_SecondPart}
+    R_{abcd} &= \inv{2} \left( g_{ad,bc} + g_{bc,ad} - g_{ac,bd} - g_{bd,ac} \right) - \Gamma_{eac} \Gamma^e_{bd} + \Gamma_{ead} \Gamma^e_{bc} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Før vi begynder at bevise ovenstående, da vil vi først bevise to identiteter
+\begin{enumerate}[
+    leftmargin=7em,
+    label={Identitet \arabic*:},
+    ref={Identitet \arabic*}
+]
+    \item
+        \begin{align}
+            \Gamma_{aed} &= - \Gamma_{ead} + g_{ae,d} \: , \quad \text{og}
+        \end{align}
+    \item
+        \begin{align}
+            g_{ae} \Gamma^e_{bc,d} &= \Gamma_{abc,d} - g_{ea,d} \Gamma^e_{bc} \: .
+        \end{align}
+\end{enumerate}
+$ $\\
+
+Først bevises identitet 1.\\
+Fra $\mathrm{D}g_{ab} = 0$ har vi, at $g_{ab,c} = \Gamma_{bac} + \Gamma_{abc}$ (\cite[fodnote 8]{ugeseddel3}), hvorfor
+\begin{align}
+    g_{ae,d} &= \Gamma_{ead} + \Gamma_{aed}
+        \quad \Rightarrow \quad
+    \Gamma_{aed} = \Gamma_{ead} - g_{ae,d} \: .
+\end{align}
+\\
+
+Dernæst bevises identitet 2.\\
+Fra Leibniz' regel har vi, at $(AB)_{;b} = A_{;b}B + AB_{;b}$, hvorved
+\begin{align}
+\begin{split}
+    \Gamma_{abc,d} &= \left( \Gamma_{abc} \right)_{,d}
+        = \left( g_{ae} \Gamma^e_{bc} \right)_{,d}
+        = g_{ae,d} \Gamma^e_{bc} + g_{ae} \Gamma^e_{bc,d} \\
+    \Rightarrow g_{ae} \Gamma^e_{bc,d} &= \Gamma_{abc,d} - g_{ae,d} \Gamma^e_{bc} \: .
+\end{split}
+\end{align}
+\\
+
+Vi vil nu bevise første del af opgaven, nemlig \cref{eq:Uge7_Opg1_RiemannTensorToShow_FirstPart}.
+\begin{align}
+\begin{split}
+    R_{abcd} &\doteq g_{ae} R^e_{bcd} \\
+        &= g_{ae} \left( - \Gamma^e_{bc,d} + \Gamma^e_{bd,c} - \Gamma^f_{bc} \Gamma^e_{fd} + \Gamma^f_{bd} \Gamma^e_{fc} \right) \\
+        &= - g_{ae} \Gamma^e_{bc,d} + g_{ae} \Gamma^e_{bd,c} - g_{ae} \Gamma^f_{bc} \Gamma^e_{fd} + g_{ae} \Gamma^f_{bd} \Gamma^e_{fc} \\
+        &\xleq{2} - \left( \Gamma_{abc,d} - g_{ae} \Gamma^e_{bc} \right) + \left( \Gamma_{abd,c} - g_{ae} \Gamma^e_{bd} \right) - \Gamma^f_{bc} \Gamma_{afd} + \Gamma^f_{bd} \Gamma_{afc} \\
+        &= - \Gamma_{abc,d} + g_{ae} \Gamma^e_{bc} + \Gamma_{abd,c} - g_{ae} \Gamma^e_{bd} - \Gamma^{\cancelto{e}{f}}_{bc} \Gamma_{a\cancelto{e}{f}d} + \Gamma^{\cancelto{e}{f}}_{bd} \Gamma_{a\cancelto{e}{f}c} \\
+        &= - \Gamma_{abc,d} + g_{ae} \Gamma^e_{bc} + \Gamma_{abd,c} - g_{ae} \Gamma^e_{bd} - \Gamma^e_{bc} \Gamma_{aed} + \Gamma^e_{bd} \Gamma_{aec} \\
+        &\xleq{1} - \Gamma_{abc,d} + g_{ae} \Gamma^e_{bc} + \Gamma_{abd,c} - g_{ae} \Gamma^e_{bd} - \Gamma^e_{bc} \left( - \Gamma_{ead} + g_{ae,d} \right) + \Gamma^e_{bd} \left( - \Gamma_{eac} + g_{ae,c} \right) \\
+        &= - \Gamma_{abc,d} + \cancel{g_{ae} \Gamma^e_{bc}} + \Gamma_{abd,c} \cancel{- g_{ae} \Gamma^e_{bd}} + \Gamma^e_{bc} \Gamma_{ead} \cancel{- \Gamma^e_{bc} g_{ae,d}} - \Gamma^e_{bd} \Gamma_{eac} + \cancel{\Gamma^e_{bd} g_{ae,c}} \\
+        &= - \Gamma_{abc,d} + \Gamma_{abd,c} - \Gamma_{eac} \Gamma^e_{bd} + \Gamma_{ead} \Gamma^e_{bc} \: .
+\end{split}
+\end{align}
+Dermed er \cref{eq:Uge7_Opg1_RiemannTensorToShow_FirstPart} vist.
+\\
+
+Nu bevises anden del af opgave, nemlig \cref{eq:Uge7_Opg1_RiemannTensorToShow_SecondPart}.\\
+Først bemærkes det, at
+\begin{align}
+    \Gamma_{abc} &= \inv{2} \left( g_{ab,c} - g_{bc,a} + g_{ac,b} \right) \: ,
+\end{align}
+\begin{subequations}
+\begin{align}
+    \Gamma_{abc,d} &= \inv{2} \left( g_{ab,c} - g_{bc,a} + g_{ac,b} \right)_{,d}
+        = \inv{2} \left( g_{ab,cd} - g_{bc,ad} + g_{ac,bd} \right) \: , \quad \text{og} \\
+    \Gamma_{abd,c} &= \inv{2} \left( g_{ab,d} - g_{bd,a} + g_{ad,b} \right)_{,c}
+        = \inv{2} \left( g_{ab,dc} - g_{bd,ac} + g_{ad,bc} \right) \: .
+\end{align}
+\end{subequations}
+Dermed bliver de første to led af \cref{eq:Uge7_Opg1_RiemannTensorToShow_FirstPart}
+\begin{align}
+\begin{split}
+    - \Gamma_{abc,d} + \Gamma_{abd,c} &= \inv{2} \left( -g_{ab,cd} + g_{bc,ad} - g_{ac,bd} + g_{ab,dc} - g_{bd,ac} + g_{ad,bc} \right) \\
+        &= \inv{2} \left( \cancel{-g_{ab,cd}} + g_{bc,ad} - g_{ac,bd} + \cancel{g_{ab,dc}} - g_{bd,ac} + g_{ad,bc} \right) \\
+        &= \inv{2} \left( g_{ad,bc} + g_{bc,ad} - g_{ac,bd} - g_{bd,ac} \right) \\
+\end{split}
+\end{align}
+
+Dermed bliver
+\begin{align}
+\begin{split}
+    R_{abcd} &= - \Gamma_{abc,d} + \Gamma_{abd,c} - \Gamma_{eac} \Gamma^e_{bd} + \Gamma_{ead} \Gamma^e_{bc} \\
+        &= \inv{2} \left( g_{ad,bc} + g_{bc,ad} - g_{ac,bd} - g_{bd,ac} \right) - \Gamma_{eac} \Gamma^e_{bd} + \Gamma_{ead} \Gamma^e_{bc} \: ,
+\end{split}
+\end{align}
+og anden del af opgaven er vist.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Bevis for eksistens af koordinatsystem med alle Christoffelsymboler værende nul}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Bevis at det altid er muligt at vælge et koordinatsystem i hvilket alle Christoffelsymboler er nul i et givent punkt.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Christoffelsymboler nul i punkt medfører førsteordensafledede af metrisk tensor værende nul}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Vis at hvis alle Christoffelsymboler i et givent punkt er nul, så er førsteordensafledede (men ikke nødvendigvis andenordensafledede) af den metriske tensor også nul.
+
+Hint: Udtryk de afledede af den metriske tensor som linearkombinationer af Christoffelsymboler.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Ombytningssymmetri af Riemanntensor}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Bevis ombytningssymmetrien (eng: interchange symmetry) af Riemanntensoren,
+\begin{align}
+    R_{abcd} &= R_{cdab} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi skal vise, at Riemanntesoren er symmetrisk under ombytning af indeks, hvilket er egenskab 2 i afsnittet om ''Properties of the curvature tensor'' på ugeseddel 7 (\cite[lign. 13]{ugeseddel7}). Dette gøres ved at benytte to af de andre egenskaber ved tensoren, nemlig \cite[lign. 12 og 14]{ugeseddel7}
+\begin{enumerate}[
+    leftmargin=7em,
+    label={Egenskab \arabic*:},
+    ref={Egenskab \arabic*}
+]
+    \item Antisymmetri
+        \begin{align}
+            R_{abcd} &= - R_{bacd} = - R_{abdc} \: , \quad \text{og}
+        \end{align}
+    \setcounter{enumi}{2}
+    \item Algebraisk Bianchi identitet
+        \begin{align}
+            0 &= R_{abcd} + R_{acdb} + R_{adbc} \: .
+        \end{align}
+\end{enumerate}
+
+Vi kan nu bevise egenskab 2, altså ombytningssymmetrien af Riemanntensoren
+\begin{align}
+\begin{split}
+    R_{abcd} &\xleq{3} - R_{acdb} - R_{adbc} \\
+        &\xleq{1} R_{cadb} + R_{dabc} \\
+        &\xleq{3} - R_{cdba} - R_{cbad} - R_{dbca} - R_{dcab} \\
+        &\xleq{1} R_{cdab} + R_{bcad} + R_{bdca} + R_{cdab} \\
+        &= 2 R_{cdab} + R_{bcad} + R_{bdca} \\
+        &\xleq{3} 2 R_{cdab} - R_{badc} \\
+        &\xleq{1} 2 R_{cdab} + R_{abdc} \\
+        &\xleq{1} 2 R_{cdab} - R_{abcd} \\
+    \Rightarrow 2 R_{abcd} &= 2 R_{cdab} \\
+    \Rightarrow R_{abcd} &= R_{cdab} \: .
+\end{split}
+\end{align}
+Dermed er ombytningssymmetrien af Riemanntensoren vist.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Bevis antisymmetri af Riemanntensoren}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Bevis antisymmetrien af Riemanntensoren.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Bevis af den algebraisk Bianchiidentitet}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Bevis den algebraiske Bianchiindentitet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Beivs af den differentielle Bianchiidentitet}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Bevis den differentielle Bianchiidentitet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 8 -- Bevis $(R^{ab} - Rg^{ab}/2)_{;a} = 0$}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
+
+Bevis at $(R^{ab} - Rg^{ab}/2)_{;a} = 0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 9 -- Riemanntensor for $\dd s^2 = \dd r^2 + r^2 \dd \phi^2$}
+\setcounter{subsection}{9}
+\setcounter{equation}{0}
+
+Beregn Riemanntensoren for rummet med metrikken $\dd s^2 = \dd r^2 + r^2 \dd \phi^2$ og diskuter resultatet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Riemanntensoren er givet som
+\begin{align}
+    R^a_{bcd} &= - \Gamma^a_{bc,d} + \Gamma^a_{bd,c} - \Gamma^e_{bc} \Gamma^a_{ed} + \Gamma^e_{bd} \Gamma^a_{ec} \: ,
+\end{align}
+hvor vi for den opgivne metrik har at $a,b,c,d,e=r,\theta$.
+
+Fra \textbf{opgave 6 i uge 3} ved vi, at
+\begin{align}
+    g_{ab} &= \TwoRowMat{1 & 0}{0 & r^2}
+        \quad \text{og} \quad
+    g^{ab} = \TwoRowMat{1 & 0}{0 & \inv{r^2}} \: ,
+    \qquad a,b=r,\theta \: ,
+\end{align}
+hvormed
+\begin{subequations}
+\begin{align}
+    \Gamma^r_{\theta r} &= \inv{2} g^{rr} \left( g_{r\theta,r} - g_{\theta r,r} + g_{rr,\theta} \right)
+        = \inv{2} g^{rr} g_{rr,\theta}
+        = \inv{2} \cdot 1 \cdot \pdif{1}{x^\theta}
+        = 0 \: , \\
+    \Gamma^r_{\theta \theta} &= \inv{2} g^{rr} \left( g_{r\theta,\theta} - g_{\theta \theta,r} + g_{\theta r,\theta} \right)
+        = \inv{2} \cdot 1 \cdot \left( 0 - \pdif{r^2}{r} + 0 \right)
+        = - r \: , \quad \text{og} \\
+    \Gamma^\theta_{\theta r} &= \inv{2} g^{\theta\theta} \left( g_{\theta\theta,r} - g_{\theta r,\theta} + g_{r\theta,\theta} \right)
+        = \inv{2} g^{\theta\theta} g_{\theta\theta,r}
+        = \inv{2} \inv{r^2} \pdif{r^2}{r}
+        = \inv{r} \: .
+\end{align}
+\end{subequations}
+Indsættes dette i Riemanntensoren fås
+\begin{align}
+\begin{split}
+    R^r_{\theta r \theta} &= - \Gamma^r_{\theta r,\theta} + \Gamma^r_{\theta \theta,r} - \Gamma^e_{\theta r} \Gamma^r_{e \theta} + \Gamma^e_{\theta \theta} \Gamma^r_{er} \\
+        &= - 0 + \pdif{}{r}(-r) - \left[ 0 + \inv{r} (-r) \right] + \left[ 0 + 0 \right] \\
+        &= 0 \: .
+\end{split}
+\end{align}
+Ved brug af antisymmetri og ombytningssymmetri af Riemanntensoren kan vi konkludere, at $R^a_{bcd} = 0$ for denne metrik, hvilket medfører at metrikken af de sfæriske koordinater i det todimensionelle Euklidiske rum er flad, hvilket også giver god mening.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 10 -- Riemanntensor, Riccitensor og Ricciskalar for todimensionel sfære}
+\setcounter{subsection}{10}
+\setcounter{equation}{0}
+
+Beregn alle ikkeforsvindende komponenter af Riemanntensoren $R_{abcd}$, hvor hver af indeksene $a,b,c,d$ kan antage værdierne $\theta,\phi$) for metrikken
+\begin{align}
+    \dd s^2 &= r^2 \left[ \dd \theta^2 + \sin^2(\theta) \dd \phi^2 \right]
+\end{align}
+på en todimensionel sfære af radius $r$. Beregn også Riccitensoren $R_{ab}$ og skalarkrumningen (Ricciskalaren) $R$.
+
+Svar:
+\begin{align}
+    R_{\theta\phi\theta\phi} &= r^2 \sin^2(\theta)
+        = R_{\phi\theta\phi\theta}
+        = - R_{\theta\phi\phi\theta}
+        = - R_{\phi\theta\theta\phi} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

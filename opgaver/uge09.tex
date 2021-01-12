@@ -1,0 +1,258 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 9 -- Løsning til Schwarzschildmetrikken}
+\setcounter{section}{9}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Ækvatorial bevægelse af planet i Newtonsk mekanik}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Betragt en ikke-relativistisk (Newtonsk) ækvatorial ($\theta = \pi/2$) bevægelse af en planet, med masse $m$, omkring en stjerne, med masse $M$, beskrevet af Lagrangefunktionen
+\begin{align}
+    L &= \inv{2} m \left( \dt{r}^2 + r^2 \dt{\phi}^2 \right) + \frac{mM}{r} \: ,
+\end{align}
+hvor prikken her betegner den tidsafledede, $\dt{r} \doteq \dif{r}{t}$.
+
+Nedskriv Euler-Lagrangeligningerne,
+\begin{align}
+    \pdif{}{t} \pdif{L}{\dt{q}} &= \pdif{L}{q} \: ,
+\end{align}
+for $q = r$ og $\phi$. Ved brug af det første integral $r^2 \dt{\phi} = J$ omskriv da $r$-ligningen som en ligning for funktionen $u(\phi)$, hvor $u = r^{-1}$, og sammenlign resultatet med ligning 12 på ugeseddel 9, \cite[ligning 12]{ugeseddel9},
+\begin{align} \label{eq:Uge9_Opg1_EquatorialTrajectory}
+    u'' + u &= \frac{M}{J^2} + 3 M u^2 \: ,
+\end{align}
+hvor $u' = \dif{u}{\phi}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Først benytter vi Euler-Largangelignignerne til at finde bevægelsesligningern, hvilken for $q = r$ er
+\begin{subequations}
+\begin{align}
+\begin{split}
+    \pdif{L}{r} &= m r \dt{\phi}^2 - \frac{m M}{r^2} \: , \\
+    \pdif{L}{\dt{r}} &= m \dt{r} \: , \\
+    \dif{}{t} \left( \pdif{L}{\dt{r}} \right) &= \dif{}{t} \left( m \dt{r} \right)
+        = m \ddt{r} \: , \\
+    \Rightarrow \ddt{r} &= r \dt{\phi}^2 - \frac{M}{r^2} \: ,
+\end{split}
+\end{align}
+og for $q = \phi$ er
+\begin{align}
+\begin{split}
+    \pdif{L}{\phi} &= 0 \: , \\
+    \pdif{L}{\dt{\phi}} &= m r^2 \dt{r
+\phi} \: , \\
+    \dif{}{t} \left( \pdif{L}{\dt{\phi}} \right) &= \dif{}{t} \left( m r^2 \dt{\phi} \right)
+        = 2 m r \dt{r} \dt{\phi} + m r^2 \ddt{\phi} \: , \\
+    \Rightarrow \ddt{\phi} &= 2 \frac{\dt{r}}{r} \dt{\phi} \: .
+\end{split}
+\end{align}
+\end{subequations}
+Yderligere får vi en bevarelseslov fra Euler-Lagrangeligningen for $\phi$, nemlig
+\begin{align}
+    \dif{}{t} \left( m r^2 \dt{\phi} \right) &= \pdif{L}{\phi} = 0
+        \quad \Rightarrow \quad
+    r^2 \dt{\phi} = \mathrm{konst} = J
+        \quad \Rightarrow \quad
+    \dt{\phi} = \frac{J}{r^2} \: ,
+\end{align}
+hvor vi har navngivet konstanten $J$.
+
+Vi ønsker nu at omskrive bevægelsesligningen for $r$. Vi starter med at indføre substitutionen $u = r^{-1}$ og $u' = \dd u / \dd \phi$.
+Først udtrykker vi $\dt{r}$ med hensyn til $u$
+\begin{align}
+    \dt{r} &= \dif{r}{t}
+        = \dif{}{t} \left(\inv{u}\right)
+        = - \inv{u^2} \dif{u}{t}
+        = - \inv{u^2} \dif{u}{\phi}\, \dif{\phi}{t}
+        = - \frac{u'}{u^2} \dt{\phi} \: ,
+\end{align}
+og indsætter vi $\dt{\phi} = J/r^2 = J u^2$ får vi
+\begin{align}
+    \dt{r} &= - \frac{u'}{u^2} \dt{\phi}
+        = - \frac{u'}{u^2} J u^2
+        = - J u' \: .
+\end{align}
+Vi kan nu beregne den dobbelt tidsafledede af $r$, $\ddt{r}$, som funktion af $u$
+\begin{align}
+    \ddt{r} &= \dif{\dt{r}}{t}
+        = \dif{}{t} \left( - J u' \right)
+        = - J \dif{u'}{t}
+        = - J \dif{}{t}\, \dif{u}{\phi}
+        = - J \dif[2]{u}{\phi}\, \dif{\phi}{t}
+        = - J u'' \dt{\phi} \: .
+\end{align}
+Indsætter vi nu dette i bevægelsesligningen for $r$ fås
+\begin{align}
+\begin{split}
+    \ddt{r} &= r \dt{\phi}^2 - \frac{M}{r^2} \\
+    \Rightarrow - J u'' \dt{\phi} &= \frac{\dt{\phi}^2}{u} - M u^2 \\
+    \Rightarrow - u'' &= \frac{\dt{\phi}}{Ju} - \frac{M u^2}{J\dt{\phi}}
+        = \frac{J u^2}{Ju} - \frac{M u^2}{J^2 u^2}
+        = u - \frac{M}{J^2} \\
+    \Rightarrow u'' + u &= \frac{M}{J^2} \: ,
+\end{split}
+\end{align}
+hvilket præcis er den ækvatoriale banebevægelse for et ikkerelativistisk objekt, \cref{eq:Uge9_Opg1_EquatorialTrajectory} (hvor det relativistiske led $3Mu^2$ i \cref{eq:Uge9_Opg1_EquatorialTrajectory} ikke er medtaget, da bevægelsen er ikkerelativistisk).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Ækvatorial bevægelse af lys i Newtonsk mekanik}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Vis at en ækvatorial ($\theta = \pi/2$) bevægelse af lys i Newtonsk mekanik er beskrevet ved
+\begin{align}
+    u'' + u &= 0 \: ,
+\end{align}
+hvor $u \doteq r^{-1}$ og $u' = \dif{u}{\phi}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Christoffelsymboler fra Schwarzschildmetrikken}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Udregn Christoffelsymbolerne $\Gamma_{\phi\phi}^r$ og $\Gamma_{r\phi}^\phi$ fra udtrykket for Schearzschildmetrikken.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Schwarzschildmetrikken er givet ved
+\begin{align}
+\begin{split}
+    \dd s^2 &= \left( 1 - \frac{r_s}{r} \right) \dd t^2 - \left( 1 - \frac{r_s}{r} \right)^{-1} \dd r^2 - r^2 \dd\Omega \\
+        &= \left( 1 - \frac{r_s}{r} \right) \dd t^2 - \left( 1 - \frac{r_s}{r} \right)^{-1} \dd r^2 - r^2 \dd\theta^2 - r^2\sin^2(\theta)\dd\phi^2 \: .
+\end{split}
+\end{align}
+Da metrikken er givet ud fra de metriske koefficienter som
+\begin{align}
+    \dd s^2 &= g_{ab} \dd x^a \dd x^b \: ,
+\end{align}
+så bliver de eneste metriske koefficienter forskellige fra $0$ dem, som har $\mu = \nu$, og dem, som vi er interesseret i er
+\begin{align}
+    g_{\phi\phi} &= r^2 \sin^2(\theta) \: , \quad
+    g_{rr} = - \left( 1 - \frac{r_s}{r} \right)^{-1} \: ,
+        \quad \text{og} \quad
+    g_{r\phi} = 0 \: ,
+\end{align}
+og den relevante afledede dermed bliver
+\begin{align}
+    g_{\phi\phi,r} &= 2 r \sin^2(\theta) \: .
+\end{align}
+Christoffelsymbolerne bliver derved
+\begin{align}
+    \begin{split}
+        \Gamma_{\phi\phi}^r &= g^{rr} \Gamma_{r\phi\phi} \\
+            &= \inv{2} g^{rr} \left( g_{r\phi,\phi} - g_{\phi\phi,r} + g_{r\phi,\phi} \right) \\
+            &= - \inv{2} g^{rr} g_{\phi\phi,r} \\
+            &= \left( 1 - \frac{r_s}{r} \right) r \sin^2(\theta) \: , \qquad \text{og}
+    \end{split} \\
+    \begin{split}
+        \Gamma_{r\phi}^\phi &= g^{\phi\phi} \Gamma_{\phi r\phi} \\
+            &= \inv{2} g^{\phi\phi} \left( g_{\phi r,\phi} - g_{r \phi, \phi} + g_{\phi\phi,r} \right) \\
+            &= \inv{2} g^{\phi\phi} g_{\phi\phi,r} \\
+            &= \inv{r} \: ,
+    \end{split}
+\end{align}
+da $g_{ab,c} = g_{ba,c}$, samt $\Gamma_{abc} = (g_{ab,c} - g_{bc,a} + g_{ac,b})/2$ og $g^{aa} = (g_{aa})^{-1}$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Lysstråle i cirkulær bane omkring stjerne}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Vis at en lysstråle kan bevæge sig i en cirkulær bane omkring en massiv stjerne, ligesom en planet kan. Beregn radius af denne bane i Schearzschildkoordinater. Svaret skal være
+\begin{align}
+    r &= \frac{3}{2}(2M) = 3M \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Geodætisk ligning giver Newtonsk bevægelsesligning i Newtonsk grænse}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Vis at i den Newtoniske grænse, $g_{00} = 1 + 2\phi/c^2$, da vil den geodætiske (eng: geodesic) ligning,
+\begin{align}
+    \dif{u^a}{s} &= -\Gamma_{bc}^a u^b u^c \: ,
+\end{align}
+stemme overens med Newtons bevægelsesligning
+\begin{align}
+    \ddt{\vv{r}} &= - \Grad{\phi} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Bevarelse af $u_\phi$ for ækvatorial banebevægelse i Schwarzschildmatrikken}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Vis at $u_\phi$ er bevaret for en ækvatorial banebevægelse i Schwarzschildmetrikken, når $u^\phi$ er $\phi$-komponenten af firhastigheden $u^a = \dif{u^a}{s}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Schwarzschild metrik er løsning til vakuum Einsteinligningen}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Konstruér et Maxima script som analytisk beviser at Schwarzschildmetrikken er en løsning til Einsteinligningen i vakuum. Hint: \texttt{factor(ric[1,1]);}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

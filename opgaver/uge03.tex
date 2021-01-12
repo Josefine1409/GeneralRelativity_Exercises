@@ -1,0 +1,663 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 3 -- Kovariant differentation}
+\setcounter{section}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- $\pdif{x^a}{x'^b}$ invers matrix til $\pdif{x'^c}{x^d}$}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Bevis at matricen $\partial x^a / \partial x'^b$ er invers til matricen $\partial x'^c / \partial x^d$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+En matrix $A$ af dimension $n\times n$ er invers til en matrix $B$ af dimension $n\times n$ hvis og kun hvis $AB = \id$, hvor $\id$ har dimension $n\times n$.
+
+Regner vi nu på de to matrixer, som vi har fået givet, så får vi
+\begin{align}
+    \sum_{b = 0}^3 \pdif{x^a}{x'^b} \pdif{x'^b}{x^c}
+        &= \pdif{x^a}{x^c}
+        = \delta^a_c
+        = \id_4 \: .
+\end{align}
+Dermed er de to matricer
+\begin{align}
+    J \equiv \pdif{x'^a}{x^b}
+        \qquad \text{og} \qquad
+    J^{-1} = \pdif{x^b}{x'^a}
+\end{align}
+hinandens inverse. (J er her Jacobianen, som er defineret således.)
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Krumme (eng: curvilinear) koordinater}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Er vores definition af vektorer i krumme koordinater (eng: curvilinear coordinates) konsistent med definitionen af firvektorer i speciel relativitetsteori? Hvad så med Euklidiske trevektorer i Gallilæiske relativitetsteori?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Metrisk tensor for Euklidisk rum og Minkowskirum}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Hvad er den metriske tensor i det Gallilæiske rum med Newtonsk mekanik? Hvad er den metriske tensor i Minkowksirummet i speciel relativitetsteori?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Den metriske tensor i Gallilæiske rum er blot identiteten
+\begin{align}
+    g_G &= \id
+        \quad \Rightarrow \quad
+    \dd s^2 = \dd t^2 + \dd \vv{r}^2 \: ,
+\end{align}
+mens den metriske tensor i Minkowskirummet er givet som
+\begin{align}
+    g_{ab} &= \TwoRowMat{1 & 0}{0 & -\id}
+        \quad \Rightarrow \quad
+    \dd s^2 = \dd t^2 - \dd \vv{r}^2 \: .
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Jacobian af Galilæitransformation og Lorentztransformation}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Hvad er Jacobianen af Gallilæitransformationen og af Lorentztransformationen?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Jacobianen er det, som for en vektor til at transformere:
+\begin{align}
+    A' &= J A
+\end{align}
+for en vektor $A$. Dermed må vi have, at for Gallilæitransformationen
+\begin{align}
+\begin{split}
+    \TwoRowMat{x'^0}{x'^1} &= \TwoRowMat{1 & 0}{-v & 1} \TwoRowMat{x^0}{x^1} \\
+        \Rightarrow
+    x' &= G(v) x \: ,
+\end{split}
+\end{align}
+så er Jacobianen
+\begin{align}
+    J_{G} &= G(v) = \TwoRowMat{1 & 0}{-v & 1} \: ,
+\end{align}
+mens Jacobianen for Lorentztransformationen er
+\begin{align}
+    \begin{split}
+        \TwoRowMat{x'^0}{x'^1} &= \gamma \TwoRowMat{1 & -\beta/c}{-\beta c & 1} \TwoRowMat{x^0}{x^1} \\
+            \Rightarrow
+        x' &= L(v) x \: ,
+    \end{split} \\
+    \Rightarrow J_{L} &= L(v) = \gamma \TwoRowMat{1 & -\beta/c}{-\beta c & 1} \: ,
+\end{align}
+hvor $\gamma = 1/\sqrt{1 - \beta^2}$ og $\beta = v/c$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Fysisk lov efter koordinattransformation}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Antag at en fysisk lov i et bestemt referencesystem er givet som
+\begin{align}
+    A^a &= B^a \: ,
+\end{align}
+f.eks. Maxwellligningen $F^{ab}_{;a} = 4\pi j^b$. Hvordan ser denne lov ud efter en koordinattransformation $x \rightarrow x'(x)$ ind i et andet referencesystem?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi betragter en fysisk lov $A^a = B^a$ i referencesystemet $S$. Transformerer vi nu til referencesystemet $S'$ ved koordinattransformationen $x \rightarrow x'(x)$ bliver denne lov nu
+\begin{align}
+\begin{split}
+    A'^b = J^b_a A^a \quad &\text{og} \quad B'^b = J^b_a B^a \\
+    \Rightarrow A'^b &= B'^b \: ,
+\end{split}
+\end{align}
+siden Jacobianen er den generelle transformation af en vektor.
+
+Dermed er den fysiske lov den samme i alle referencesystemer, $S$ og $S'$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Polære og Kartesiske linjeelementer og metrikker}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Lad $x$ og $y$ være Kartesiske koordinater i et fladt todimensionelt rum med metrik
+\begin{align}
+    \dd l^2 &= \dd x^2 + \dd y^2 \: .
+\end{align}
+Betragt de polære koordinater
+\begin{align}
+    x &= r \cos(\theta) \: ,
+        \quad \text{og} \quad
+    y = r \sin(\theta) \: .
+\end{align}
+
+\paragraph{a)} Beregn intervallet $\dd l^2$ i polære koordinater og find den korresponderende metriske tensor $g_{ab}$ (indeksene $a$ og $b$ kan tage værdierne $r,\theta$).
+
+\paragraph{b)} Linjeelementet $\dd \vv{l}$ er defineret som
+\begin{align}
+    \dd \vv{l} &= \dd x\, \vv{e}_x + \dd y\, \vv{e}_y \: ,
+\end{align}
+hvor $\xhat$ og $\yhat$ er de Kartesiske enhedsvektorer,
+\begin{align}
+    \vv{e}_x \cdot \vv{e}_x &= \vv{e}_y \cdot \vv{e}_y = 1 \: ,
+        \quad \text{og} \quad
+    \vv{e}_x \cdot \vv{e}_y = 0 \: .
+\end{align}
+Betragt dette linjeelement i polære koordinater,
+\begin{align}
+    \dd \vv{l} &= \dd r\, \vv{e}_r + \dd \theta\, \vv{e}_\theta \: ,
+\end{align}
+og find de polære egenvektorer $\vv{e}_r$ og $\vv{e}_\theta$.
+
+\paragraph{c)} Argumentér for og tjek at $\vv{e}_a \cdot \vv{e}_b = g_{ab}$.
+
+\paragraph{d)} Find $g^{ab} = (g_{ab})^{-1}$, $\vv{e}^a = g^{ab} \vv{e}_b$ og $\vv{e}^a \cdot \vv{e}_b$.
+
+\paragraph{e)} Betragt en vektor $\vv{A} = A^a \vv{e}_a = A_a \vv{e}^a$. Betragt relationen mellem det faktiske differential af vektoren, $\DD A^a = \vv{e}^a \cdot \dd \vv{A}$, og det tilsyneladende differential af vektoren, $\dd A^a = \dd(\vv{e}^a \cdot \vv{A})$ og vis at
+\begin{align}
+    \DD A^a &= \dd A^a + (\vv{e}^a \cdot \vv{e}_{b,c}) A^b \dd x^c \: , \quad \text{og} \quad
+    \DD A_a = \dd A_a - (\vv{e}^b \cdot \vv{e}_{a,c}) A_b \dd x^c \: .
+\end{align}
+hvor kommanotationen er brugt om partielle afledede $\phi_{,c} = \partial \phi / \partial c^x$. Argumentér for at udtrykket i parenteserne er Christoffelsymbolet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+Vi betragter metrikken og indsætter de polære koordinater
+\begin{align}
+\begin{split}
+    \dd l^2 &= \dd x^2 + \dd y^2 \\
+        &= \left[ \dd \left\{ r \cos(\theta) \right\} \right]^2 + \left[ \dd \left\{ r \sin(\theta) \right\} \right]^2 \\
+        &= \left[ \dd r\, \cos(\theta) - r \sin(\theta)\, \dd \theta \right]^2 + \left[ \dd r\, \sin(\theta) + r \cos(\theta)\, \dd \theta \right]^2 \\
+        &= \dd r^2 \left[ \cos^2(\theta) + \sin^2(\theta) \right] + r^2 \left[ \sin^2(\theta) + \cos(\theta) \right] \dd\theta^2 \\
+            &\qquad - 2 r\cos(\theta) \sin(\theta)\, \dd r^2\, \dd\theta + 2 r\cos(\theta) \sin(\theta)\, \dd r^2\, \dd\theta \\
+        &= \dd r^2 + r^2\, \dd\theta^2 \: .
+\end{split}
+\end{align}
+Da vi ved at
+\begin{align}
+    \dd l^2 &= \sum_a g_{aa} \dd a^2 \: ,
+\end{align}
+så får vi
+\begin{align}
+    g_{ab} &= \TwoRowMat{1 & 0}{0 & r^2} \: .
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+Enhedvektorerne kan findes ved at bruge
+\begin{align}
+    \vv{e}_v &= \frac{\vv{v}}{\abs{\vv{v}}} = \frac{\vv{v}}{v} \: .
+\end{align}
+For $\vv{r} = x\, \vv{e}_x + y\, \vv{e}_y$ vil dette altså være
+\begin{align}
+\begin{split}
+    \vv{e}_r &= \frac{x\, \vv{e}_x + y\, \vv{e}_y}{r} \\
+        &= \frac{r \cos(\theta)\, \vv{e}_x + r \sin(\theta)\, \vv{e}_y}{r} \\
+        &= \cos(\theta)\, \vv{e}_x + \sin(\theta)\, \vv{e}_y \\
+        &= \TwoRowMat{\cos(\theta)}{\sin(\theta)} \: .
+\end{split}
+\end{align}
+Enhedsvektorerne $\vv{e}_r$ og $\vv{e}_\theta$ skal være ortonormale, hvilket giver os to muligheder
+\begin{align}
+    \vv{e}_\theta &= \pm \TwoRowMat{- \sin(\theta)}{\cos(\theta)} \: .
+\end{align}
+Vælger vi minusløsningen samt indser, at enhedsvektoren bliver nødt til at indeholde $r$, da vi ved at $\theta$-ledet indeholder er $r$ (se \textbf{a)}), men linjeelementet blot skrives $\dd l = \dd r\, \vv{e}_r + \dd \theta\, \vv{e}_\theta$, hvorfor
+\begin{align}
+    \vv{e}_\theta &= r \TwoRowMat{\sin(\theta)}{-\cos(\theta)} \: .
+\end{align}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{c)}
+
+Enhedsvektorer opfylder
+\begin{align}
+    \vv{e}_i \cdot \vv{e}_j &= \delta_{ij} \: ,
+\end{align}
+hvor vi i vores tilfælde har en undtagelse for $i=j=\theta$, hvor vi forventer $\vv{e}_\theta \cdot \vv{e}_\theta$ grundet vores valg af linjeelement. Dette stemmer overens med vores $g_{ab}$ fra \textbf{a)}, da
+\begin{subequations}
+\begin{align}
+    \vv{e}_r \cdot \vv{e}_r &= \TwoRowMat{\cos(\theta)}{\sin(\theta)} \cdot \TwoRowMat{\cos(\theta)}{\sin(\theta)}
+        \cos^2(\theta) + \sin^2(\theta)
+        = 1
+        = g_{rr} \: , \\
+    \vv{e}_r \cdot \vv{e}_\theta &= \TwoRowMat{\cos(\theta)}{\sin(\theta)} \cdot r \TwoRowMat{\sin(\theta)}{-\cos(\theta)}
+        = r [\cos(\theta) \sin(\theta) - \sin(\theta) \cos(\theta)]
+        = 0
+        = g_{r\theta} \: , \\
+    \vv{e}_\theta \cdot \vv{e}_r &= r \TwoRowMat{\sin(\theta)}{-\cos(\theta)} \cdot \TwoRowMat{\cos(\theta)}{\sin(\theta)}
+        = r [\sin(\theta) \cos(\theta) - \cos(\theta) \sin(\theta)]
+        = 0
+        = g_{\theta r} \: , \quad \text{og} \\
+    \vv{e}_\theta \cdot \vv{e}_\theta &= r \TwoRowMat{\sin(\theta)}{-\cos(\theta)} \cdot r \TwoRowMat{\sin(\theta)}{-\cos(\theta)}
+        = r^2 [\cos^2(\theta) + \sin^2(\theta)]
+        = r^2
+        = g_{\theta\theta} \: .
+\end{align}
+\end{subequations}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{d)}
+
+For at finde den inverse af metrikken benytter vi, at $g_{ab} g^{ab} = \delta^a_b$, hvorfor
+\begin{align}
+\begin{split}
+    \TwoRowMat{1 & 0}{0 & 1} &= \TwoRowMat{1 & 0}{0 & r^2} \TwoRowMat{a & b}{c & d}
+        = \TwoRowMat{a & b}{r^2 c & r^2 d} \\
+    \Rightarrow b &= c = 0 \: , \quad a = 1 \: , \quad \text{og} \quad d = \inv{r^2} \\
+    \Rightarrow g^{ab} &= \TwoRowMat{1 & 0}{0 & \inv{r^2}} \: .
+\end{split}
+\end{align}
+
+Som det næste skal vi finde ud af, hvordan $\vv{e}^a$ ser ud for $a=r,\theta$. Her får vi
+\begin{subequations}
+\begin{align}
+    \vv{e}^r &= g^{rb}\, \vv{e}_b
+        = \sum_{b=r,\theta} g^{rb}\, \vv{e}_b
+        = g^{rr}\, \vv{e}_r + g^{r\theta}\, \vv{e}_\theta
+        = g^{rr}\, \vv{e}_r
+        = \TwoRowMat{\cos(\theta)}{\sin(\theta)} \: , \quad \text{og} \\
+    \vv{e}^\theta &= g^{\theta b}\, \vv{e}_b
+        = \sum_{b=r,\theta} g^{\theta b}\, \vv{e}_b
+        = g^{\theta r}\, \vv{e}_r + g^{\theta\theta}\, \vv{e}_\theta
+        g^{\theta\theta}\, \vv{e}_\theta
+        = \frac{r}{r^2}\TwoRowMat{\sin(\theta)}{-\cos(\theta)}
+        = \inv{r}\TwoRowMat{\sin(\theta)}{-\cos(\theta)} \: .
+\end{align}
+\end{subequations}
+
+Sidst skal værdien af $\vv{e}^a \cdot \vv{e}_a$ findes. Dette kan gøres ved smart at benytte identiteterne, som vi har vist,
+\begin{align} \label{eq:Uge3_Opg6_CovariantTimesContravariantVectorGivesIdentity}
+    \vv{e}^a \cdot \vv{e}_b &= g^{ab}\, \vv{e}_a \cdot \vv{e}_b
+        = g^{ab} g_{ab}
+        = \delta^a_b \: ,
+\end{align}
+eller ved at udregne vektorprodukterne
+\begin{subequations}
+\begin{align}
+    \vv{e}^r \cdot \vv{e}_r &= \TwoRowMat{\cos(\theta)}{\sin(\theta)} \cdot \TwoRowMat{\cos(\theta)}{\sin(\theta)}
+        = \cos^2(\theta) + \sin^2(\theta)
+        = 1 \: , \\
+    \vv{e}^r \cdot \vv{e}_\theta &= \TwoRowMat{\cos(\theta)}{\sin(\theta)} \cdot r \TwoRowMat{\sin(\theta)}{-\cos(\theta)}
+        = r [\cos(\theta) \sin(\theta) - \sin(\theta) \cos(\theta)]
+        = 0 \: , \\
+    \vv{e}^\theta \cdot \vv{e}_r &= \inv{r}\TwoRowMat{\sin(\theta)}{-\cos(\theta)} \cdot \TwoRowMat{\cos(\theta)}{\sin(\theta)}
+        = \inv{r} [\sin(\theta) \cos(\theta) - \cos(\theta) \sin(\theta)]
+        = 0 \: , \quad \text{og} \\
+    \vv{e}^\theta \cdot \vv{e}_\theta &= \inv{r}\TwoRowMat{\sin(\theta)}{-\cos(\theta)} \cdot r \TwoRowMat{\sin(\theta)}{-\cos(\theta)}
+        = \sin^2(\theta) + \cos^2(\theta)
+        = 1 \: ,
+\end{align}
+\end{subequations}
+og begge metoder er konsistente med hinanden.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{e)}
+
+Vi starter med ligningen for det faktiske differential
+\begin{align}
+    \DD A^a &= \vv{e}^a \cdot \dd \vv{A}
+        = \vv{e}^a\, \dd\left(A^b\, \vv{e}_b\right)
+        = \vv{e}^a\, \vv{e}_b\, \dd A^b + \vv{e}^a\, A^b\, \dd\vv{e}_b
+        = \dd A^a + \vv{e}^a\, A^b\, \dd\vv{e}_b \: ,
+\end{align}
+hvor vi har benyttet $\vv{e}^a\, \vv{e}_b = \delta^a_b$, \cref{eq:Uge3_Opg6_CovariantTimesContravariantVectorGivesIdentity}, til at ændre indekset på $\dd A^b$. Benytter vi nu at ''forlænge'' med $\dd x^c$ får vi
+\begin{align}
+    \DD A^a &= \dd A^a + \vv{e}^a \left( \pdif{\vv{e}_b}{x^c}\, \dd x^c  \right) A^b
+        = \dd A^a + \vv{e}^a\, \vv{e}_{b,c}\, A^b\, \dd x^c \: ,
+\end{align}
+hvilket var den ene relation, som vi skulle vise.
+
+For nu at vise den anden relation finder vi nu den kovariante afledede af produktet $A^aB_a$
+\begin{align}
+    \DD(A^aB_a) &= B_a \DD A^a + A^a \DD B_a
+        = B_a \left(  \dd A^a + \Gamma^a_{bc} A^b\, \dd x^c \right) + A^a \DD B_a \: .
+\end{align}
+Men $A^aB_a$ er en skalar og burde af den grund ikke afhænge af basisvektorerne, men i stedet blot være det ordinære differential
+\begin{align}
+    \DD(A^aB_a) &= \dd(A^aB_a)
+        = B_a \dif{A^a}{x^b} + A_a \dif{B^a}{x^b} \: .
+\end{align}
+Sammenligninger vi nu de to udtryk får vi, at
+\begin{align}
+\begin{split}
+    B_a \dif{A^a}{x^b} + A_a \dif{B^a}{x^b} &= B_a \left(  \dd A^a + \Gamma^a_{bc} A^b\, \dd x^c \right) + A^a \DD B_a \\
+    \Rightarrow
+    0 &= - B_a \dif{A^a}{x^b} - A_a \dif{B^a}{x^b} + B_a \dif{A^a}{x^c} + B_d \Gamma^d_{ac} A^a + A^a \DD B_a \\
+        &= A^a \left( - \dif{B_a}{x^b} + \Gamma^d_{ac} B_d + \DD B_a \right) \: ,
+\end{split}
+\end{align}
+og siden $A^a$ er arbitrær, da, da må det være parentesen, som giver nul, altså
+\begin{align}
+    \DD B_a &= \dd B_a - \Gamma^b_{ac} B_b\, \dd x^c \: .
+\end{align}
+Indser vi nu, at $\Gamma^a_{bc} = g^{ad}\, \vv{e}_d\, \pdif{\vv{e}_b}{x^c} = \vv{e}^a\, \vv{e}_{b,c}$, samt udskifter $B \rightarrow A$, så får vi den anden relation, som vi skulle vise
+\begin{align}
+    \DD A_a = \dd A_a - \vv{e}^b\, \vv{e}_{a,c}\, A_b\, \dd x^c \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Kroneckers delta}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Kroneckers delta $\delta^a_b$ er defineret som
+\begin{align}
+    \delta^a_b &=
+        \begin{cases}
+            1 \quad & \text{hvis} \quad a = b \\
+            0 \quad & \text{hvis} \quad a \ne b
+        \end{cases} \: .
+\end{align}
+
+\paragraph{a)} Vis at $\delta^a_b X^b = X^a$.
+\paragraph{b)} Vis at $\delta^a_b X_a = X_b$.
+\paragraph{c)} Vis at $\delta^a_b$ er en tensor.
+\paragraph{d)} Evaluér $\delta^a_a$.
+\paragraph{e)} Evaluér $\DD \delta^a_b$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{c)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{d)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{e)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 8 -- Udledning af kovariant afledede af tensor}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
+
+En tensor, $F^{ab}$, er et objekt som transformerer som et ydre produkt, $A^a B^b$, at to vektorer $A^a$ og $B^b$. Udled et udtryk for den kovariante afledede $\DD F^{ab}$ ved brug af Leibniz regel, $\DD(A^a B^b) = \DD(A^a)B^b + A^a \DD (B^b)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 9 -- Christoffelsymboler er ikke tensorer}
+\setcounter{subsection}{9}
+\setcounter{equation}{0}
+
+Argumentér for at Christoffelsymbolerne ikke er tensorer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 10 -- Transformationsregel for Christoffelsymbol}
+\setcounter{subsection}{10}
+\setcounter{equation}{0}
+
+Bevis at transformationsreglen for Christoffelsymboler er 
+\begin{align}
+    \Gamma^a_{bc} &= \pdif{x^a}{x'^e} \pdif{x'^f}{x^b} \pdif{x'^d}{x^c} \Gamma'^e_{fd} + \frac{\partial^2 x'^e}{\partial x^b \partial x^c} \pdif{x^a}{x'^e} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Denne opgave kan løses på én af to måder: Enten kan man ved brute force beregne transformationen ved at benytte definitionen $\Gamma^a_{bc} = \frac{1}{2} g^{ab} (g_{ab,c} - g_{ca,b} + g_{bc,a})$, og alternativt kan man benytte, at den kovariante afledede, $A^a_{;c} = A^a_{,c} + \Gamma^a_{bc} A^b$, transformerer som en tensor. Jeg vælger den sidste af disse to metoder.
+\\
+
+Idet at $A^a_{;c}$ transformerer som en tensor har vi, at
+\begin{align} \label{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor}
+    A'^e_{;d} &= \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} A^a_{;c} \: .
+\end{align}
+
+Regner vi først venstresiden af \cref{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor} får vi
+\begin{align} \label{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_LHS}
+\begin{split}
+    A'^e_{;d} &= A'^e_{,d} + \Gamma'^e_{fd} A'^f \\
+        &= \pdif{}{x'^d} \left( \pdif{x'^e}{x^a} A^a \right) + \Gamma'^e_{fd} \pdif{x^b}{x'^f} A^b \\
+        &= \pdif{x^c}{x'^d} \pdif{x'^e}{x^a} A^a_{,c} + \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^a} A^a + \Gamma'^e_{fd} \pdif{x^b}{x'^f} A^b
+\end{split}
+\end{align}
+hvor vi har benyttet produktreglen.
+
+Højresiden af \cref{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor} giver
+\begin{align} \label{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_RHS}
+    \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} A^a_{;c} &= \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} A^a_{,c} + \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} \Gamma^a_{bc} A^b
+\end{align}
+ved brug af definitionen af den kovariante afledede.
+
+Sætter vi nu udregningen af venstresiden, \cref{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_LHS}, lig udregningen af højresiden, \cref{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_RHS}, ses det, at det første led af begge udregninger går ud, hvilket efterlader
+\begin{align} \label{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_LHS=RHS}
+    \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^a} A^a + \Gamma'^e_{fd} \pdif{x^b}{x'^f} A^b &= \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} \Gamma^a_{bc} A^b \: .
+\end{align}
+Lader vi $a \rightarrow b$ i første led på venstresiden i \cref{eq:Uge3_Opg10_CovariantDerivativeTransformsAsTensor_LHS=RHS} får vi
+\begin{align}
+\begin{split}
+    \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} \Gamma^a_{bc} A^b
+        &= \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^{\cancelto{b}{a}}}\:\:\, A^{\cancelto{b}{a}} + \Gamma'^e_{fd} \pdif{x^b}{x'^f} A^b \\
+        &= \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^b} A^b + \Gamma'^e_{fd} \pdif{x^b}{x'^f} A^b \\
+    \Rightarrow
+    \pdif{x'^e}{x^a} \pdif{x^c}{x'^d} \Gamma^a_{bc} &= \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^b} + \Gamma'^e_{fd} \pdif{x^b}{x'^f} \: ,
+\end{split}
+\end{align}
+hvor vi har ladet vektorerne gå ud på begge sider.
+
+Sidst isoleres $\Gamma^a_{bc}$ ved at multiplicere med $\pdif{x^a}{x'^e} \pdif{x'^d}{x^c}$, hvorved vi får
+\begin{align}
+\begin{split}
+    \Gamma^a_{bc} &= \pdif{x^a}{x'^e} \pdif{x'^d}{x^c} \pdif{x^b}{x'^f} \Gamma'^e_{fd} + \pdif{x^a}{x'^e} \pdif{x'^d}{x^c} \pdif{x^c}{x'^d} \frac{\partial^2 x'^e}{\partial x^c \partial x^b} \\
+        &= \pdif{x^a}{x'^e} \pdif{x^b}{x'^f} \pdif{x'^d}{x^c} \Gamma'^e_{fd} + \frac{\partial^2 x'^e}{\partial x^c \partial x^b} \pdif{x^a}{x'^e} \: ,
+\end{split}
+\end{align}
+da $\pdif{x^v}{x^u} \pdif{x^u}{x^v} = 1$. Dermed har vi vist den ønskede transformationslov.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 11 -- Er partielle afledede af en skalar tensorer?}
+\setcounter{subsection}{11}
+\setcounter{equation}{0}
+
+Er $\partial \phi / \partial x^a$, hvor $\phi$ er en skalar (en tensor af rang $0$), en tensor? Er $\partial^2 \phi / (\partial x^a \partial x^b)$ en tensor?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 12 -- Symmetri af tensor bevares ved koordinatskifte}
+\setcounter{subsection}{12}
+\setcounter{equation}{0}
+
+Argumnetér for at hvis en kovariant (aka. med indeks nede) rang-2-tensor er symmetrisk i ét koordinatsystem, så er den symmetrisk i alle tilladte koordinatsystemer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 13 -- Sum og differens af tensorer er en tensor}
+\setcounter{subsection}{13}
+\setcounter{equation}{0}
+
+Argumenér for at hvis $A^a_{bc}$ og $B^a_{bc}$ er tensorer (med ét indeks oppe og to indeks nede), så er deres sum og difference også en tensor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 14 -- Produkt af tensorer er en tensor}
+\setcounter{subsection}{14}
+\setcounter{equation}{0}
+
+Argumentér for at produktet af to tensorer også er en tensor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 15 -- Rang-2-tensor ved symmetrisk og antisymmetrisk tensor}
+\setcounter{subsection}{15}
+\setcounter{equation}{0}
+
+Argumentér for at enhver rang-2-tensor med begge indeks oppe (eller begge indeks nede) kan skrives som en sum af en symmetrisk og en antisymmetrisk tensor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 16 -- Metrisk tensor er en tensor}
+\setcounter{subsection}{16}
+\setcounter{equation}{0}
+
+Argumentér for at den metriske tensor rent faktisk er en tensor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 17 -- $u^a u_a$ er en kovariant skalar}
+\setcounter{subsection}{17}
+\setcounter{equation}{0}
+
+Argumentér for at $u^a u_a = g_{ab} u^a u^b$ (hvor $u^a = \dd x^a / \dd s$) er en (kovariant) skalar og beregn dens værdi.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

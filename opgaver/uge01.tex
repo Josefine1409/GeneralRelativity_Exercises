@@ -1,0 +1,630 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 1 -- Opsummering af speciel relativitetsteori}
+\setcounter{section}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Galilæitransformation er en gruppe}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Argumentér for at matricerne for det Galilæiske hastighedsboost
+\begin{align}
+    G(v) &= \TwoRowMat{1 & 0}{-v & 1} \: ,
+\end{align}
+udgør en matematisk gruppe under matrixmultiplikation, hvilket vil sige, at
+\begin{subequations} \label{eq:Uge1_Opg1_GroupProperties}
+\begin{align}
+    G(v_1) G(v_2) &= G(v_1 + v_2) \: , \\
+    [G(v_1) G(v_2)] G(v_3) &= G(v_1) [G(v_2) G(v_3)] \: , \\
+    G(0) &= 1 \: , \quad \text{og} \\
+    G(v)^{-1} &= G(-v) \: .
+\end{align}
+\end{subequations}
+Argumentér for at denne gruppe er en Lie-gruppe.
+
+\textbf{Note:} I matematik er en \textit{gruppe} et set af elementer, $G = \{a,\, b,\, c,\, \ldots\}$, sammen med en operation, $*$, som kombinerer to arbitrære elementer fra sættet for at danne et tredje element også i sættet, samtidig med at den overholder fire betingelser kaldet gruppeaksiomer, nemlig
+\begin{subequations} \label{eq:Uge1_Opg1_GroupPropertiesInGeneral}
+\begin{enumerate}
+    \item \textit{lukkethed} (eng: closure)
+        \begin{align}
+            \forall a,b \in G : a * b \in G \: ,
+        \end{align}
+    \item \textit{associativitet}
+        \begin{align}
+            (a * b) * c = a * (b * c) \: ,
+        \end{align}
+    \item \textit{identitet}
+        \begin{align}
+            \exists 1 \in G : \forall a : a * 1 = a \: , \quad \text{og}
+        \end{align}
+    \item \textit{inverterbarhed}
+        \begin{align}
+            \forall a \in G\, \exists a^{-1} \in G : a*a^{-1} = 1 \: .
+        \end{align}
+\end{enumerate}
+\end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Først vises \textit{lukkethed}:
+\begin{align} \label{eq:Uge1_Opg1_Closure}
+\begin{split}
+    G(v_1) G(v_2) &= \TwoRowMat{1 & 0}{-v_1 & 1} \TwoRowMat{1 & 0}{-v_2 & 1} \\
+        &= \TwoRowMat{1 \cdot 1 + 0 \cdot (-v_2) & 1 \cdot 0 + 0 \cdot 1}{(-v_1) \cdot 1 + 1 \cdot (-v_2) & (-v_1) \cdot 0 + 1 \cdot 1} \\
+        &= \TwoRowMat{1 & 0}{-(v_1 + v_2) & 1} \\
+        &= G(v_1 + v_2) \: .
+\end{split}
+\end{align}
+\\
+
+Nu vises \textit{associativitet}:
+\begin{align}
+\begin{split}
+    \Big[ G(v_1) G(v_2) \Big] G(v_3) &= G(v_1 + v_2) G(v_3) \\
+        &= G \Big( [v_1 + v_2] + v_3 \Big) \\
+        &= G \Big( v_1 + [ v_2 + v_3] \Big) \\
+        &= G(v_1) G(v_2 + v_3) \\
+        &= G(v_1) \Big[ G(v_2) G(v_3) \Big] \: ,
+\end{split}
+\end{align}
+hvor identiteten om lukkethed, \cref{eq:Uge1_Opg1_Closure}, er blevet benyttet, samt at addition er associativ.
+\\
+
+Som det næste vises \textit{identitet}:
+\begin{align}
+\begin{split}
+    G(0) &= \TwoRowMat{1 & 0}{-0 & 1} \\
+        &= \TwoRowMat{1 & 0}{0 & 1} \\
+        &= \id \: ,
+\end{split}
+\end{align}
+hvor $\id$ er identitetsmatricen.
+\\
+
+Sidst men ikke mindst vises \textit{inverterbarhed}:\\
+Fra \cite[korollar 11.24]{Funch_linAlg} vides det, at for en invertibel matrix $A$, så er
+\begin{align}
+    A^{-1} &= \frac{\mathrm{adj}(A)}{\mathrm{det}(A)} \: ,
+\end{align}
+hvor den adjungerede af $A$ er givet ved \cite[eksempel 11.20]{Funch_linAlg}
+\begin{align}
+    \mathrm{adj}(A) &= \mathrm{adj}\left( \TwoRowMat{a_{1,1} & a_{1,2}}{a_{2,1} & a_{2,2}} \right) = \TwoRowMat{a_{2,2} & -a_{1,2}}{-a_{2,1} & a_{1,1}} \: ,
+\end{align}
+og determinanten for en $2 \times 2$ matrix udregnes som
+\begin{align}
+    \mathrm{det}(A) &= \mathrm{det}\left( \TwoRowMat{a_{1,1} & a_{1,2}}{a_{2,1} & a_{2,2}} \right) = a_{1,1}\, a_{2,2} - a_{1,2}\, a_{2,1} \: .
+\end{align}
+Dermed får vi, at
+\begin{align}
+\begin{split}
+    G(v)^{-1} &= \frac{\mathrm{adj}\big[G(v)\big]}{\mathrm{det}\big[G(v)\big]} \\
+        &= \TwoRowMat{1 & -0}{-(-v) & 1} \inv{1 \cdot 1 - 0 \cdot (-v)} \\
+        &= \TwoRowMat{1 & 0}{-(-v) & 1} \inv{1} \\
+        &= G(-v) \: .
+\end{split}
+\end{align}
+\\
+
+Dermed er \cref{eq:Uge1_Opg1_GroupProperties} vist, altså at det Gallilæiske hastighedsboost udgør en matematisk gruppe under matrixmultiplikation.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Lorentztransformation er lineær og en gruppe}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Argumentér for at en generel koordinattransformation mellem inertialsystemer
+\paragraph{a)} er lineær;
+\paragraph{b)} danner en gruppe med sammensætningsoperationen, altså når der udføres en transformation efter en anden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+Fra \cite[definition 6.1]{Funch_linAlg} er en afbildning $L: V \rightarrow W$ lineær, hvis og kun hvis
+\begin{align}
+    L(\alpha \vv{u} + \vv{v}) &= \alpha L(\vv{u}) + L(\vv{v}) \: ,
+\end{align}
+for alle $\vv{u},\vv{v}$ i vektorrummet og $\alpha$ værende en konstant.
+
+Vi vil nu vise lineariteten af Lorentztransformationerne,
+\begin{align} \label{eq:Uge1_Opg2_LorentzTransformation}
+    L\left(\TwoRowMat{t}{x}\right) &= \invsqrt{1 - v^2/c^2} \TwoRowMat{1 & -v/c^2}{-v & 1} \TwoRowMat{t}{x}
+\end{align}
+(her kun opskrevet i én rummelig retning, da man kan rotere sit system inden boost og rotere det tilbage igen bagefter), som en en generel koordinattransformation mellem inertialsystemer
+\begin{align}
+\begin{split}
+    L\left(\alpha \TwoRowMat{t}{x} + \TwoRowMat{t'}{x'} \right)
+        &= \invsqrt{1 - v^2/c^2} \TwoRowMat{1 & -v/c^2}{-v & 1} \left(\alpha \TwoRowMat{t}{x} + \TwoRowMat{t'}{x'} \right) \\
+        &= \frac{\alpha}{\sqrt{1 - v^2/c^2}} \TwoRowMat{1 & -v/c^2}{-v & 1} \TwoRowMat{t}{x} + \invsqrt{1 - v^2/c^2} \TwoRowMat{1 & -v/c^2}{-v & 1} \TwoRowMat{t'}{x'} \\
+        &= \alpha L\left(\TwoRowMat{t}{x}\right) + L\left(\TwoRowMat{t'}{x'}\right) \: .
+\end{split}
+\end{align}
+Dermed er Lorentiztransformationen lineær.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+Vi skal vise de fire gruppeegenskaber fra \cref{eq:Uge1_Opg1_GroupPropertiesInGeneral}.
+
+% Først vises \textit{lukkethed}:
+% \begin{align} \label{eq:Uge1_Opg1_Closure}
+% \begin{split}
+%     G(v_1) G(v_2) &= \TwoRowMat{1 & 0}{-v_1 & 1} \TwoRowMat{1 & 0}{-v_2 & 1} \\
+%         &= \TwoRowMat{1 \cdot 1 + 0 \cdot (-v_2) & 1 \cdot 0 + 0 \cdot 1}{(-v_1) \cdot 1 + 1 \cdot (-v_2) & (-v_1) \cdot 0 + 1 \cdot 1} \\
+%         &= \TwoRowMat{1 & 0}{-(v_1 + v_2) & 1} \\
+%         &= G(v_1 + v_2) \: .
+% \end{split}
+% \end{align}
+% \\
+
+% Nu vises \textit{associativitet}:
+% \begin{align}
+% \begin{split}
+%     \Big[ G(v_1) G(v_2) \Big] G(v_3) &= G(v_1 + v_2) G(v_3) \\
+%         &= G \Big( [v_1 + v_2] + v_3 \Big) \\
+%         &= G \Big( v_1 + [ v_2 + v_3] \Big) \\
+%         &= G(v_1) G(v_2 + v_3) \\
+%         &= G(v_1) \Big[ G(v_2) G(v_3) \Big] \: ,
+% \end{split}
+% \end{align}
+% hvor identiteten om lukkethed, \cref{eq:Uge1_Opg1_Closure}, er blevet benyttet, samt at addition er associativ.
+% \\
+
+% Som det næste vises \textit{identitet}:
+% \begin{align}
+% \begin{split}
+%     G(0) &= \TwoRowMat{1 & 0}{-0 & 1} \\
+%         &= \TwoRowMat{1 & 0}{0 & 1} \\
+%         &= \id \: ,
+% \end{split}
+% \end{align}
+% hvor $\id$ er identitetsmatricen.
+% \\
+
+% Sidst men ikke mindst vises \textit{inverterbarhed}:\\
+% Fra \cite[korollar 11.24]{Funch_linAlg} vides det, at for en invertibel matrix $A$, så er
+% \begin{align}
+%     A^{-1} &= \frac{\mathrm{adj}(A)}{\mathrm{det}(A)} \: ,
+% \end{align}
+% hvor den adjungerede af $A$ er givet ved \cite[eksempel 11.20]{Funch_linAlg}
+% \begin{align}
+%     \mathrm{adj}(A) &= \mathrm{adj}\left( \TwoRowMat{a_{1,1} & a_{1,2}}{a_{2,1} & a_{2,2}} \right) = \TwoRowMat{a_{2,2} & -a_{1,2}}{-a_{2,1} & a_{1,1}} \: ,
+% \end{align}
+% og determinanten for en $2 \times 2$ matrix udregnes som
+% \begin{align}
+%     \mathrm{det}(A) &= \mathrm{det}\left( \TwoRowMat{a_{1,1} & a_{1,2}}{a_{2,1} & a_{2,2}} \right) = a_{1,1}\, a_{2,2} - a_{1,2}\, a_{2,1} \: .
+% \end{align}
+% Dermed får vi, at
+% \begin{align}
+% \begin{split}
+%     G(v)^{-1} &= \frac{\mathrm{adj}\big[G(v)\big]}{\mathrm{det}\big[G(v)\big]} \\
+%         &= \TwoRowMat{1 & -0}{-(-v) & 1} \inv{1 \cdot 1 - 0 \cdot (-v)} \\
+%         &= \TwoRowMat{1 & 0}{-(-v) & 1} \inv{1} \\
+%         &= G(-v) \: .
+% \end{split}
+% \end{align}
+% \\
+
+% Dermed er der vist at Lorentztransformationen udgør en matematisk gruppe under sammensætningsoperatoren.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Udledning af Lorentztransformationerne}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Udled Lorentztransformationerne
+\paragraph{a)} fra isotropi af rummet, gruppeteoripostulater og endelig maksimal hastighed,
+\paragraph{b)} fra isotropi af rummet og invariansen af lysets hastighed,
+\paragraph{c)} på en anden måde end de to ovenstående.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Udledning af Euler-Lagrangeligningen fra variationspricippet}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Vis at virkningen af et objekt på formen
+\begin{align}
+    S &= \int L(\vv{r},\vv{v})\, \dd t
+\end{align}
+gennem variationsprincippet ($\delta S = 0$ på den faktiske bane for objektet) leder til den følgende bevægelsesligning
+\begin{align}
+    \pdif{}{t} \pdif{L}{\vv{v}} &= \pdif{L}{\vv{r}} \: ,
+\end{align}
+hvilket kaldes Euler-Lagrangeligningen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Newtonsk bevægelsesligning fra Lagrangefunktion}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Betragt et ikke-relativistisk objekt med masse $m$, der bevæger sig i et potential $V(\vv{r})$. Vis at Lagrangefunktionen
+\begin{align}
+    L &= \frac{m\vv{v}}{2} - V(\vv{r})
+\end{align}
+giver Newtons bevægelsesligning.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Til dette benytter vi Euler-Lagrangeligningen
+\begin{align}
+    \dif{}{t} \left( \pdif{L}{\vv{v}} \right) &= \pdif{L}{\vv{r}} \: ,
+\end{align}
+hvorved vi får
+\begin{subequations}
+\begin{align}
+    \pdif{L}{\vv{r}} &= - \pdif{V(\vv{r})}{\vv{r}} = F(\vv{r}) \\
+    \pdif{L}{\vv{v}} &= 2 \frac{m\vv{v}}{2} = m \vv{v} \\
+    \dif{}{t} \left( \pdif{L}{\vv{v}} \right) &= \dif{}{t} \left( m \vv{v} \right) = m \dif{\vv{v}}{t} = m \vv{a} \: ,
+\end{align}
+\end{subequations}
+altså
+\begin{align}
+    F(\vv{r}) &= m \vv{a} \: ,
+\end{align}
+hvilket er Newtons bevægelsesligning.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Objekter bevæger sig i lige linjer i SR}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Argumentér for at et objekt i speciel relativitetsteori med virkning $S = -mc \int \dd s$ bevæger sig langs en lige linje.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Impuls fra Lagrangefunktion}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Impuls $\vv{p}$ er kvantiteten som bevares (langs bevægelsen (eng: trajectory) af et objekt), hvis Lagrangefunktionen ikke eksplicit afhænger af $\vv{r}$ (gennem Noethers sætning). Argumnetér for at
+\begin{align}
+    \vv{p} &= \pdif{L}{\vv{v}} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Vi ved at Euler-Lagrangeligningen er givet som
+\begin{align}
+    \dif{}{t} \left( \pdif{L}{\vv{v}} \right) &= \pdif{L}{\vv{r}} \: ,
+\end{align}
+så hvis Lagrangefunktionen ikke eksplicit afhænger af $\vv{r}$, så får vi
+\begin{align}
+    0 &= \dif{}{t} \left( \pdif{L}{\vv{v}} \right) \: ,
+\end{align}
+hvormed $\dd L / \dd \vv{v}$ er bevaret, og siden vi ved, at det er impulsen, som er bevaret, da må vi have, at
+\begin{align}
+     \vv{p} &= \pdif{L}{\vv{v}} \: .
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 8 -- Bevarelseslov for energien fra Lagrangefunktionen}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
+
+Energi $\mathcal{E}$ er kvantiteten som bevares (langs bevægelsen (eng: trajectory) af et objekt), hvis Lagrangefunktionen ikke eksplicit afhænger af tiden (gennem Noethers sætning).
+
+I dette tilfælde er variationen af Lagrangefuntionen med infinitesimaltransformationen $t \rightarrow t + \delta t$ givet ved
+\begin{align}
+    \delta L &= \pdif{L}{\vv{r}} \delta \vv{r} + \pdif{L}{\vv{v}} \delta \vv{v} \: .
+\end{align}
+Vis at for denne bevægelse kan dette skrives som bevarelsesloven
+\begin{align}
+    \delta \mathcal{E} &= 0
+\end{align}
+med energien
+\begin{align}
+    \vv{p} &= \pdif{L}{\vv{v}} \vv{v} - L \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 9 -- Ladet partikel i elektrisk felt}
+\setcounter{subsection}{9}
+\setcounter{equation}{0}
+
+Betragt bevægelsen af en partikel med ladning $e$ og masse $m$ i et konstant uniformt elektrisk felt $\vv{E}$, som vi lader være langs $\xhat$-aksen.
+
+\paragraph{a)} Antag at partiklen til $t=0$ er i hvile, $\vv{v} = 0$, med koordinat $\vv{r} = 0$. Find $x(t)$.
+
+\paragraph{b)} Antag at partiklen til $t=0$ har koordinat $\vv{r} = 0$ og $v_x = 0$ men $v_y \ne 0$. Find $x(t)$ og $y(t)$.
+
+\paragraph{c)} Betragt grænserne $eEt \ll mc$ og $eEt \gg mc$.
+\\
+
+Hint: Ligningen for bevægelse af en ladet partikel i et elektromagnetisk felt $\vv{E}$, $\vv{H}$ er
+\begin{align}
+    \dif{\vv{p}}{t} &= e \left( \vv{E} + \frac{\vv{v}}{c} \times \vv{H} \right) \: ,
+\end{align}
+hvor den (relativistiske) impuls $\vv{p}$ og hastigheden $\vv{v}$ er relateret ved
+\begin{align}
+    \vv{p} &= \frac{m \vv{v}}{\sqrt{1 - \frac{\vv{v}^2}{c^2}}} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{c)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 10 -- Invariant Minkowskirumtidsinterval}
+\setcounter{subsection}{10}
+\setcounter{equation}{0}
+
+Vis at i Minkowskirummet er det endelige rumtidsinterval,
+\begin{align}
+    \Delta s^2 = c^2 \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2 \: ,
+\end{align}
+også invariant.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Vi betragter rumtidsintervallet $\Delta s^2 = c^2 \Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2$ i et referencesystem $S$, som er centreret i origo. Vi kan nu transformere intervallet $\Delta s^2$ til referencesystemet $S'$, som bevæger relativ til $S$ med konstant hastighed $v$ langs $\xhat$-retningen (notér at dette kan gøres uden tab af generalitet siden isotropien af Minkowskirummet giver, at enhver retning er lige så god som en anden, altså at vi vil opnå det præcis samme resultat for hastigheden valgt i $\yhat$- eller $\zhat$-retningen). I $S'$ er rumtidsintervallet
+\begin{align}
+    \left(\Delta s^2\right)' = \left(c^2 \Delta t^2\right)' - \left(\Delta x^2\right)' - \left(\Delta y^2\right)' - \left(\Delta z^2\right)' \: ,
+\end{align}
+idet Lorentztransformationerne er lineære. Siden hastigheden kun er i $\xhat$-retningen, så har vi, at
+\begin{align}
+    \left(\Delta y^2\right)' &= \Delta y^2 \: ,
+        \quad \text{og} \quad
+    \left(\Delta z^2\right)' = \Delta z^2 \: .
+\end{align}
+Opskriver vi nu eksplicit Lorentztransformationen, \cref{eq:Uge1_Opg2_LorentzTransformation}, af de sidste to led, fås
+\begin{align}
+    (c^2 \Delta t^2)' &= c^2 \gamma^2 \left( \Delta t - \frac{v}{c^2} \Delta x \right)^2 \: ,
+        \quad \text{og} \quad
+    (\Delta x^2)' = \gamma^2 (\Delta x - v \Delta t)^2 \: ,
+\end{align}
+hvorfor
+\begin{align}
+\begin{split}
+    (c^2 \Delta t^2)' - (\Delta x^2)' &= c^2 \gamma^2 \left( \Delta t - \frac{v}{c^2} \Delta x \right)^2 - \gamma^2 (\Delta x - v \Delta t)^2 \\
+        &= c^2 \gamma^2 \left( \Delta t^2 + \frac{v^2}{c^4} \Delta x^2 - \frac{2v}{c^2} \Delta t \Delta x \right) \\
+            &\qquad - \gamma^2 \left(\Delta x^2 + v^2 \Delta t^2 - 2 v \Delta t \Delta x \right) \\
+        &= \gamma^2 \left( c^2 \Delta t^2 + \frac{v^2}{c^2} \Delta x^2 - 2v \Delta t \Delta x \right) \\
+            &\qquad - \gamma^2 \left(\Delta x^2 + v^2 \Delta t^2 - 2 v \Delta t \Delta x \right) \\
+        &= \gamma^2 \left( c^2 \Delta t^2 + \frac{v^2}{c^2} \Delta x^2 - \Delta x^2 - v^2 \Delta t^2 \right) \\
+        &= \gamma^2 \left( 1 - \frac{v^2}{c^2} \right) c^2 \Delta t^2 - \gamma^2 \left( 1 - \frac{v^2}{c^2} \right) \Delta x^2 \\
+        &= c^2 \Delta t^2 - \Delta x^2
+\end{split}
+\end{align}
+da $\gamma^2 = (1 - v^2/c^2)^{-1}$.
+Dermed er $(\Delta s^2)' = \Delta s^2$, hvorfor rumtidsintervallet i Minkowskirummet er invariant.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 11 -- Udledning af tidsforlængelse og længdeforkortelse}
+\setcounter{subsection}{11}
+\setcounter{equation}{0}
+
+Benyt Lorentztransformationen til at udlede formlen for
+\paragraph{a)} tidsforlængelse, og
+\paragraph{b)} længdeforkortelse.
+Gør dette ved at identificere de begivenhedspar, hvor tidslig eller rumlig separation skal sammenlignes, og benyt derefter Lorentztransformationen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+For at vise tidsforlængelse betragter vi to punkter, $(t_1',\, x_1')$ og $(t_2',\, x_2')$, som er tidsligt separerede, altså hvor der findes et referencesystem, hvor disse finder sted på samme sted \cite[kapitel 11.2]{uggerhoj_specielRel}, $x_1' = x_2'$, hvor $S'$ angiver det bevægende referencesystem, som bevæger sig med objektet, som kan undergå processen, som vi betragter varigheden af.
+
+Vi kan nu benytte Lorentztransformationen
+\begin{align}
+    t &= \gamma \left( t' + \frac{vx'}{c^2} \right)
+\end{align}
+til at komme fra det bevægende referencesystem til det stationære, hvormed vi får
+\begin{align}
+    t_1 &= \gamma \left( t_1' + \frac{v x_1'}{c^2} \right) \: ,
+        \quad \text{og} \quad
+    t_2 = \gamma \left( t_2' + \frac{v x_2'}{c^2} \right) \: .
+\end{align}
+Vi finder nu varigheden af processen ved at tage differensen mellem start- og sluttidspunktet, $\Delta t = t_2 - t_1$ og $\Delta t' = t_2' - t_1'$, hvorfor
+\begin{align}
+\begin{split}
+    \Delta t &= t_2 - t_1 \\
+        &= \gamma \left[ \left( t_2' + \frac{v x_2'}{c^2} \right) - \left( t_1' + \frac{v x_1'}{c^2} \right) \right] \\
+        &= \gamma \left[ (t_2' - t_1') + \frac{v}{c^2} (x_2' - x_1') \right] \\
+        &= \gamma \left[ (t_2' - t_1') \right] \\
+        &= \gamma \Delta t' \\
+\end{split}
+\end{align}
+hvor vi har benyttet, at $x_1' = x_2'$. Vi får altså ligningen
+\begin{align}
+    \Delta t &= \gamma \Delta t' \: ,
+\end{align}
+hvilket er ligningen for tidsforlængelse. Det kan også ses, at der her er tale om en tidsforlængelse, da $\gamma \geq 1$, hvorfor $\Delta t \geq \Delta t'$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+For at vise længdeforkertelse gør vi brug af to punkter målt i det stationære referencesystem, $(t_1,\, x_1)$ og $(t_2,\, x_2)$, som er rumligt separerede, hvorfor de kan tidsligt ombyttes og dermed ske til samme tid \cite[kapitel 11.2]{uggerhoj_specielRel}, $t_1 = t_2$.
+
+Vi kan nu benytte Lorentztransformationen
+\begin{align}
+    x' &= \gamma (x - vt)
+\end{align}
+til at komme til det bevægende referencesystem, hvormed vi får
+\begin{align}
+    x_1' &= \gamma (x_1 - vt_1) \: ,
+        \quad \text{og} \quad
+    x_2' = \gamma (x_2 - vt_2) \: .
+\end{align}
+Vi finder nu afstanden mellem punkterne ved at tage deres differens, $\Delta x = x_2 - x_1$ og $\Delta x' = x_2' - x_1'$, hvorfor
+\begin{align}
+\begin{split}
+    \Delta x' &= x_2' - x_1' \\
+        &= \gamma \left[ (x_2 - vt_2) - (x_1 - vt_1) \right] \\
+        &= \gamma \left[ (x_2 - x_1) - v(t_2 - t_1) \right] \\
+        &= \gamma (x_2 - x_1) \\
+        &= \gamma \Delta x \: ,
+\end{split}
+\end{align}
+hvor vi har benyttet, at $t_1 = t_2$. Omskriver vi nu dette får vi
+\begin{align}
+    \Delta x &= \frac{\Delta x'}{\gamma} \: ,
+\end{align}
+hvilket er ligningen for længdeforkortelse. Det kan også ses, at der her er tale om en længdeforkortelse, da $\gamma \geq 1$, hvorfor $\Delta x \leq \Delta x'$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 12 -- ???}
+\setcounter{subsection}{12}
+\setcounter{equation}{0}
+
+En partikel som følger linjen $x = ct$ i et system $K$ bevæger sig med lysets hastighed langs $\xhat$-aksen.
+
+\paragraph{a)} Baseret på ovenstående hvad tror du da at ligningen bliver i et system $K'$, som bevæger sig langs $\xhat$-aksen relativ til $K$-systemet.
+
+\paragraph{b)} Verificér din forudsigelse fra \textbf{a)} ved brug af Lorentztransformationen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 13 -- Beregninger på scenarie lig tvillingeparadokset}
+\setcounter{subsection}{13}
+\setcounter{equation}{0}
+
+En rejsende starter på Jorden og bevæger sig langs en lige linje med konstant acceleration $g$ for $25$ rejseår (år målt for den rejsende), hvorefter han bevæger sig langs samme linje med konstant deceleration $g$ for $25$ rejseår. Hvor langt fra Jorden har den rejsende rejst? Hvad var maksimalhastigheden for den rejsende i Jordens referenceramme (som antages at være inertial)? Den rejsende flyver nu tilbage til Jorden på samme må som udrejsen. Hvor mange år vil der være gået på Jorden fra den rejsende tog afsted til han kom tilbage igen?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

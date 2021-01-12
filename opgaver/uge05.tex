@@ -1,0 +1,262 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 5 -- Elektrodynamik i tyngdefelter}
+\setcounter{section}{5}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- $F_{ab}$ generel kovariant tensor}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Argumentér for at den elektromagnetiske felttensor $F_{ab}$ er en generel kovariant tensor ved at bevise, at
+\begin{align}
+    F_{ab} &\doteq - A_{a,b} + A_{b,a} = - A_{a;b} + A_{b;a} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Vi ved at
+\begin{align}
+    A_{a;c} &= A_{a,c} - \Gamma^b_{ac} A_b \: ,
+\end{align}
+hvorved vi får
+\begin{align}
+\begin{split}
+    - A_{a;b} + A_{b;a} &= - \left( A_{a,b} - \Gamma^c_{ab} A_c \right) + \left( A_{b,a} - \Gamma^c_{ba} A_c \right) \\
+        &= \left( - A_{a,b} + A_{b,a} \right) + \left( \Gamma^c_{ab} - \Gamma^c_{ba} \right) A_c \\
+        &\xleq{*} - A_{a,b} + A_{b,a} \\
+        &= F_{ab} \: .
+\end{split}
+\end{align}
+Det er ved $*$ blevet benyttet, at
+\begin{align}
+    \Gamma^a_{bc} &= g^{ad} \Gamma_{dbc} = g^{ad} \Gamma_{dcb} = \Gamma^a_{cb} \: ,
+\end{align}
+da $\Gamma_{abc} = \Gamma_{acb}$.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Elektromagnetisk felttensor og Maxwellligningen}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+\paragraph{a)} Argumentér for at den elektromagnetiske felttensor $F_{ab}$ overholder den homogene Maxwellligning
+\begin{align}
+    0 &= F_{ab,c} + F_{bc,a} + F_{ca,b} \: ,
+\end{align}
+hvor
+\begin{align}
+    F_{ab} &= - A_{a,b} + A_{b,a} \: .
+\end{align}
+
+\paragraph{b)} Argumentér for at den elektromagnetiske felttensor i kurvlineare koordinater (eng: curvilinear coordinates) overholder den generelle kovariante version af denne ligning
+\begin{align}
+    0 &= F_{ab;c} + F_{bc;a} + F_{ca;b} \: ,
+\end{align}
+hvor
+\begin{align}
+    F_{ab} &= - A_{a;b} + A_{b;a} \: ,
+\end{align}
+da dette blev vist i \textbf{opgave 1}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\begin{align}
+\begin{split}
+    F_{ab,c} + F_{bc,a} + F_{ca,b}
+        &= \left( - A_{a,b} + A_{b,a} \right)_{,c} + \left( - A_{b,c} + A_{c,b} \right)_{,a} + \left( - A_{c,a} + A_{a,c} \right)_{,b} \\
+        &= \left( - A_{a,bc} + A_{b,ac} \right) + \left( - A_{b,ca} + A_{c,ba} \right) + \left( - A_{c,ab} + A_{a,cb} \right) \\
+        &= A_{a,cb} - A_{a,bc} + A_{b,ac} - A_{b,ca} + A_{c,ba} - A_{c,ab} \\
+        &= A_{a,bc} - A_{a,bc} + A_{b,ac} - A_{b,ac} + A_{c,ab} - A_{c,ab} \\
+        &= 0 \: ,
+\end{split}
+\end{align}
+siden rækkefølgen af differentieringen er irrelevant $A_{a,bc} = A_{a,cb}$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+Den kovariante afledede af tensorerne følger af Leibnz' regel, hvorfor
+\begin{subequations}
+\begin{align}
+    F_{ab;c} &= F_{ab,c} - \Gamma^d_{ac} F_{db} - \Gamma^d_{bc} F_{ad} \: , \\
+    F_{bc;a} &= F_{bc,a} - \Gamma^d_{ba} F_{dc} - \Gamma^d_{ca} F_{bd} \: , \quad \text{og} \\
+    F_{ca;b} &= F_{ca,b} - \Gamma^d_{cb} F_{da} - \Gamma^d_{ab} F_{cd} \: .
+\end{align}
+\end{subequations}
+Vi kan nu summerer disse led, men grundet Christoffelsymbolernes symmetri, $\Gamma^a_{bc} = \Gamma^a_{cb}$, og antisymmetrien af den elektromagnetiske felttensor, $F_{ab} = - F_{ba}$, så kan vi eliminere alle led med Christoffelsymboler, hvorved
+\begin{align}
+\begin{split}
+    F_{ab;c} + F_{bc;a} + F_{ca;b} &= F_{ab,c} - \Gamma^d_{ac} F_{db} - \Gamma^d_{bc} F_{ad} + F_{bc,a} - \Gamma^d_{ba} F_{dc} - \Gamma^d_{ca} F_{bd} \\
+        &\qquad + F_{ca,b} - \Gamma^d_{cb} F_{da} - \Gamma^d_{ab} F_{cd} \\
+        &= F_{ab,c} + F_{bc,a} + F_{ca,b} - \Gamma^d_{ac} F_{db} - \Gamma^d_{ca} F_{bd} \\
+            &\qquad - \Gamma^d_{bc} F_{ad} - \Gamma^d_{cb} F_{da} - \Gamma^d_{ba} F_{dc} - \Gamma^d_{ab} F_{cd} \\
+        &= F_{ab,c} + F_{bc,a} + F_{ca,b} - \Gamma^d_{ac} F_{db} - \Gamma^d_{ac} (- F_{db}) \\
+            &\qquad - \Gamma^d_{bc} F_{ad} - \Gamma^d_{bc} (- F_{ad}) - \Gamma^d_{ab} (-F_{cd}) - \Gamma^d_{ab} F_{cd} \\
+        &= F_{ab,c} + F_{bc,a} + F_{ca,b} \\
+        &= 0 \: ,
+\end{split}
+\end{align}
+hvor sidste lighed kommer af \textbf{a)}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Anden Maxwellligning i kurvilineære koordinater}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+\paragraph{a)} Udled den anden Maxwellligning i kurvilineære koordinater,
+\begin{align}
+    \left( \sqrt{-g} F^{ab} \right)_{,a} &= 4 \pi \sqrt{-g} j^b \: ,
+\end{align}
+fra virkningen
+\begin{align}
+    S &= \int \left( - \inv{16\pi} F^{ab} F_{ab} - A_a j^a \right) \sqrt{-g}\, \dd \Omega \: .
+\end{align}
+
+\paragraph{b)} Vis at denne ligning også kan skrives som
+\begin{align}
+    F^{ab}_{;a} &= 4\pi j^b \: .
+\end{align}
+
+Hints:
+\begin{itemize}
+    \item Vis at $\Gamma^a_{ba} = g_{,b}/(2g) = [\ln(\sqrt{-g})_{,b}]$.
+    \item Vis at $F^{ab}_{;a} = (\sqrt{-g} F^{ab})_{,a}/\sqrt{-g}$.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+\ldots
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Bevis $\dif{u_a}{s} - \inv{2} g_{bc,a} u^b u^c = \dif{u_a}{s} - \Gamma_{bca} u^b u^c$}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Bevis at
+\begin{align} \label{eq:Uge5_Opg4_RelationToProve}
+    \dif{u_a}{s} - \inv{2} g_{bc,a} u^b u^c = \dif{u_a}{s} - \Gamma_{bca} u^b u^c \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+For at bevise relationen i \cref{eq:Uge5_Opg4_RelationToProve} er det nok at vise, at
+\begin{align}
+    \Gamma_{bca} u^b u^c &= \inv{2} g_{bc,a} u^b u^c \: .
+\end{align}
+Dette gøres ved at starte fra venstresiden og udskrive Christoffelsymbolet ved metrikken, hvorved vi får
+\begin{align}
+\begin{split}
+    \Gamma_{bca} u^b u^c &= \inv{2} \left( g_{bc,a} - g_{ac,b} + g_{ba,c} \right) u^b u^c \\
+        &= \inv{2} g_{bc,a} u^b u^c - \inv{2} \left( g_{ac,b} - g_{ab,c} \right) u^b u^c \\
+        &= \inv{2} g_{bc,a} u^b u^c - \inv{2} \left( g_{a\cancelto{b}{c},\cancelto{c}{b}}\:\: u^{\cancelto{c}{b}} u^{\cancelto{b}{c}} - g_{ab,c} u^b u^c \right) \\
+        &= \inv{2} g_{bc,a} u^b u^c - \inv{2} \left( g_{ab,c} u^c u^b - g_{ab,c} u^b u^c \right) \\
+        &= \inv{2} g_{bc,a} u^b u^c - \inv{2} \left( g_{ab,c} u^b u^c - g_{ab,c} u^b u^c \right) \\
+        &= \inv{2} g_{bc,a} u^b u^c \: .
+\end{split}
+\end{align}
+Dermed er relationen vist.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Lorentzkraft fra virkning}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Udled Lorentzkraftligningen fra virkningen
+\begin{align}
+    S &= - m \int \dd s - e \int \dd x^a A_a
+\end{align}
+i Minkowskirummet i speciel relativitetsteori. Omskriv denne ligning til 3-notation, hvor
+\begin{align}
+    A^a &= \{\phi,\, \vv{A}\} \: , \quad
+    \vv{E} = - \Grad{\phi} - \pdif{\vv{A}}{t} \: , \quad \text{og} \quad
+    \vv{H} = \Curl{\vv{A}} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Maxwells ligninger med elektriske kilder fra virkning}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Udled Maxwells ligninger med elektriske kilder (eng: electrical sources)
+\begin{align}
+    A^{b,a}_{,a} &= 4\pi j^b
+\end{align}
+fra virkningen
+\begin{align}
+    S &= - \inv{8\pi} \int \dd^4 x\, A_{a,b} A^{a,b} - \int \dd^4 x\, A^a j_a
+\end{align}
+i Minkowskirummet i speciel relativitetsteori.
+
+Vis at ved brug af Lorentzbetingelsen
+\begin{align}
+    A^a_{,a} &= 0 \: ,
+\end{align}
+så bliver Maxwellligningerne med elektriske kilder
+\begin{align}
+    F^{ab}_{,a} &= 4\pi j^b \: .
+\end{align}
+Nedskriv denne i 3-notation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

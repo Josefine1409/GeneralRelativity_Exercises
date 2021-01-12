@@ -1,0 +1,285 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 4 -- Bevægelse af frie partikler i tyngdefelter}
+\setcounter{section}{4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Euler-Lagrangeligning for krumt rum er geodætisk ligning}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Betragt en generalisering af den ikke-relativistiske Lagrangefunktion for en fri partikel i fladt rum, $L = m \vv{v}^2 / 2$, til et krumt rum med metrik $\dd l^2 = g-{\alpha\beta} x^\alpha x^\beta$,
+\begin{align}
+    \inv{2} m \vv{v}^2
+        \quad \rightarrow \quad
+    \inv{2} m g_{\alpha\beta} v^\alpha v^\beta \: .
+\end{align}
+Vis at den korresponderende Euler-Lagrangeligning (Euler-Lagrangeligningen er givet som $\dd / \dd t [ \partial L / \partial \ddt{x}^\mu] = \partial L / \partial x^\mu$) er den geodætiske ligning for det givne rum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Euler-Lagrangeligning for krumt rum er geodætisk ligning (relativistisk)}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Betragt en yderligere generalisering,
+\begin{align}
+    S &= \int \inv{2} m g_{\alpha\beta} v^\alpha v^\beta\, \dd t
+        \quad \rightarrow \quad
+    S = - m \int \inv{2} g_{ab} u^a u^b\, \dd s \: .
+\end{align}
+Vis at den korresponderende Euler-Lagrangeligning er den relativistiske geodætiske ligning.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Relativistisk geodætisk ligning fra virkning}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Vis at Euler-Lagrangeligningen for virkningen
+\begin{align}
+    S &= - m \int \dd s
+        = - m \int \dif{s}{\lambda}\, \dd \lambda
+        = - m \int \sqrt{g_{ab} \dif{x^a}{\lambda}\, \dif{x^b}{\lambda}}\, \dd \lambda
+        \doteq \int L\left( x^a,\, \dif{x^a}{\lambda} \right)\, \dd \lambda \: ,
+\end{align}
+hvor $\lambda$ er en parameter, som ændres glat langs banen, er den relativistiske geodætiske ligning.
+
+Hints:
+\begin{align}
+    \dif{s}{\lambda} &= L \: , \\
+    \dif{f}{\lambda} &= \dif{f}{s}\, \dif{s}{\lambda} = \dif{f}{s} L \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Bevis $D u_c = 0 \Leftrightarrow \delta \int \dd s = 0$}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Bevis at de to postulater $D u_c = 0$ og $\delta \int \dd s = 0$ er æknvivalente for bevægelse af frie partikler i kurvet rum.
+
+Dette er svarende til, at der skal bevises, at den geodesiske ligning (eng: geodesic equation)
+\begin{align} \label{eq:Uge4_Opg4_GeodesicEquation}
+    0 &= \dif{u^a}{s} + \Gamma^a_{bc} u^b u^c
+\end{align}
+og
+\begin{align} \label{eq:Uge4_Opg4_duc/ds}
+    \dif{u_c}{s} &= \inv{2} g_{ab,c} u^a u^b
+\end{align}
+er ækvivalente.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Det viser sig at være favorabelt først at vise, at $g_{ab,c} = \Gamma_{abc} + \Gamma_{bac}$. Dette følger af definitionen af den kovariante afledede
+\begin{align} \label{eq:Uge4_Opg4_CovariantDerivative}
+\begin{split}
+    0 &= \DD g_{ab} \\
+        &= \dd g_{ab} - \Gamma^e_{ac} g_{eb} \dd x^c - \Gamma^e_{bc} g_{ea} \dd x^c \\
+        &= \left[ g_{ab,c} - \Gamma^e_{ac} g_{eb} - \Gamma^e_{bc} g_{ea} \right] \dd x^c \\
+        &= \left[ g_{ab,c} - \Gamma_{bac} - \Gamma_{abc} \right] \dd x^c
+\end{split}
+\end{align}
+hvor vi først har benyttet Leibniz' regel ($[AB]_{;b} = A_{;b}B + AB_{;b}$), hvorefter kædereglen er blevet benyttet på første led og Christoffelsymbolernes øvre indeks er blevet sænket grundet den metriske tensor ganget på. Dermed får vi
+\begin{align} \label{eq:Uge4_Opg4_gabcExpandedWithChristoffelSymbols}
+    g_{ab,c} &= \Gamma_{abc} + \Gamma_{bac} \: ,
+\end{align}
+som vi ønskede at vise.
+\\
+
+Vi betragter nu \cref{eq:Uge4_Opg4_duc/ds}, hvor vi udvider $g_{ab,c}$ som fundet i \cref{eq:Uge4_Opg4_gabcExpandedWithChristoffelSymbols}
+\begin{align}
+\begin{split}
+    \dif{u_c}{s} &= \inv{2} g_{ab,c} u^a u^b \\
+        &= \inv{2} \left( \Gamma_{abc} + \Gamma_{bac} \right) u^a u^b \: .
+\end{split}
+\end{align}
+Den originale opskrivning af ligningen, \cref{eq:Uge4_Opg4_duc/ds}, er symmetrisk under ombytningen $a \leftrightarrow b$, hvorfor omskrivningen også skal være det. Vi får derved
+\begin{align}
+\begin{split}
+    \dif{u_c}{s} &= \inv{2} \left( \Gamma_{abc} + \Gamma{bac} \right) u^a u^b \\
+        &= \inv{2} \Gamma_{abc} u^a u^b + \inv{2} \Gamma_{\cancelto{a}{b}\cancelto{b}{a}c}\:\: u^{\cancelto{b}{a}}\:\: u^{\cancelto{a}{b}} \\
+        &= \inv{2} \left( \Gamma_{abc} u^a u^b + \Gamma_{abc} u^b u^a \right) \\
+        &= \Gamma_{abc} u^a u^b \: .
+\end{split}
+\end{align}
+Omskriver vi dette fås
+\begin{align}
+    0 &= \dif{u_c}{s} - \Gamma_{abc} u^a u^b
+        = \frac{\mathrm{D} u_c}{\dd s} \: ,
+\end{align}
+og hæver vi indekset får vi
+\begin{align}
+\begin{split}
+    0 &= g^{xx} \dif{u_c}{s} - g^{xx} \Gamma_{abc} u^a u^b \\
+        &= \dif{u^c}{s} + \Gamma^a_{bc} u^a u^b \\
+        &= \frac{\mathrm{D} u^c}{\dd s} \: ,
+\end{split}
+\end{align}
+hvilket er \cref{eq:Uge4_Opg4_GeodesicEquation}, hvorved beviset er slut.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Geotætisk ligning fra parametriseret ligning for linje i polære koordinater}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Betragt parametriserede ligning for en linje i Kartesiske koordinater $x$ og $y$,
+\begin{align}
+    \dif[2]{x}{\lambda} &= 0 \: , \quad \text{og} \quad \dif[2]{y}{\lambda} = 0 \: ,
+\end{align}
+hvor $\lambda$ er en paramenter, som ændres glat langs kurven. Lav en koordinattransformation til polære koordinater ($x = r \cos(\theta)$ og $y = r \sin(\theta)$) og udled de korresponderende ligninger i $r,\theta$-koordinater. Bevis at de er identiske til den geodætiske ligning i ligning 6 på ugeseddel 4, \cite[ligning 6]{ugeseddel4},
+\begin{align}
+    0 &= \dif[2]{x^a}{s} + \Gamma^a_{bc} \dif{x^b}{s} \dif{x^c}{s} \: .
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+Transformationen fra Kartiske koordinater til polære koordinater er
+\begin{align}
+    x &= r \cos(\theta) \: , \quad \text{og} \quad y = r \sin(\theta) \: .
+\end{align}
+Vi differentierer nu disse udtryk ved brug af kædereglen og produktreglen:
+\begin{align}
+    \begin{split}
+        \dif{x}{s} &= \dif{x}{r}\, \dif{r}{s} + \dif{x}{\phi}\, \dif{\phi}{s} \\
+            &= \dif{}{r}[r \cos(\theta)]\, \dif{r}{s} + \dif{}{\phi}[r \cos(\theta)]\, \dif{\phi}{s} \\
+            &= \cos(\theta)\, \dif{r}{s} - r \sin(\theta)\, \dif{\phi}{s} \: , \\
+        0 &= \dif[2]{x}{s} \\
+            &= \dif{}{s} \left[ \cos(\theta)\, \dif{r}{s} - r \sin(\theta)\, \dif{\phi}{s} \right] \\
+            &= 0 - \sin(\phi) \dif{r}{s}\, \dif{\phi}{s} + \cos(\phi) \dif[2]{r}{s} - \sin(\phi)\, \dif{r}{s} \dif{\phi}{s} \\
+                &\qquad - r \cos(\phi) \dif{\phi}{s}\, \dif{\phi}{s} - r \sin(\phi) \dif[2]{\phi}{s} \: , \quad \text{og}
+    \end{split} \\
+    \begin{split}
+        \dif{y}{s} &= \dif{y}{r}\, \dif{r}{s} + \dif{y}{\phi}\, \dif{\phi}{s} \\
+            &= \dif{}{r}[r \sin(\theta)]\, \dif{r}{s} + \dif{}{\phi}[r \sin(\theta)]\, \dif{\phi}{s} \\
+            &= \sin(\theta)\, \dif{r}{s} + r \cos(\theta)\, \dif{\phi}{s} \: , \\
+        0 &= \dif[2]{x}{s} \\
+            &= \dif{}{s} \left[ \sin(\theta)\, \dif{r}{s} + r \cos(\theta)\, \dif{\phi}{s} \right] \\
+            &= 0 + \cos(\phi) \dif{r}{s}\, \dif{\phi}{s} + \sin(\phi) \dif[2]{r}{s} + \cos(\phi)\, \dif{r}{s} \dif{\phi}{s} \\
+                &\qquad - r \sin(\phi) \dif{\phi}{s}\, \dif{\phi}{s} - r \cos(\phi) \dif[2]{\phi}{s} \: .
+    \end{split}
+\end{align}
+Altså har vi, at
+\begin{subequations}
+\begin{align}
+    0 &= \dif[2]{x}{s}
+        = \cos(\phi) \dif[2]{r}{s} - r \sin(\phi) \dif[2]{\phi}{s} - 2 \sin(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \cos(\phi) \left(\dif{\phi}{s}\right)^2 \: , \\
+    0 &= \dif[2]{x}{s}
+        = \sin(\phi) \dif[2]{r}{s} + r \cos(\phi) \dif[2]{\phi}{s} + 2 \cos(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \sin(\phi) \left(\dif{\phi}{s}\right)^2 \: .
+\end{align}
+\end{subequations}
+Vi ønsker at eliminere de to sidste led i disse ligninger, hvilket vi gør ved først at finde $\tan(\phi) \dif[2]{x}{s}$ og fratrække denne fra $\dif[2]{y}{s}$ (da man altid gerne må trække $0$ fra), så
+\begin{align}
+    \begin{split}
+        0 &= \tan(\phi) \dif[2]{x}{s} \\
+            &= \tan(\phi) \left[ \cos(\phi) \dif[2]{r}{s} - r \sin(\phi) \dif[2]{\phi}{s} - 2 \sin(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \cos(\phi) \left(\dif{\phi}{s}\right)^2 \right] \\
+            &= \sin(\phi) \dif[2]{r}{s} - r \tan(\phi) \sin(\phi) \dif[2]{\phi}{s} - 2 \tan(\phi) \sin(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \sin(\phi) \left(\dif{\phi}{s}\right)^2 \: ,
+    \end{split} \\
+    \begin{split}
+        0 &= \dif[2]{x}{s} - \tan(\phi) \dif[2]{x}{s} \\
+            &= \left[ \sin(\phi) \dif[2]{r}{s} + r \cos(\phi) \dif[2]{\phi}{s} + 2 \cos(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \sin(\phi) \left(\dif{\phi}{s}\right)^2 \right] \\
+                &\quad - \left[ \sin(\phi) \dif[2]{r}{s} - r \tan(\phi) \sin(\phi) \dif[2]{\phi}{s} - 2 \tan(\phi) \sin(\phi) \dif{r}{s}\, \dif{\phi}{s} - r \sin(\phi) \left(\dif{\phi}{s}\right)^2 \right] \\
+            &= r \Big[ \cos(\phi) + \tan(\phi) \sin(\phi) \Big] \dif[2]{\phi}{s} + 2 \Big[ \cos(\phi) + \tan(\phi) \sin(\phi) \Big] \dif{r}{s}\, \dif{\phi}{s} \: .
+    \end{split}
+\end{align}
+Isolerer vi i ligningen $0 = \dif[2]{x}{s} - \tan(\phi) \dif[2]{x}{s}$ får vi
+\begin{align}
+    0 &= \dif[2]{\phi}{s} + \frac{2}{r} \dif{r}{s}\, \dif{\phi}{s} \: .
+\end{align}
+Vi kan nu bruge, at Christoffelsymbolet er $2/r$, da
+\begin{align}
+\begin{split}
+    \Gamma^\phi_{ab} &= \sum_{a=r,\phi} \sum_{b=r,\phi} \Gamma^\phi_{ab} \\
+        &= \Gamma^\phi_{rr} + \Gamma^\phi_{r \phi} + \Gamma^\phi_{\phi r} + \Gamma^\phi_{\phi\phi} \\
+        &= \Gamma^\phi_{r \phi} + \Gamma^\phi_{\phi r} \\
+        &= 2 \Gamma^\phi_{\phi r} \\
+        &= 2 \frac{1}{2} g^{\phi\phi} \left[ g_{\phi\phi,r} - g_{\phi r,\phi} + g_{r\phi,\phi} \right] \\
+        &= g^{\phi\phi} \left[ g_{\phi\phi,r} - g_{r \phi,\phi} + g_{r\phi,\phi} \right] \\
+        &= g^{\phi\phi} g_{\phi\phi,r} \\
+        &= \inv{r^2} \pdif{r^2}{r} \\
+        &= \inv{r^2} 2 r \\
+        &= \frac{2}{r} \: ,
+\end{split}
+\end{align}
+da $\Gamma_{abc} = (g_{ab,c} - g_{bc,a} + g_{ca,b})/2$ og $g_{ab,c} = g_{ba,c}$, hvorfor
+\begin{align}
+    0 &= \dif[2]{\phi}{s} + \Gamma^\phi_{ab} \dif{r}{s}\, \dif{\phi}{s} \: ,
+\end{align}
+hvilket er den geodætiske ligning.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 6 -- Lysstråles bane i 2D polære koordinater}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
+
+Benyt den generelle kovariante afledede ligning for banen for en lysstråle, $\DD k^a / \dd \lambda = 0$, hvor $k^a = \dd x^a / \dd \lambda$ og $x^a(\lambda)$ følger banen, på et todimensionelt rum i polære koordinater og find de korresponderende baner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 7 -- Geodæter på overfladen af en sfære}
+\setcounter{subsection}{7}
+\setcounter{equation}{0}
+
+Find ligningen for geodæter på overfladen af en sfære.
+
+Hint: Integrer $\phi$-ligningen en enkelt gang og omskriv $\theta$-ligningen for funktionen $u(\phi) = \cot[\theta(\phi)]$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

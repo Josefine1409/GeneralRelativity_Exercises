@@ -1,0 +1,225 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Uge 12 -- Friedmanunivers (FLRW-univers)}
+\setcounter{section}{12}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 1 -- Omskriv ${}^\eta_\eta$-Friedmanligningen til ${}^t_t$-versionen}
+\setcounter{subsection}{1}
+\setcounter{equation}{0}
+
+Vores ${}^\eta_\eta$-Friedmanligning er skrevet for den $\eta$-afledede, $a' \doteq \dd a/\dd\eta$. Omskriv den (som i Wikeperdiaartiklen\footnote{Muligvis denne artikel: \url{https://en.wikipedia.org/wiki/Friedmann_equations}.}) for den $t$-afledede, $\dt{a} = \dd a/\dd t$, i stedet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+${}^\eta_\eta$-komponenten af Friedmanligningen for det lukkede univers er \cite[ligning 15]{ugeseddel12}
+\begin{align}
+    \frac{3}{a^4} \left( a^2 + a'^2 \right) &= \kappa \epsilon \: .
+\end{align}
+Vi ved også, at $\dd t = a \dd \eta$, \cite[ligning 11]{ugeseddel12}, hvorfor
+\begin{align}
+    a' &= \dif{a}{\eta}
+        = \dif{a}{t}\, \dif{t}{\eta}
+        = \dot{a} a \: ,
+\end{align}
+hvorfor vi får ${}^t_t$-komponenten af Friedmanligningen for det lukkede univers til
+\begin{align}
+\begin{split}
+    \kappa \epsilon &= \frac{3}{a^4} \left( a^2 + a'^2 \right) \\
+        &= \frac{3}{a^4} \left( a^2 + \left[ \dt{a} a \right]^2 \right) \\
+        &= \frac{3}{a^4} \left( a^2 + a^2 \dt{a}^2 \right) \\
+        &= \frac{3 a^2}{a^4} \left( 1 + \dt{a}^2 \right) \\
+        &= \frac{3}{a^2} \left( 1 + \dt{a}^2 \right) \: . \\
+    \Rightarrow
+    \pfrac{\dt{a}}{a}^2 &= \frac{\kappa \epsilon}{3} - \inv{a^2} \: .
+\end{split}
+\end{align}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 2 -- Riccitensor i Friedmankoordinater for lukket univers}
+\setcounter{subsection}{2}
+\setcounter{equation}{0}
+
+Beregn manuelt Riccitensoren i Friedmankoordinater for et lukket univers.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 3 -- Energibevarelse fra feltligninger}
+\setcounter{subsection}{3}
+\setcounter{equation}{0}
+
+Argumentér for at energibevarelsensligningen,
+\begin{align}
+    (\epsilon a^3)' + p(a^3)' &= 0 \: ,
+\end{align}
+følger fra feltligningerne
+\begin{align}
+    \frac{3}{a^4} \left( a^2 + a'^2 \right) &= \kappa \epsilon \: , \quad \text{og} \label{eq:Uge12_Opg3_FieldEquation1} \\
+    \inv{a^4} \left( a^2 + 2aa'' - a'^2 \right) &= - \kappa p \: . \label{eq:Uge12_Opg3_FieldEquation2}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Vi betragter først den første feltligning, \cref{eq:Uge12_Opg3_FieldEquation1}, hvori vi isolerer $\epsilon a^3$
+\begin{align}
+    \kappa \epsilon &= \frac{3}{a^4} \left( a^2 + a'^2 \right)
+        \quad \Rightarrow \quad
+    \epsilon a^3 = \frac{3}{a \kappa} \left( a^2 + a'^2 \right) \: ,
+\end{align}
+hvorefter vi nu differentierer dette med hensyn til $\eta$
+\begin{align} \label{eq:Uge12_Opg3_FirstPart}
+\begin{split}
+    (\epsilon a^3)' &= \dif{}{\eta} \left[ \frac{3}{a \kappa} \left( a^2 + a'^2 \right) \right] \\
+        &= \frac{3}{\kappa} \dif{}{\eta} \left( a + \frac{a'^2}{a} \right) \\
+        &= \frac{3}{\kappa} \left( a' + \frac{2a'a''}{a} - \frac{a'^2}{a^2} a' \right) \\
+        &= \frac{3 a'}{\kappa} + \frac{6a'a''}{a \kappa} - \frac{3 a'^3}{a^2 \kappa} \: .
+\end{split}
+\end{align}
+
+Betragter vi nu den anden feltligning, \cref{eq:Uge12_Opg3_FieldEquation2}, hvori vi isolerer $-p$, så får vi
+\begin{align}
+    - \kappa p &= \inv{a^4} \left( a^2 + 2aa'' - a'^2 \right)
+        \quad \Rightarrow \quad
+    - p = \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) \: ,
+\end{align}
+hvorefter vi nu ganger dette på $(a^3)'$, altså ganget på $a^3$ differentieret med hensyn til $\eta$,
+\begin{align} \label{eq:Uge12_Opg3_SecondPart}
+\begin{split}
+    - p (a^3)' &= \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) \dif{a^3}{\eta} \\
+        &= \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) 3a^2 a' \\
+        &= \frac{3 a'}{\kappa} + \frac{6a'a''}{a \kappa} - \frac{3 a'^3}{a^2 \kappa} \: .
+\end{split}
+\end{align}
+
+Det kan nu ses, at vi kan sætte \cref{eq:Uge12_Opg3_FirstPart} lig \cref{eq:Uge12_Opg3_SecondPart}, hvorved vi får
+\begin{align}
+\begin{split}
+    (\epsilon a^3)' &= \frac{3 a'}{\kappa} + \frac{6a'a''}{a \kappa} - \frac{3 a'^3}{a^2 \kappa} = - p (a^3)' \\
+    \Rightarrow 0 &= (\epsilon a^3)' + p (a^3)' \: ,
+\end{split}
+\end{align}
+hvilket er energibevarelsesligningen, som vi skulle vise.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 4 -- Tidsudvikling af masse- og strålingsdominerede Euklidiske universer}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+
+Betragt et fladt (Euklidisk) og isotopt univers med metrikken
+\begin{align}
+    \dd s^2 &= \dd t^2 - a^2(t) \left( \dd x^2 + \dd y^2 + \dd z^2 \right) \: ,
+\end{align}
+og undersøg dets tidslige udvikling for masse- og strålingsdominerede universer.
+
+Hints:
+\begin{enumerate}
+    \item Beregn Christoffelsymbolerne
+        \begin{align}
+            \Gamma^x_{tx} &= \Gamma^y_{ty} = \Gamma^z_{tz} = \frac{\dt{a}}{a} \: ,
+                \quad \text{og} \quad
+            \Gamma^t_{xx} = \Gamma^t_{yy} = \Gamma^t_{zz} = a \dt{a} \: .
+        \end{align}
+    \item Beregn Riccitensoren og Ricciskalaren
+        \begin{align}
+            R^t_t &= - 3 \frac{\ddt{a}}{a} \: ,
+                \quad \text{og} \quad
+            R^x_x = R^y_y = R^z_z = - \frac{\ddt{a}}{a} - 2 \frac{\dt{a}^2}{a^2} \: .
+        \end{align}
+    \item Nedskriv ${}^t_t$-komponenten af Einsteinligningen med en perfekt væske
+        \begin{align}
+            3 \frac{\dt{a}^2}{a^2} &= \kappa \epsilon \: .
+        \end{align}
+    \item Nedskriv energibevarelsesligningen
+        \begin{align}
+            \frac{\dd V}{V} &= - \frac{\dd \epsilon}{(\epsilon + p)}
+                \quad \Rightarrow \quad
+            3 \ln(a) = - \int \frac{\dd \epsilon}{(\epsilon + p)} \: .
+        \end{align}
+    \item Medtag (eng: integrate) ligningerne for et massedomineret univers ($p = 0$, $\epsilon = \mu$)
+        \begin{align}
+            \mu a^3 &= \text{konst} \: ,
+                \quad \text{og} \quad
+            a \propto t^{2/3} \: .
+        \end{align}
+    \item Medtag (eng: integrate) ligningerne for et strålingsdomineret univers ($p = \epsilon / 3$)
+        \begin{align}
+            \epsilon a^4 &= \text{konst} \: ,
+                \quad \text{og} \quad
+            a \propto t^{1/2} \: .
+        \end{align}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+\ldots
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Opgave 5 -- Volumen af åbent og lukket univers}
+\setcounter{subsection}{5}
+\setcounter{equation}{0}
+
+Beregn volumenet af et åbent og et lukket univers.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Besvarelse}
+
+Metrikken af hver hyperflade i det lukkede univers er
+\begin{align}
+    \text{Lukket:} \qquad
+    \dd \sigma^2 &= a^2 \left[ \dd\chi^2 + \sin^2(\chi) \{ \dd \theta^2 + \sin^2(\theta) \dd \phi^2 \} \right] \: ,
+\end{align}
+hvor $\chi \in [0,\, \pi]$, $\theta \in [0,\, \pi]$ og $\phi \in [0,\, 2\pi]$.
+
+Overfladen af hypersfæren svarer til volumenet af det lukkede univers. Trevolumenet er dermed fundet ved at integrere over alle overflader af tosfærerne fra ''nordpolen'' af hypersfæren til ''sydpolen''
+\begin{align}
+\begin{split}
+    V_{lukket} &= \int [a \dd \chi] [a \sin(\chi) \dd \theta] [a \sin(\chi) \sin(\theta) \dd \phi] \\
+        &= a^3 \int_0^\pi \sin^2(\chi) \dd \chi \int_0^\pi \sin(\theta) \dd\theta \int_0^{2\pi} \dd\phi \\
+        &= 4 \pi a^3 \int_0^\pi \sin^2(\chi) \dd \chi \\
+        &= 4 \pi^2 a^3 \: .
+\end{split}
+\end{align}
+\\
+
+Den samme udregning kan foretager i det åbne univers, hvor metrikken af hver hyperflade er
+\begin{align}
+    \text{Åbent:} \qquad
+    \dd \sigma^2 &= a^2 \left[ \dd\chi^2 + \sinh^2(\chi) \{ \dd \theta^2 + \sin^2(\theta) \dd \phi^2 \} \right] \: ,
+\end{align}
+hvor $\chi \in [0,\, \infty[$, $\theta \in [0,\, \pi]$ og $\phi \in [0,\, 2\pi]$. Denne ændring for definitionsmængden af $\chi$ betyder, at integralet vil divergere, siden $\sinh(\chi) \rightarrow \infty$ når $\chi \rightarrow \infty$. Trevolumenet af det åbne univers er dermed uendelig.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
