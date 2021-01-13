@@ -319,11 +319,11 @@ Ved brug af antisymmetri og ombytningssymmetri af Riemanntensoren kan vi konklud
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 10 -- Riemanntensor, Riccitensor og Ricciskalar for todimensionel sfære}
+\subsection{Opgave 10 -- Riemanntensor, Riccitensor og Ricciskalar for todimensionel sfære}
 \setcounter{subsection}{10}
 \setcounter{equation}{0}
 
-Beregn alle ikkeforsvindende komponenter af Riemanntensoren $R_{abcd}$, hvor hver af indeksene $a,b,c,d$ kan antage værdierne $\theta,\phi$) for metrikken
+Beregn alle ikkeforsvindende komponenter af Riemanntensoren $R_{abcd}$, hvor hver af indeksene $a,b,c,d$ kan antage værdierne $\theta,\phi$, for metrikken
 \begin{align}
     \dd s^2 &= r^2 \left[ \dd \theta^2 + \sin^2(\theta) \dd \phi^2 \right]
 \end{align}
@@ -341,7 +341,267 @@ Svar:
 
 \subsubsection{Besvarelse}
 
-\ldots
+For metrikken
+\begin{align}
+    \dd s^2 &= r^2 \left[ \dd \theta^2 + \sin^2(\theta) \dd \phi^2 \right]
+\end{align}
+har vi, at
+\begin{align}
+    g_{\theta\theta} = r^2 \: , \quad \text{og} \quad
+    g_{\phi\phi} = r^2 \sin^2(\theta) \: ,
+\end{align}
+mens de andre kominationer af $g_{ab} = 0$, da $\dd s^2 = \sum_{a,b} g_{ab}\, \dd x^a\, \dd x^b$.
+
+Da vi skal beregne Riemanntensoren, som består af Christoffelsymboler, da beregner vi først disse, hvilket gøres ved
+\begin{align}
+    \Gamma_{abc} &= \inv{2} \left[ g_{ab,c} - g_{bc,a} + g_{ca,b} \right] \: .
+\end{align}
+Christoffelsymbolerne bliver derved
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\theta_{\theta\theta} &= g^{\theta\theta} \Gamma_{\theta\theta\theta}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\theta} - g_{\theta\theta,\theta} + g_{\theta\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\theta}
+            = \inv{2 r^2} \pdif{r^2}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\phi\phi} &= g^{\theta\theta} \Gamma_{\theta\phi\phi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\phi,\phi} - g_{\phi\phi,\theta} + g_{\phi\theta,\phi} \right]
+            = \frac{g^{\theta\theta}}{2} \left[ - g_{\phi\phi,\theta} \right]
+            = \frac{-1}{2r^2} \pdif{[r^2\sin^2(\theta)]}{\theta} \\
+            &= - \sin(\theta) \cos(\theta) \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\theta\phi} &= g^{\theta\theta} \Gamma_{\theta\theta\phi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\phi} - g_{\theta\phi,\theta} + g_{\phi\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\phi}
+            = \inv{2r^2} \pdif{r^2}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\phi_{\theta\theta} &= g^{\phi\phi} \Gamma_{\pi\theta\theta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\theta,\theta} - g_{\theta\theta,\phi} + g_{\theta\phi,\theta} \right]
+            = \frac{g^{\phi\phi}}{2} \left[ - g_{\theta\theta,\phi} \right]
+            = \frac{-1}{2r^2\sin^2(\theta)} \pdif{r^2}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\phi\phi} &= g^{\phi\phi} \Gamma_{\phi\phi\phi}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\phi} - g_{\phi\phi,\phi} + g_{\phi\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\phi\phi,\phi}
+            = \inv{2r^2\sin^2(\theta)} \pdif{[r^2\sin^2(\theta)]}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\phi\theta} &= g^{\phi\phi} \Gamma_{\phi\phi\theta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\theta} - g_{\phi\theta,\phi} + g_{\theta\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\phi\phi,\theta}
+            = \inv{2r^2\sin^2(\theta)} \pdif{[r^2\sin^2(\theta)]}{\theta} \\
+            &= \frac{\cos(\theta)}{\sin(\theta)}
+            = \cot(\theta) \: .
+    \end{split}
+\end{align}
+\end{subequations}
+Yderligere vides det, at $\Gamma_{abc} = \Gamma_{acb}$, hvilket giver de resterende Christoffelsymboler.
+
+Riemanntensoren er nu givet ved Christoffelsymbolerne ved
+\begin{align}
+    R^a_{bcd} &= \Gamma^a_{bd,c} - \Gamma^a_{bc,d} + \Gamma^a_{ec} \Gamma^e_{bd} - \Gamma^a_{ed} \Gamma^e_{bc}
+\end{align}
+hvorfor vi får nul for alle komponenter af Riemanntensoren med $c = d$, $\Gamma^a_{bcc} = 0$,
+\begin{align}
+    0 &= R_{\theta\theta\theta\theta}
+        = R_{\theta\theta\phi\phi}
+        = R_{\theta\phi\theta\theta}
+        = R_{\theta\phi\phi\phi}
+        = R_{\phi\theta\theta\theta}
+        = R_{\phi\theta\phi\phi}
+        = R_{\phi\phi\theta\theta}
+        = R_{\phi\phi\phi\phi} \: ,
+\end{align}
+og de resterende komponenter af Riemanntensore giver
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \theta, b = \theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \begin{split}
+    %     R^\theta_{\theta \theta \theta} &= \Gamma^\theta_{\theta \theta,\theta} - \Gamma^\theta_{\theta \theta,\theta} + \Gamma^\theta_{e\theta} \Gamma^e_{\theta \theta} - \Gamma^\theta_{e\theta} \Gamma^e_{\theta \theta} \\
+    %         &= 0 \: ,
+    % \end{split} \\
+    \begin{split}
+        R_{\theta\theta\theta\phi} &= g_{\theta\theta} R^\theta_{\theta \theta \phi} \\
+            &= g_{\theta\theta} \left\{ \Gamma^\theta_{\theta \phi,\theta} - \Gamma^\theta_{\theta \theta,\phi} + \Gamma^\theta_{e\theta} \Gamma^e_{\theta \phi} - \Gamma^\theta_{e\phi} \Gamma^e_{\theta \theta} \right\} \\
+            &= g_{\theta\theta} \left\{ \Gamma^\theta_{\theta \phi,\theta} - \Gamma^\theta_{\theta \theta,\phi} + \left[ \Gamma^\theta_{\theta\theta} \Gamma^\theta_{\theta \phi} + \Gamma^\theta_{\phi\theta} \Gamma^\phi_{\theta \phi} \right] - \left[ \Gamma^\theta_{\theta\phi} \Gamma^\theta_{\theta \theta} + \Gamma^\theta_{\phi\phi} \Gamma^\phi_{\theta \theta} \right] \right\} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        R_{\theta\theta\phi\theta} &\xleq{*} - R_{\theta\theta\theta\phi}
+            = 0 \: ,
+    \end{split} \\
+    % \begin{split}
+    %     R^\theta_{\theta \phi \phi} &= \Gamma^\theta_{\theta \phi,\phi} - \Gamma^\theta_{\theta \phi,\phi} + \Gamma^\theta_{e\phi} \Gamma^e_{\theta \phi} - \Gamma^\theta_{e\phi} \Gamma^e_{\theta \phi} \\
+    %         &= 0 \: ,
+    % \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \theta, b = \phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \begin{split}
+    %     R^\theta_{\phi \theta \theta} &= \Gamma^\theta_{\phi \theta,\theta} - \Gamma^\theta_{\phi \theta,\theta} + \Gamma^\theta_{e\theta} \Gamma^e_{\phi \theta} - \Gamma^\theta_{e\theta} \Gamma^e_{\phi \theta} \\
+    %         &=  0 \: ,
+    % \end{split} \\
+    \begin{split}
+        R_{\theta\phi\theta\phi} &= g_{\theta\theta} R^\theta_{\phi \theta \phi} \\
+            &= g_{\theta\theta} \left\{ \Gamma^\theta_{\phi \phi,\theta} - \Gamma^\theta_{\phi \theta,\phi} + \Gamma^\theta_{e\theta} \Gamma^e_{\phi \phi} - \Gamma^\theta_{e\phi} \Gamma^e_{\phi \theta} \right\} \\
+            &= g_{\theta\theta} \left\{ \Gamma^\theta_{\phi \phi,\theta} - \Gamma^\theta_{\phi \theta,\phi} + \left[ \Gamma^\theta_{\theta\theta} \Gamma^\theta_{\phi \phi} + \Gamma^\theta_{\phi\theta} \Gamma^\phi_{\phi \phi} \right] - \left[ \Gamma^\theta_{\theta\phi} \Gamma^\theta_{\phi \theta} + \Gamma^\theta_{\phi\phi} \Gamma^\phi_{\phi \theta} \right] \right\} \\
+            &= g_{\theta\theta} \left\{ \Gamma^\theta_{\phi \phi,\theta} - \Gamma^\theta_{\phi\phi} \Gamma^\phi_{\phi \theta} \right\} \\
+            &= r^2 \left\{ \left[ - \sin(\theta) \cos(\theta) \right]_{,\theta} - \left[ - \sin(\theta) \cos(\theta) \right] \pfrac{\cos(\theta)}{\sin(\theta)} \right\} \\
+            &= r^2 \left\{ - \left[ \cos^2(\theta) - \sin^2(\theta) \right] + \cos^2(\theta) \right\} \\
+            &= r^2 \sin^2(\theta) \: ,
+    \end{split} \\
+    \begin{split}
+        R_{\theta\phi\phi\theta} &\xleq{*} - R_{\theta\phi\theta\phi}
+            = - r^2 \sin^2(\theta) \: ,
+    \end{split} \\
+    % \begin{split}
+    %     R^\theta_{\phi \phi \phi} &= \Gamma^\theta_{\phi \phi,\phi} - \Gamma^\theta_{\phi \phi,\phi} + \Gamma^\theta_{e\phi} \Gamma^e_{\phi \phi} - \Gamma^\theta_{e\phi} \Gamma^e_{\phi \phi} \\
+    %         &= 0 \: ,
+    % \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \phi, b = \theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \begin{split}
+    %     R^\phi_{\theta \theta \theta} &= \Gamma^\phi_{\theta \theta,\theta} - \Gamma^\phi_{\theta \theta,\theta} + \Gamma^\phi_{e\theta} \Gamma^e_{\theta \theta} - \Gamma^\phi_{e\theta} \Gamma^e_{\theta \theta}
+    % \end{split} \\
+    \begin{split}
+        R_{\phi\theta\theta\phi} &\xleq{*} - R_{\theta\phi\theta\phi}
+            = - r^2 \sin^2(\theta) \: ,
+    \end{split} \\
+    \begin{split}
+        R_{\phi\theta\phi\theta} &\xleq{*} - R_{\phi\theta\theta\phi}
+            = - \left( - R_{\theta\phi\theta\phi} \right)
+            \xleq{*} R_{\theta\phi\theta\phi} \:: ,
+    \end{split} \\
+    % \begin{split}
+    %     R^\phi_{\theta \phi \phi} &= \Gamma^\phi_{\theta \phi,\phi} - \Gamma^\phi_{\theta \phi,\phi} + \Gamma^\phi_{e\phi} \Gamma^e_{\theta \phi} - \Gamma^\phi_{e\phi} \Gamma^e_{\theta \phi}
+    % \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \phi, b = \phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \begin{split}
+    %     R^\phi_{\phi \theta \theta} &= \Gamma^\phi_{\phi \theta,\theta} - \Gamma^\phi_{\phi \theta,\theta} + \Gamma^\phi_{e\theta} \Gamma^e_{\phi \theta} - \Gamma^\phi_{e\theta} \Gamma^e_{\phi \theta}
+    % \end{split} \\
+    \begin{split}
+        R_{\phi \phi \theta \phi} &= g_{\phi\phi} R^\phi_{\phi \theta \phi} \\
+            &= g_{\phi\phi} \left\{ \Gamma^\phi_{\phi \phi,\theta} - \Gamma^\phi_{\phi \theta,\phi} + \Gamma^\phi_{e\theta} \Gamma^e_{\phi \phi} - \Gamma^\phi_{e\phi} \Gamma^e_{\phi \theta} \right\} \\
+            &= g_{\phi\phi} \left\{ - \Gamma^\phi_{\phi \theta,\phi} \right\} \\
+            &= - r^2 \pfrac{\cos(\theta)}{\sin(\theta)}_{,\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        R_{\phi \phi \phi \theta} &\xleq{*} - R_{\phi \phi \theta \phi} \: ,
+    \end{split}
+    % \begin{split}
+    %     R^\phi_{\phi \phi \phi} &= \Gamma^\phi_{\phi \phi,\phi} - \Gamma^\phi_{\phi \phi,\phi} + \Gamma^\phi_{e\phi} \Gamma^e_{\phi \phi} - \Gamma^\phi_{e\phi} \Gamma^e_{\phi \phi} \\
+    %         &= 0 \: .
+    % \end{split}
+\end{align}
+\end{subequations}
+hvor vi (ved *) har gjort brug af antisymmetriidentiteten, $R_{abcd} = - R_{bacd} = - R_{abdc}$, for Riemanntensoren, \cite[ligning 12--15]{ugeseddel7}.
+
+For nu at beregne Riccitensoren benytter vi, at denne er er givet ved Riemanntensoren,
+\begin{align}
+    R_{ab} &= R^d_{adb} \: ,
+\end{align}
+hvorved vi får
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \theta\theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R_{\theta\theta} &= R^d_{\theta d \theta} \\
+            &= g^{dd} R_{d \theta d \theta} \\
+            &= g^{\theta\theta} R_{\theta \theta \theta \theta} + g^{\phi\phi} R_{\phi \theta \phi \theta} \\
+            &= \inv{r^2} \cdot 0 + \inv{r^2 \sin^2(\theta)} \cdot r^2 \sin^2(\theta) \\
+            &= 1 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \theta\phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R_{\theta\phi} &= R^d_{\theta d \phi} \\
+            &= g^{dd} R_{d \theta d \phi} \\
+            &= g^{\theta\theta} R_{\theta \theta \theta \phi} + g^{\phi\phi} R_{\phi \theta \phi \phi} \\
+            &= \inv{r^2} \cdot 0 + \inv{r^2 \sin^2(\theta)} \cdot 0 \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \phi\theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R_{\phi\theta} &= R^d_{\phi d \theta} \\
+            &= g^{dd} R_{d \phi d \theta} \\
+            &= g^{\theta\theta} R_{\theta \phi \theta \theta} + g^{\phi\phi} R_{\phi \phi \phi \theta} \\
+            &= \inv{r^2} \cdot 0 + \inv{r^2 \sin^2(\theta)} \cdot 0 \\
+            &= 0 \: , \quad \text{og}
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \phi\phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R_{\phi\phi} &= R^d_{\phi d \phi} \\
+            &= g^{dd} R_{d \phi d \phi} \\
+            &= g^{\theta\theta} R_{\theta \phi \theta \phi} + g^{\phi\phi} R_{\phi \phi \phi \phi} \\
+            &= \inv{r^2} r^2 \sin^2(\theta) + \inv{r^2 \sin^2(\theta)} \cdot 0 \\
+            &= \sin^2(\theta) \: .
+    \end{split}
+\end{align}
+\end{subequations}
+
+Vi kan nu beregne Ricciskalaren ved
+\begin{align}
+    R &= g^{ab} R_{ab} \: ,
+\end{align}
+hvorved vi får
+\begin{align}
+\begin{split}
+    R &= g^{aa} R_{aa} \\
+        &= g^{\theta\theta} R_{\theta\theta} + g^{\phi\phi} R_{\phi\phi} \\
+        &= \inv{r^2} \cdot 1 + \inv{r^2 \sin^2(\theta)} \sin^2(\theta) \\
+        &= \frac{2}{r^2} \: ,
+\end{split}
+\end{align}
+da kun $g^{aa} \ne 0$.
+\\
+
+Vi får altså de ikkeforsvindende komponenter af Riemanntensoren til
+\begin{align}
+    R_{\theta\phi\theta\phi} &= r^2 \sin^2(\theta)
+        = R_{\phi\theta\phi\theta}
+        = - R_{\theta\phi\phi\theta}
+        = - R_{\phi\theta\theta\phi} \: ,
+\end{align}
+Riccitensoren til
+\begin{align}
+    R_{\theta\theta} &= 1 \: ,
+        \quad
+    R_{\phi\phi} = \sin^2(\theta) \: ,
+        \quad \text{og} \quad
+    R_{\theta\phi} = R_{\phi\theta} = 0 \: ,
+\end{align}
+samt Ricciskalaren til
+\begin{align}
+    R &= \frac{2}{r^2} \: .
+\end{align}
 
 
 

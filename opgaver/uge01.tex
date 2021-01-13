@@ -263,7 +263,7 @@ Udled Lorentztransformationerne
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 4 -- Udledning af Euler-Lagrangeligningen fra variationspricippet}
+\subsection{Opgave 4 -- Udledning af Euler-Lagrangeligningen fra variationspricippet}
 \setcounter{subsection}{4}
 \setcounter{equation}{0}
 
@@ -281,7 +281,53 @@ hvilket kaldes Euler-Lagrangeligningen.
 
 \subsubsection{Besvarelse}
 
-\ldots
+Vi ser på en vej med endepunkter $t_1$ og $t_2$. For at beskrive variationen af $\vv{r}$ på denne vej indfører vi parameteren $\alpha$, så vi kan skrive
+\begin{align}
+    \vv{r}(t,\,\alpha) &= \vv{r}(t,\,0) + \alpha \vgv{\eta}(t) \: ,
+\end{align}
+hvor $\vgv{\eta}(t)$ er en arbitrær funktion, der beskriver afvigelsen fra den ''korrekte'' vej $\vv{r}(t,\,0)$. Vi kan nu skrive virkningen som
+\begin{align}
+    S &= \int_{t_1}^{t_2} L\Big(\vv{r}(t,\, \alpha),\, \vv{v}(t,\,\alpha)\Big)\, \dd t \: ,
+\end{align}
+så virkningen nu har en afhængighed af $\alpha$.
+
+Vi kræver at virkningen minimeres i grænsen $\alpha \rightarrow 0$, altså
+\begin{align}
+    0 &= \left.\pdif{S}{\alpha} \right|_{\alpha = 0} \: .
+\end{align}
+Ved brug af kædereglen fås nu
+\begin{align}
+    \pdif{S}{\alpha} &= \int_{t_1}^{t_2} \left[ \pdif{L}{\vv{r}} \pdif{\vv{r}}{t} + \pdif{L}{\vv{v}} \pdif{\vv{v}}{t} \right] \dd t \: .
+\end{align}
+Det bemærkes at
+\begin{align}
+    \pdif{\vv{r}}{\alpha} &= \vgv{\eta}(t)
+        \qquad \text{og} \qquad
+    \pdif{\vv{v}}{\alpha} = \dif{}{t} \pdif{\vv{r}}{\alpha} = \dif{}{t} \vgv{\eta}(t) \: ,
+\end{align}
+hvorfor
+\begin{align}
+    \pdif{S}{\alpha} &= \int_{t_1}^{t_2} \left[ \pdif{L}{\vv{r}} \vgv{\eta}(t) + \pdif{L}{\vv{v}} \dif{\vgv{\eta}(t)}{t} \right] \dd t \: .
+\end{align}
+Dette kan omskrives ved brug af partiel integration, så
+\begin{align}
+\begin{split}
+    \int_{t_1}^{t_2} \pdif{L}{\vv{v}} \dif{\vgv{\eta}(t)}{t} \dd t
+        &= \left[ \vgv{\eta}(t) \pdif{L}{\vv{v}} \right]_{t_1}^{t_2} - \int_{t_1}^{t_2} \vgv{\eta}(t) \dif{}{t} \left( \pdif{L}{\vv{v}} \right) \dd t \\
+        &= - \int_{t_1}^{t_2} \vgv{\eta}(t) \dif{}{t} \left( \pdif{L}{\vv{v}} \right) \dd t \: ,
+\end{split}
+\end{align}
+da $\vgv{\eta}(t_1) = \vgv{\eta}(t_2) = 0$. Dermed får vi
+\begin{align}
+    \pdif{S}{\alpha} &= \int_{t_1}^{t_2} \left[ \pdif{L}{\vv{r}} + \dif{}{t}  \left( \pdif{L}{\vv{v}} \right) \right] \vgv{\eta}(t)\, \dd t \: .
+\end{align}
+
+Grundet kravet om minimering af virkningen i grænsen $\alpha \rightarrow 0$, altså $\partial S / \partial \alpha = 0$, hvilken gælder for en arbitrær funktion $\vgv{\eta(t)}$, da må
+\begin{align}
+    0 &= \pdif{L}{\vv{r}} - \pdif{}{t} \pdif{L}{\vv{v}}
+        \quad \Rightarrow \quad
+    \pdif{}{t} \pdif{L}{\vv{v}} = \pdif{L}{\vv{r}} \: .
+\end{align}
 
 
 
@@ -323,7 +369,7 @@ hvilket er Newtons bevægelsesligning.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 6 -- Objekter bevæger sig i lige linjer i SR}
+\subsection{Opgave 6 -- Objekter bevæger sig i lige linjer i SR}
 \setcounter{subsection}{6}
 \setcounter{equation}{0}
 
@@ -333,7 +379,73 @@ Argumentér for at et objekt i speciel relativitetsteori med virkning $S = -mc \
 
 \subsubsection{Besvarelse}
 
-\ldots
+I speciel relativitetsteori er
+\begin{align}
+    \dd s^2  &= c^2\, \dd t^2 - \dd \vv{r}^2
+        = \left( c^2 - \vv{v}^2 \right) \dd t^2 \: ,
+\end{align}
+da
+\begin{align}
+    \dif{\vv{r}}{t} &= \vv{v}
+        \quad \Rightarrow \quad
+    \dd \vv{r} = \vv{v}\, \dd t \: .
+\end{align}
+Dermed kan vi skrive linjeelementet som
+\begin{align}
+    \dd s &= \sqrt{c^2 - \vv{v}^2} \dd t
+        = c \sqrt{1 - \frac{\vv{v}^2}{c^2}} \dd t \: ,
+\end{align}
+og indsættes dette i virkninges fås
+\begin{align}
+    S &= - mc \int c \sqrt{1 - \frac{\vv{v}^2}{c^2}} \dd t
+        = - mc^2 \int \sqrt{1 - \frac{\vv{v}^2}{c^2}} \dd t \: .
+\end{align}
+Da vi ved at virkningen kan udtrykkes ved Lagrangefunktionen som $S = \int L\, \dd t$, så må Lagrangefunktionen være
+\begin{align}
+    L &= - mc^2 \sqrt{1 - \frac{\vv{v}^2}{c^2}} \: .
+\end{align}
+
+Benytter vi nu Euler-Lagrangeligningen på denne Lagrangefunktion fås
+\begin{align}
+\begin{split}
+    \pdif{L}{\vv{r}} &= 0 \: , \\
+    \pdif{L}{\vv{v}} &= \frac{- m c^2}{2 \sqrt{1 - \frac{\vv{v}^2}{c^2}}} \frac{-2v}{c^2}
+        = \frac{- m v}{\sqrt{1 - \frac{\vv{v}^2}{c^2}}} \: ,
+\end{split}
+\end{align}
+hvor $\gamma m v$ er den relativistiske impuls\footnote{
+    Her er $\gamma$-faktoren givet ved
+    \begin{align}
+        \gamma &= \invsqrt{1 - \frac{v^2}{c^2}} \: .
+    \end{align}
+}, og det ses at
+\begin{align}
+    0 &= \pdif{L}{\vv{r}}
+        = \dif{}{t} \left( \pdif{L}{\vv{v}} \right)
+        = \dif{}{t} \left( \frac{- m v}{\sqrt{1 - \frac{\vv{v}^2}{c^2}}} \right) \: ,
+\end{align}
+hvormed
+\begin{align}
+    \mathrm{konst} &= \frac{- m v}{\sqrt{1 - \frac{\vv{v}^2}{c^2}}}
+    \equiv p \: ,
+\end{align}
+hvor $p$ er det, som vi vælger at kalde konstanten, da vi som tidligre forklaret ved, at dette er den relativistiske impuls.
+
+Vi ønsker at isolere $v$, hvilket vi ved først at kvadrere ovenstående ligning
+\begin{align}
+\begin{split}
+    p^2 &= \frac{m^2 v^2}{1 - \frac{v^2}{c^2}} \\
+    \Rightarrow m^2 v^2 &= p^2 \left( 1 - \frac{v^2}{c^2} \right) \\
+    \Rightarrow v^2 \left( m^2 + \frac{p^2}{c^2} \right) &= p^2 \\
+    \Rightarrow v &= \frac{p}{\sqrt{m^2 + \frac{p^2}{c^2}}}
+        \equiv B \: ,
+\end{split}
+\end{align}
+hvilket er en konstant ($B$), da alt indgående på højresiden er konstanter. Da hastigheden er konstant, da vil objektet bevæge sig i en ret linje,
+\begin{align}
+    r &= \int v\, \dd t = Bt + D \: ,
+\end{align}
+hvilket er en ret linje.
 
 
 
@@ -369,7 +481,7 @@ hvormed $\dd L / \dd \vv{v}$ er bevaret, og siden vi ved, at det er impulsen, so
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 8 -- Bevarelseslov for energien fra Lagrangefunktionen}
+\subsection{Opgave 8 -- Bevarelseslov for energien fra Lagrangefunktionen}
 \setcounter{subsection}{8}
 \setcounter{equation}{0}
 
@@ -385,14 +497,40 @@ Vis at for denne bevægelse kan dette skrives som bevarelsesloven
 \end{align}
 med energien
 \begin{align}
-    \vv{p} &= \pdif{L}{\vv{v}} \vv{v} - L \: .
+    \mathcal{E} &= \pdif{L}{\vv{v}} \vv{v} - L \: .
 \end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Besvarelse}
 
-\ldots
+Vi finder $\delta L$ ved at benytte, at $\dd f(r_i) = \sum_{r_i} \dd f \cdot (\dd r_i/\dd r_i) = \sum_{r_i} (\dd f / \dd r_i) \cdot \dd r_i$, samt at Euler-Lagrangeligningen gælder langs med bevægelsen, hvorfor
+\begin{align}
+\begin{split}
+    \delta L &= \pdif{L}{\vv{r}} \delta \vv{r} + \pdif{L}{\vv{v}} \delta \vv{v} \\
+        &= \dif{}{t} \left( \pdif{L}{\vv{v}} \right) \delta \vv{r} + \pdif{L}{\vv{v}} \dif{}{t} \delta \vv{v} \: .
+\end{split}
+\end{align}
+I tilfældet hvor Lagrangefunktionen ikke er eksplicit afhængig af tiden, da vil
+\begin{align}
+    0 &= \dif{}{t} \pdif{L}{\vv{v}} = \pdif{}{\vv{v}} \dif{L}{t} \: ,
+\end{align}
+hvorved $\delta L$ blot er
+\begin{align}
+    \delta L &= \pdif{L}{\vv{v}} \dif{}{t} \delta \vv{v} \: .
+\end{align}
+Det vil altså sige, at
+\begin{align}
+    0 &= \pdif{L}{\vv{v}} \dif{}{t} \delta \vv{v} - \delta L
+        = \delta \left( \pdif{L}{\vv{v}} \dif{}{t} \vv{v} - L \right)
+        = \delta \mathcal{E} \: ,
+\end{align}
+hvor vi har kunnet flytte $\delta$ udenfor parentesen, da denne er lineær. Dermed har vi altså vist, at vi ved variationen $t \rightarrow t + \delta t$ på en ikke-eksplicit tidsafhængig Lagrangefunktion får bevarelsesloven for energien,
+\begin{align}
+    0 &= \delta \mathcal{E} \: ,
+        \quad \text{med} \quad
+    \mathcal{E} &= \pdif{L}{\vv{v}} \vv{v} - L \: .
+\end{align}
 
 
 

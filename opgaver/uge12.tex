@@ -26,8 +26,8 @@ ${}^\eta_\eta$-komponenten af Friedmanligningen for det lukkede univers er \cite
 \end{align}
 Vi ved også, at $\dd t = a \dd \eta$, \cite[ligning 11]{ugeseddel12}, hvorfor
 \begin{align}
-    a' &= \dif{a}{\eta}
-        = \dif{a}{t}\, \dif{t}{\eta}
+    a' &= \pdif{a}{\eta}
+        = \pdif{a}{t}\, \pdif{t}{\eta}
         = \dot{a} a \: ,
 \end{align}
 hvorfor vi får ${}^t_t$-komponenten af Friedmanligningen for det lukkede univers til
@@ -47,7 +47,7 @@ hvorfor vi får ${}^t_t$-komponenten af Friedmanligningen for det lukkede univer
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 2 -- Riccitensor i Friedmankoordinater for lukket univers}
+\subsection{Opgave 2 -- Riccitensor i Friedmankoordinater for lukket univers}
 \setcounter{subsection}{2}
 \setcounter{equation}{0}
 
@@ -57,7 +57,347 @@ Beregn manuelt Riccitensoren i Friedmankoordinater for et lukket univers.
 
 \subsubsection*{Besvarelse}
 
-\ldots
+For et lukket univers er Friedmanmetrikken
+\begin{align}
+    \dd s^2 &= a^2 \Big[ \dd \eta^2 - \dd \chi^2 - \sin^2(\chi) \left\{ \dd \theta^2 + \sin^2(\theta)\, \dd \phi^2 \right\} \Big] \: ,
+\end{align}
+hvorfor
+\begin{align}
+    g_{\eta\eta} &= a^2 \: , \quad
+    g_{\chi\chi} = - a^2 \: , \quad
+    g_{\theta\theta} = - a^2 \sin^2(\chi) \: , \quad \text{og} \quad
+    g_{\phi\phi} = - a^2 \sin^2(\chi) \sin^2(\theta) \: ,
+\end{align}
+mens alle andre kominationer af $g_{ab} = 0$, da $\dd s^2 = \sum_{a,b} g_{ab}\, \dd x^a\, \dd x^b$.
+
+Da vi skal beregne Riccitensoren, som består af Riemanntensoren, som består af Christoffelsymboler, da beregner vi først disse, hvilket gøres ved
+\begin{align}
+    \Gamma_{abc} &= \inv{2} \left[ g_{ab,c} - g_{bc,a} + g_{ca,b} \right] \: .
+\end{align}
+Christoffelsymbolerne bliver derved
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \eta, b = c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\eta_{\eta\eta} &= g^{\eta\eta} \Gamma_{\eta\eta\eta}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\eta,\eta} - g_{\eta\eta,\eta} + g_{\eta\eta,\eta} \right]
+            = \frac{g^{\eta\eta}}{2} g_{\eta\eta,\eta}
+            = \inv{2a^2} \pdif{a^2}{\eta} \\
+            &= \frac{a'}{a} \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\eta_{\chi\chi} &= g^{\eta\eta} \Gamma_{\eta\chi\chi}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\chi,\chi} - g_{\chi\chi,\eta} + g_{\chi\eta,\chi} \right]
+            = \frac{g^{\eta\eta}}{2} \left[ - g_{\chi\chi,\eta} \right]
+            = \frac{-1}{2a^2} \pdif{(-a^2)}{\eta} \\
+            &= \frac{a'}{a} \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\eta_{\theta\theta} &= g^{\eta\eta} \Gamma_{\eta\theta\theta}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\theta,\theta} - g_{\theta\theta,\eta} + g_{\theta\eta,\theta} \right]
+            = \frac{g^{\eta\eta}}{2} \left[ - g_{\theta\theta,\eta} \right]
+            = \frac{-1}{2a^2} \pdif{\{-a^2\sin^2(\chi)\}}{\eta} \\
+            &= \frac{a'}{a} \sin^2(\chi) \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\eta_{\phi\phi} &= g^{\eta\eta} \Gamma_{\eta\phi\phi}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\phi,\phi} - g_{\phi\phi,\eta} + g_{\phi\eta,\phi} \right]
+            = \frac{g^{\eta\eta}}{2} \left[ - g_{\phi\phi,\eta} \right]
+            = \frac{-1}{2a^2} \pdif{\{- a^2 \sin^2(\chi)\sin^2(\theta)\}}{\eta} \\
+            &= \frac{a'}{a} \sin^2(\chi)\sin^2(\theta) \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \eta, b = \eta =\= c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\eta_{\eta\chi} &= g^{\eta\eta} \Gamma_{\eta\eta\chi}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\eta,\chi} - g_{\eta\chi,\eta} + g_{\chi\eta,\eta} \right]
+            = \frac{g^{\eta\eta}}{2} g_{\eta\eta,\chi}
+            = \inv{2a^2} \pdif{a^2}{\chi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\eta_{\eta\theta} &= g^{\eta\eta} \Gamma_{\eta\eta\theta}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\eta,\theta} - g_{\eta\theta,\eta} + g_{\theta\eta,\eta} \right]
+            = \frac{g^{\eta\eta}}{2} g_{\eta\eta,\theta}
+            = \inv{2} \pdif{a^2}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\eta_{\eta\phi} &= g^{\eta\eta} \Gamma_{\eta\eta\phi}
+            = \frac{g^{\eta\eta}}{2} \left[ g_{\eta\eta,\phi} - g_{\eta\phi,\eta} + g_{\phi\eta,\eta} \right]
+            = \frac{g^{\eta\eta}}{2} g_{\eta\eta,\phi}
+            = \inv{2} \pdif{a^2}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \chi, b = c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\chi_{\eta\eta} &= g^{\chi\chi} \Gamma_{\chi\eta\eta}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\eta,\eta} - g_{\eta\eta,\chi} + g_{\eta\chi,\eta} \right]
+            = \frac{g^{\chi\chi}}{2} \left[ - g_{\eta\eta,\chi} \right]
+            = \frac{-1}{2(-a^2)} \pdif{a^2}{\chi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\chi_{\chi\chi} &= g^{\chi\chi} \Gamma_{\chi\chi\chi}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\chi,\chi} - g_{\chi\chi,\chi} + g_{\chi\chi,\chi} \right]
+            = \frac{g^{\chi\chi}}{2} g_{\chi\chi,\chi}
+            = \inv{2(-a^2)} \pdif{(-a^2)}{\chi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\chi_{\theta\theta} &= g^{\chi\chi} \Gamma_{\chi\theta\theta}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\theta,\theta} - g_{\theta\theta,\chi} + g_{\theta\chi,\theta} \right]
+            = \frac{g^{\chi\chi}}{2} \left[ - g_{\theta\theta,\chi} \right]
+            = \frac{-1}{2(-a^2)} \pdif{\{-a^2\sin^2(\chi)\}}{\chi} \\
+            &= - \sin(\chi) \cos(\chi) \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\chi_{\phi\phi} &= g^{\chi\chi} \Gamma_{\chi\phi\phi}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\phi,\phi} - g_{\phi\phi,\chi} + g_{\phi\chi,\phi} \right]
+            = \frac{g^{\chi\chi}}{2} \left[ - g_{\phi\phi,\chi} \right]
+            = \frac{-1}{2(-a^2)} \pdif{\{-a^2\sin^2(\chi)\sin^2(\theta)\}}{\chi} \\
+            &= - \sin(\chi) \cos(\chi) \sin^2(\theta) \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \chi, b = \chi =\= c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\chi_{\chi\eta} &= g^{\chi\chi} \Gamma_{\chi\chi\eta}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\chi,\eta} - g_{\chi\eta,\chi} + g_{\eta\chi,\chi} \right]
+            = \frac{g^{\chi\chi}}{2} g_{\chi\chi,\eta}
+            = \inv{2(-a^2)} \pdif{(-a^2)}{\eta} \\
+            = \frac{a'}{a} \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\chi_{\chi\theta} &= g^{\chi\chi} \Gamma_{\chi\chi\theta}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\chi,\theta} - g_{\chi\theta,\chi} + g_{\theta\chi,\chi} \right]
+            = \frac{g^{\chi\chi}}{2} g_{\chi\chi,\theta}
+            = \inv{2(-a^2)} \pdif{(-a^2)}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\chi_{\chi\phi} &= g^{\chi\chi} \Gamma_{\chi\chi\phi}
+            = \frac{g^{\chi\chi}}{2} \left[ g_{\chi\chi,\phi} - g_{\chi\phi,\chi} + g_{\phi\chi,\chi} \right]
+            = \frac{g^{\chi\chi}}{2} g_{\chi\chi,\phi}
+            = \inv{2(-a^2)} \pdif{(-a^2)}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \theta, b = c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\theta_{\eta\eta} &= g^{\theta\theta} \Gamma_{\theta\eta\eta}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\eta,\eta} - g_{\eta\eta,\theta} + g_{\eta\theta,\eta} \right]
+            = \frac{g^{\theta\theta}}{2} \left[ - g_{\eta\eta,\theta} \right]
+            = \frac{-1}{2[-a^2\sin^2(\chi)]} \pdif{a^2}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\chi\chi} &= g^{\theta\theta} \Gamma_{\theta\chi\chi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\chi,\chi} - g_{\chi\chi,\theta} + g_{\chi\theta,\chi} \right]
+            = \frac{g^{\theta\theta}}{2} \left[ - g_{\chi\chi,\theta} \right]
+            = \frac{-1}{2[-a^2\sin^2(\chi)]} \pdif{(-a^2)}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\theta\theta} &= g^{\theta\theta} \Gamma_{\theta\theta\theta}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\theta} - g_{\theta\theta,\theta} + g_{\theta\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\theta}
+            = \inv{2[-a^2\sin^2(\chi)]} \pdif{\{-a^2 \sin^2(\chi)\}}{\theta} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\phi\phi} &= g^{\theta\theta} \Gamma_{\theta\phi\phi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\phi,\phi} - g_{\phi\phi,\theta} + g_{\phi\theta,\phi} \right]
+            = \frac{g^{\theta\theta}}{2} \left[ - g_{\phi\phi,\theta} \right]
+            = \frac{-1}{2[-a^2\sin^2(\chi)]} \pdif{\{-a^2 \sin^2(\chi)\sin^2(\theta)\}}{\theta} \\
+            &= - \sin(\theta) \cos(\theta) \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \theta, b = \theta =\= c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\theta_{\theta\eta} &= g^{\theta\theta} \Gamma_{\theta\theta\eta}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\eta} - g_{\theta\eta,\theta} + g_{\eta\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\eta}
+            = \inv{2[-a^2\sin^2(\chi)]} \pdif{\{-a^2 \sin^2(\chi)\}}{\eta} \\
+            &= \frac{a'}{a} \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\theta\chi} &= g^{\theta\theta} \Gamma_{\theta\theta\chi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\chi} - g_{\theta\chi,\theta} + g_{\chi\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\chi}
+            = \inv{2[-a^2\sin^2(\chi)]} \pdif{\{-a^2 \sin^2(\chi)\}}{\chi} \\
+            &= \frac{\cos(\chi)}{\sin(\chi)}
+            = \cot(\chi) \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\theta_{\theta\phi} &= g^{\theta\theta} \Gamma_{\theta\theta\phi}
+            = \frac{g^{\theta\theta}}{2} \left[ g_{\theta\theta,\phi} - g_{\theta\phi,\theta} + g_{\phi\theta,\theta} \right]
+            = \frac{g^{\theta\theta}}{2} g_{\theta\theta,\phi}
+            = \inv{2[-a^2\sin^2(\chi)]} \pdif{\{-a^2 \sin^2(\chi)\}}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \phi, b = c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\phi_{\eta\eta} &= g^{\phi\phi} \Gamma_{\phi\eta\eta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\eta,\eta} - g_{\eta\eta,\phi} + g_{\eta\phi,\eta} \right]
+            = \frac{g^{\phi\phi}}{2} \left[ - g_{\eta\eta,\phi} \right]
+            = \frac{-1}{2[-a^2 \sin^2(\chi) \sin^2(\theta)]} \pdif{a^2}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\chi\chi} &= g^{\phi\phi} \Gamma_{\phi\chi\chi}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\chi,\chi} - g_{\chi\chi,\phi} + g_{\chi\phi,\chi} \right]
+            = \frac{g^{\phi\phi}}{2} \left[ - g_{\chi\chi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} \pdif{(-a^2)}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\theta\theta} &= g^{\phi\phi} \Gamma_{\phi\theta\theta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\theta,\theta} - g_{\theta\theta,\phi} + g_{\theta\phi,\theta} \right]
+            = \frac{g^{\phi\phi}}{2} \left[ - g_{\theta\theta,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} \pdif{\{-a^2 \sin^2(\chi)\}}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\phi\phi} &= g^{\phi\phi} \Gamma_{\phi\phi\phi}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\phi} - g_{\phi\phi,\phi} + g_{\phi\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\eta\eta,\phi}
+            = \frac{g^{\phi\phi}}{2} \pdif{\{-a^2 \sin^2(\chi) \sin^2(\theta)\}}{\phi} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = \phi, b = \phi =\= c
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^\phi_{\phi\eta} &= g^{\phi\phi} \Gamma_{\phi\phi\eta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\eta} - g_{\phi\eta,\phi} + g_{\eta\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\phi\phi,\eta}
+            = \frac{g^{\phi\phi}}{2} \pdif{\{-a^2 \sin^2(\chi) \sin^2(\theta)\}}{\eta} \\
+            &= \frac{a'}{a} \: ,
+    \end{split} \\
+    \begin{split}
+        \Gamma^\phi_{\phi\chi} &= g^{\phi\phi} \Gamma_{\phi\phi\chi}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\chi} - g_{\phi\chi,\phi} + g_{\chi\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\phi\phi,\chi}
+            = \frac{g^{\phi\phi}}{2} \pdif{\{-a^2 \sin^2(\chi) \sin^2(\theta)\}}{\chi} \\
+            &= \frac{\cos(\chi)}{\sin(\chi)}
+            = \cot(\chi) \: ,
+    \end{split}
+        \tag{\theparentequation æ} \\
+    \begin{split}
+        \Gamma^\phi_{\phi\theta} &= g^{\phi\phi} \Gamma_{\phi\phi\theta}
+            = \frac{g^{\phi\phi}}{2} \left[ g_{\phi\phi,\theta} - g_{\phi\theta,\phi} + g_{\theta\phi,\phi} \right]
+            = \frac{g^{\phi\phi}}{2} g_{\phi\phi,\theta}
+            = \frac{g^{\phi\phi}}{2} \pdif{\{-a^2 \sin^2(\chi) \sin^2(\theta)\}}{\theta} \\
+            &= \frac{\cos(\theta)}{\sin(\theta)}
+            = \cot(\theta) \: ,
+    \end{split}
+        \tag{\theparentequation ø}
+\end{align}
+\end{subequations}
+og Christoffelsymbolerne med alle forskellige indeks ($a \ne b \ne c \ne a$) giver $0$, da kun $g_{aa} \ne 0$.
+Yderligere vides det, at $\Gamma_{abc} = \Gamma_{acb}$, hvilket giver de resterende Christoffelsymboler.
+
+Vi benytter nu at Riccitensoren er givet ved Riemanntensoren, som igen er givet ved Christoffelsymbolerne, som
+\begin{align}
+    R_{ab} &= R^d_{adb}
+        = \Gamma^d_{ab,d} - \Gamma^d_{ad,b} + \Gamma^d_{ed} \Gamma^e_{ab} - \Gamma^d_{eb} \Gamma^e_{ad} \: ,
+\end{align}
+hvorved vi får
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \eta\eta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^\eta_\eta %&= g^{\eta \eta} R_{\eta \eta}  \\
+        %&= g^{\eta \eta} R^d_{\eta d \eta} \\
+        &= g^{\eta \eta} \left(\Gamma^d_{\eta\eta,d} - \Gamma^d_{\eta d,\eta} + \Gamma^d_{ed} \Gamma^e_{\eta\eta} - \Gamma^d_{e\eta} \Gamma^e_{\eta d} \right) \\
+        &= g^{\eta \eta} \bigg(
+            \left[ \Gamma^\eta_{\eta\eta,\eta} + \Gamma^\chi_{\eta\eta,\chi} + \Gamma^\theta_{\eta\eta,\theta} + \Gamma^\phi_{\eta\eta,\phi} \right] \\
+            &\qquad\qquad - \left[ \Gamma^\eta_{\eta \eta,\eta} + \Gamma^\chi_{\eta \chi,\eta} + \Gamma^\theta_{\eta \theta,\eta} + \Gamma^\phi_{\eta \phi,\eta} \right] \\
+            &\qquad\qquad + \Big[ \left\{ \Gamma^\eta_{\eta\eta} \Gamma^\eta_{\eta\eta} + \Gamma^\chi_{\eta\chi} \Gamma^\eta_{\eta\eta} + \Gamma^\theta_{\eta\theta} \Gamma^\eta_{\eta\eta} + \Gamma^\phi_{\eta\phi} \Gamma^\eta_{\eta\eta} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\chi\eta} \Gamma^\chi_{\eta\eta} + \Gamma^\chi_{\chi\chi} \Gamma^\chi_{\eta\eta} + \Gamma^\theta_{\chi\theta} \Gamma^\chi_{\eta\eta} + \Gamma^\phi_{\chi\phi} \Gamma^\chi_{\eta\eta} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\theta\eta} \Gamma^\theta_{\eta\eta} + \Gamma^\chi_{\theta\chi} \Gamma^\theta_{\eta\eta} + \Gamma^\theta_{\theta\theta} \Gamma^\theta_{\eta\eta} + \Gamma^\phi_{\theta\phi} \Gamma^\theta_{\eta\eta} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\phi\eta} \Gamma^\phi_{\eta\eta} + \Gamma^\chi_{\phi\chi} \Gamma^\phi_{\eta\eta} + \Gamma^\theta_{\phi\theta} \Gamma^\phi_{\eta\eta} + \Gamma^\phi_{\phi\phi} \Gamma^\phi_{\eta\eta} \right\}
+            \Big] \\
+            &\qquad\qquad - \Big[ \left\{ \Gamma^\eta_{\eta\eta} \Gamma^\eta_{\eta \eta} + \Gamma^\chi_{\eta\eta} \Gamma^\eta_{\eta \chi} + \Gamma^\theta_{\eta\eta} \Gamma^\eta_{\eta \theta} + \Gamma^\phi_{\eta\eta} \Gamma^\eta_{\eta \phi} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\chi\eta} \Gamma^\chi_{\eta \eta} + \Gamma^\chi_{\chi\eta} \Gamma^\chi_{\eta \chi} + \Gamma^\theta_{\chi\eta} \Gamma^\chi_{\eta \theta} + \Gamma^\phi_{\chi\eta} \Gamma^\chi_{\eta \phi} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\theta\eta} \Gamma^\theta_{\eta \eta} + \Gamma^\chi_{\theta\eta} \Gamma^\theta_{\eta \chi} + \Gamma^\theta_{\theta\eta} \Gamma^\theta_{\eta \theta} + \Gamma^\phi_{\theta\eta} \Gamma^\theta_{\eta \phi} \right\} \\
+                &\qquad\qquad\qquad + \left\{ \Gamma^\eta_{\phi\eta} \Gamma^\phi_{\eta \eta} + \Gamma^\chi_{\phi\eta} \Gamma^\phi_{\eta \chi} + \Gamma^\theta_{\phi\eta} \Gamma^\phi_{\eta \theta} + \Gamma^\phi_{\phi\eta} \Gamma^\phi_{\eta \phi} \right\}
+            \Big]
+            \bigg) \\
+        &= g^{\eta \eta} \bigg( \Gamma^\eta_{\eta\eta,\eta} - \Gamma^\eta_{\eta \eta,\eta} - \Gamma^\chi_{\eta \chi,\eta} - \Gamma^\theta_{\eta \theta,\eta} - \Gamma^\phi_{\eta \phi,\eta} \\
+            &\qquad\qquad + \Big[ \Gamma^\eta_{\eta\eta} \Gamma^\eta_{\eta\eta} + \Gamma^\chi_{\eta\chi} \Gamma^\eta_{\eta\eta} + \Gamma^\theta_{\eta\theta} \Gamma^\eta_{\eta\eta} + \Gamma^\phi_{\eta\phi} \Gamma^\eta_{\eta\eta} \Big] \\
+            &\qquad\qquad - \Big[ \Gamma^\eta_{\eta\eta} \Gamma^\eta_{\eta \eta} + \Gamma^\chi_{\chi\eta} \Gamma^\chi_{\eta \chi} + \Gamma^\theta_{\theta\eta} \Gamma^\theta_{\eta \theta} + \Gamma^\phi_{\phi\eta} \Gamma^\phi_{\eta \phi} \Big]
+            \bigg) \\
+        &= g^{\eta \eta} \bigg( - \Gamma^\chi_{\eta \chi,\eta} - \Gamma^\theta_{\eta \theta,\eta} - \Gamma^\phi_{\eta \phi,\eta} + \Big[ \Gamma^\chi_{\eta\chi} + \Gamma^\theta_{\eta\theta} + \Gamma^\phi_{\eta\phi} \Big] \Gamma^\eta_{\eta\eta} \\
+            &\qquad\qquad - \left( \Gamma^\chi_{\eta\chi} \right)^2 - \left( \Gamma^\theta_{\eta\theta} \right)^2 - \left( \Gamma^\phi_{\eta \phi} \right)^2
+            \bigg) \\
+        &= \inv{a^2} \left\{ - 3\pfrac{a'}{a}_{,\eta} + 3\pfrac{a'}{a}^2  - 3\pfrac{a'}{a}^2
+            \right\} \\
+            % &= - \frac{3}{a^2} \left( \frac{a''}{a} - \frac{a'^2}{a^2} \right) \\
+            &= \frac{3}{a^4} \left( a'^2 - aa'' \right) \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \chi\chi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^\chi_\chi &= g^{\chi \chi} R_{\chi \chi} 
+        = g^{\chi \chi} R^d_{\chi d \chi}
+        = g^{\chi \chi} \left(\Gamma^d_{\chi\chi,d} - \Gamma^d_{\chi d,\chi} + \Gamma^d_{ed} \Gamma^e_{\chi\chi} - \Gamma^d_{e\chi} \Gamma^e_{\chi d} \right) \\
+        &= \ldots \text{ beregninger som før, dog udeladt grundet tid } \ldots \\
+        &= - \inv{a^4} \left( 2a^2 + a'^2 + aa'' \right) \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \theta\theta
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^\theta_\theta &= g^{\theta \theta} R_{\theta \theta} 
+        = g^{\theta \theta} R^d_{\theta d \theta}
+        = g^{\theta \theta} \left(\Gamma^d_{\theta\theta,d} - \Gamma^d_{\theta d,\theta} + \Gamma^d_{ed} \Gamma^e_{\theta\theta} - \Gamma^d_{e\theta} \Gamma^e_{\theta d} \right) \\
+        &= \ldots \text{ beregninger som før, dog udeladt grundet tid } \ldots \\
+        &= - \inv{a^4} \left( 2a^2 + a'^2 + aa'' \right) \: , \quad \text{og}
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % \phi\phi
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^\phi_\phi &= g^{\phi \phi} R_{\phi \phi} 
+        = g^{\phi \phi} R^d_{\phi d \phi}
+        = g^{\phi \phi} \left(\Gamma^d_{\phi\phi,d} - \Gamma^d_{\phi d,\phi} + \Gamma^d_{ed} \Gamma^e_{\phi\phi} - \Gamma^d_{e\phi} \Gamma^e_{\phi d} \right) \\
+        &= \ldots \text{ beregninger som før, dog udeladt grundet tid } \ldots \\
+        &= - \inv{a^4} \left( 2a^2 + a'^2 + aa'' \right) \: .
+    \end{split}
+\end{align}
+\end{subequations}
+
+Vi kan nu beregne Ricciskalaren ved
+\begin{align}
+    R &= g^{ab} R_{ab} \: ,
+\end{align}
+hvorved vi får
+\begin{align}
+\begin{split}
+    R &= g^{aa} R_{aa} \\
+        &= g^{\eta\eta} R_{\eta\eta} + g^{\chi\chi} R_{\chi\chi} + g^{\theta\theta} R_{\theta\theta} + g^{\phi\phi} R_{\phi\phi} \\
+        &= R^\eta_\eta + R^\chi_\chi + R^\theta_\theta + R^\phi_\phi \\
+        &= \frac{3}{a^4} \left( a'^2 - aa'' \right) - \frac{3}{a^4} \left( 2a^2 + a'^2 + aa'' \right) \\
+        &= - \frac{6}{a^3} \left( a + a'' \right) \: ,
+\end{split}
+\end{align}
+da kun $g^{aa} \ne 0$.
+
+Dette er præcis de samme værdier som i ligning 12 på ugeseddel 12, \cite[ligning 12]{ugeseddel12}.
 
 
 
@@ -90,8 +430,8 @@ Vi betragter først den første feltligning, \cref{eq:Uge12_Opg3_FieldEquation1}
 hvorefter vi nu differentierer dette med hensyn til $\eta$
 \begin{align} \label{eq:Uge12_Opg3_FirstPart}
 \begin{split}
-    (\epsilon a^3)' &= \dif{}{\eta} \left[ \frac{3}{a \kappa} \left( a^2 + a'^2 \right) \right] \\
-        &= \frac{3}{\kappa} \dif{}{\eta} \left( a + \frac{a'^2}{a} \right) \\
+    (\epsilon a^3)' &= \pdif{}{\eta} \left[ \frac{3}{a \kappa} \left( a^2 + a'^2 \right) \right] \\
+        &= \frac{3}{\kappa} \pdif{}{\eta} \left( a + \frac{a'^2}{a} \right) \\
         &= \frac{3}{\kappa} \left( a' + \frac{2a'a''}{a} - \frac{a'^2}{a^2} a' \right) \\
         &= \frac{3 a'}{\kappa} + \frac{6a'a''}{a \kappa} - \frac{3 a'^3}{a^2 \kappa} \: .
 \end{split}
@@ -106,7 +446,7 @@ Betragter vi nu den anden feltligning, \cref{eq:Uge12_Opg3_FieldEquation2}, hvor
 hvorefter vi nu ganger dette på $(a^3)'$, altså ganget på $a^3$ differentieret med hensyn til $\eta$,
 \begin{align} \label{eq:Uge12_Opg3_SecondPart}
 \begin{split}
-    - p (a^3)' &= \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) \dif{a^3}{\eta} \\
+    - p (a^3)' &= \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) \pdif{a^3}{\eta} \\
         &= \inv{a^4 \kappa} \left( a^2 + 2aa'' - a'^2 \right) 3a^2 a' \\
         &= \frac{3 a'}{\kappa} + \frac{6a'a''}{a \kappa} - \frac{3 a'^3}{a^2 \kappa} \: .
 \end{split}
@@ -159,13 +499,13 @@ Hints:
                 \quad \Rightarrow \quad
             3 \ln(a) = - \int \frac{\dd \epsilon}{(\epsilon + p)} \: .
         \end{align}
-    \item Medtag (eng: integrate) ligningerne for et massedomineret univers ($p = 0$, $\epsilon = \mu$)
+    \item Integrer ligningerne for et massedomineret univers ($p = 0$, $\epsilon = \mu$)
         \begin{align}
             \mu a^3 &= \text{konst} \: ,
                 \quad \text{og} \quad
             a \propto t^{2/3} \: .
         \end{align}
-    \item Medtag (eng: integrate) ligningerne for et strålingsdomineret univers ($p = \epsilon / 3$)
+    \item Integrer ligningerne for et strålingsdomineret univers ($p = \epsilon / 3$)
         \begin{align}
             \epsilon a^4 &= \text{konst} \: ,
                 \quad \text{og} \quad
