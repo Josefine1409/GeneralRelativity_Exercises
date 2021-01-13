@@ -218,7 +218,7 @@ Bevis antisymmetrien af Riemanntensoren.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 6 -- Bevis af den algebraisk Bianchiidentitet}
+\subsection{Opgave 6 -- Bevis af den algebraisk Bianchiidentitet}
 \setcounter{subsection}{6}
 \setcounter{equation}{0}
 
@@ -228,7 +228,47 @@ Bevis den algebraiske Bianchiindentitet.
 
 \subsubsection{Besvarelse}
 
-\ldots
+Til beviset af den algebraiske Bianchiidentitet af Riemanntensoren,
+\begin{align}
+    0 &= R_{abcd} + R_{acdb} + R_{adbc} \: ,
+\end{align}
+benyttes at Riemanntensoren er givet ved
+\begin{align}
+    R^a_{bcd} &= \Gamma^a_{bd,c} - \Gamma^a_{bc,d} + \Gamma^a_{ec} \Gamma^e_{bd} - \Gamma^a_{ed} \Gamma^e_{bc} \: ,
+\end{align}
+og at $\Gamma_{abc} = \Gamma_{acb}$.
+
+Vi får derved, at
+\begin{align}
+\begin{split}
+    R_{abcd} + R_{acdb} + R_{adbc} &= g_{af} \left[ R^f_{bcd} + R^f_{cdb} + R^f_{dbc} \right] \\
+        &= g_{af} \Big[ \left\{ \Gamma^f_{bd,c} - \Gamma^f_{bc,d} + \Gamma^f_{ec} \Gamma^e_{bd} - \Gamma^f_{ed} \Gamma^e_{bc} \right\} \\
+            &\qquad\quad + \left\{ \Gamma^f_{cb,d} - \Gamma^f_{cd,b} + \Gamma^f_{ed} \Gamma^e_{cb} - \Gamma^f_{eb} \Gamma^e_{cd} \right\} \\
+            &\qquad\quad + \left\{ \Gamma^f_{dc,b} - \Gamma^f_{db,c} + \Gamma^f_{eb} \Gamma^e_{dc} - \Gamma^f_{ec} \Gamma^e_{db} \right\} \Big] \\
+        &= g_{af} \Big[
+                \Gamma^f_{cb,d} - \Gamma^f_{bc,d}
+                + \Gamma^f_{bd,c} - \Gamma^f_{db,c}
+                + \Gamma^f_{dc,b} - \Gamma^f_{cd,b} \\
+                &\qquad\quad + \Gamma^f_{ed} \left\{ \Gamma^e_{cb} - \Gamma^e_{bc} \right\}
+                + \Gamma^f_{ec} \left\{ \Gamma^e_{bd} - \Gamma^e_{db} \right\}
+                + \Gamma^f_{eb} \left\{ \Gamma^e_{dc} - \Gamma^e_{cd} \right\}
+            \Big] \\
+        &= g_{af} \Big[
+                \Gamma^f_{bc,d} - \Gamma^f_{bc,d}
+                + \Gamma^f_{bd,c} - \Gamma^f_{bd,c}
+                + \Gamma^f_{cd,b} - \Gamma^f_{cd,b} \\
+                &\qquad\quad + \Gamma^f_{ed} \left\{ \Gamma^e_{bc} - \Gamma^e_{bc} \right\}
+                + \Gamma^f_{ec} \left\{ \Gamma^e_{bd} - \Gamma^e_{bd} \right\}
+                + \Gamma^f_{eb} \left\{ \Gamma^e_{cd} - \Gamma^e_{cd} \right\}
+            \Big] \\
+        &= \g_{af} \cdot 0 \\
+        &= 0 \: .
+\end{split}
+\end{align}
+Dermed er den algebraiske Bianchiidentitet af Riemanntensoren bevist,
+\begin{align}
+    0 &= R_{abcd} + R_{acdb} + R_{adbc} \: .
+\end{align}
 
 
 
