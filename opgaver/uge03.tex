@@ -580,23 +580,58 @@ Argumnetér for at hvis en kovariant (aka. med indeks nede) rang-2-tensor er sym
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 13 -- Sum og differens af tensorer er en tensor}
+\subsection{Opgave 13 -- Sum og differens af tensorer er en tensor}
 \setcounter{subsection}{13}
 \setcounter{equation}{0}
 
-Argumenér for at hvis $A^a_{bc}$ og $B^a_{bc}$ er tensorer (med ét indeks oppe og to indeks nede), så er deres sum og difference også en tensor.
+Argumentér for at hvis $A^a_{bc}$ og $B^a_{bc}$ er tensorer (med ét indeks oppe og to indeks nede), så er deres sum og difference også en tensor.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Besvarelse}
 
-\ldots
+En tensor er et objekt, som transformerer som en tensor. Mere specifikt transformerer en rang-$X$ tensor under $X$ Jacobianer, så f.eks. en rang-2-tensor vil transformerer som
+\begin{align}
+    F'^{ab} &= J^a_c J^b_d F^{cd} = \pdif{x'^a}{x^c} \pdif{x'^b}{x^d} F^{cd} \: .
+\end{align}
+
+Betragter vi vores tensorer $A^a_{bc}$ og $B^a_{bc}$, så vil de transformere som
+\begin{subequations}
+\begin{align}
+    A'^d_{ef} &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} A^a_{bc} \: ,
+        \quad \text{og} \quad \\
+    B'^d_{ef} &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} B^a_{bc} \: ,
+\end{align}
+\end{subequations}
+hvor vi har benyttet rang-1-tensortransformationerne
+\begin{align}
+    C'^a &= \pdif{x'^a}{x^b} C^b
+        \qquad \text{og} \qquad
+    C'_a = \pdif{x^b}{x'^a} C_b
+\end{align}
+fra ligningerne 5 og 6 på ugeseddel 3, \cite[ligning 5--6]{ugeseddel3}, da en højererangstensor blot er konstrueret af flere lavererangstensorer. Derved har vi, at
+\begin{align}
+    T^a_{bc} &= A^a_{bc} + \alpha B^a_{bc}
+        \qquad \text{og} \qquad
+    T'^a_{bc} &= A'^a_{bc} + \alpha B'^a_{bc} \: ,
+\end{align}
+hvor vi har indført konstanten $\alpha$, der blot er et tal i $\{-1,\, 1\}$, og kigger vi nu på transformationen, så får vi
+\begin{align}
+\begin{split}
+    T'^d_{ef} &= A'^d_{ef} + \alpha B'^d_{ef} \\
+        &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} A^a_{bc} + \alpha \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} B^a_{bc} \\
+        &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} A^a_{bc} + \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} \left( \alpha B^a_{bc} \right) \\
+        &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} \left( A^a_{bc} + \alpha B^a_{bc} \right) \\
+        &= \pdif{x'^d}{x^a} \pdif{x^b}{x'^e} \pdif{x^c}{x'^f} T^a_{bc} \: .
+\end{split}
+\end{align}
+Derved er det vist, at både summen af to tensorer ($\alpha = 1$) og differensen af to tensorer ($\alpha = -1$) er en tensor, da $T^a_{bc} = A^a_{bc} + \alpha B^a_{bc}$ transformerer som en tensor.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 14 -- Produkt af tensorer er en tensor}
+\subsection{Opgave 14 -- Produkt af tensorer er en tensor}
 \setcounter{subsection}{14}
 \setcounter{equation}{0}
 
@@ -608,11 +643,27 @@ Argumentér for at produktet af to tensorer også er en tensor.
 
 \ldots
 
+En tensor er et objekt, som transformerer som en tensor. Mere specifikt transformerer en rang-$X$ tensor under $X$ Jacobianer, så f.eks. en rang-2-tensor vil transformerer som
+\begin{align}
+    F'^{ab} &= J^a_c J^b_d F^{cd} = \pdif{x'^a}{x^c} \pdif{x'^b}{x^d} F^{cd} \: .
+\end{align}
+
+Beviset er allerede udført i ligning 9 på ugeseddel 3, \cite[ligning 9]{ugeseddel3}, da det her er vist, at produktet af to vektorer (rang-1-tensorer) giver en rang-2-tensor,
+\begin{align}
+    A'^a B'^b &= \left( \pdif{x'^a}{x^c} A^c \right) \left( \pdif{x'^b}{x^d} B^d \right)
+        = \pdif{x'^a}{x^c} \pdif{x'^b}{x^d} A^c B^d \: ,
+\end{align}
+hvor vi har benyttet rang-1-tensortransformationen
+\begin{align}
+    C'^a &= \pdif{x'^a}{x^b} C^b
+\end{align}
+fra ligningerne 5 og 6 på ugeseddel 3, \cite[ligning 5--6]{ugeseddel3}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 15 -- Rang-2-tensor ved symmetrisk og antisymmetrisk tensor}
+\subsection{Opgave 15 -- Rang-2-tensor ved symmetrisk og antisymmetrisk tensor}
 \setcounter{subsection}{15}
 \setcounter{equation}{0}
 
@@ -622,13 +673,43 @@ Argumentér for at enhver rang-2-tensor med begge indeks oppe (eller begge indek
 
 \subsubsection{Besvarelse}
 
-\ldots
+For en generel tensor $U$ med komponenter $U_{ijk\ldots}$ og et par af indeks, her $i,j$, da vil $U$ have symmetriske og antisymmetriske dele defineret som hhv. (\cite{wiki:antisymmetricTensor,quora:rank2TensorLinearCombination})
+\begin{align}
+    U_{(ij)k\ldots} &= \inv{2} \left( U_{ijk\ldots} + U_{jik\ldots} \right)
+        \qquad \text{og} \qquad
+    U_{[ij]k\ldots} &= \inv{2} \left( U_{ijk\ldots} - U_{jik\ldots} \right) \: .
+\end{align}
+Som ordet ''led'' tyder på, så vil tensoren være summen af alle disse led for alle par af indeks.
+
+For en kontravariant rang-2-tensor $T^{ab}$ kan det ses, at
+\begin{align}
+\begin{split}
+    T^{ab} &= \inv{2} 2 T^{ab} \\
+        &= \inv{2} 2 T^{ab} + \inv{2} \left( T^{ba} - T^{ba} \right) \\
+        &= \inv{2} \left( T^{ab} + T^{ba} + T^{ab} - T^{ba} \right) \\
+        &= \inv{2} \left( T^{ab} + T^{ba} \right) + \inv{2} \left( T^{ab} - T^{ba} \right) \\
+        &= T^{(ab)} + T^{[ab]} \: ,
+\end{split}
+\end{align}
+altså summen af en symmetrisk og en antisymmetrisk kontravariant tensor.
+
+Ligeledes at kan det vises for en kovariant rang-2-tensor $T_{ab}$:
+\begin{align}
+\begin{split}
+    T_{ab} &= \inv{2} 2 T_{ab} \\
+        &= \inv{2} 2 T_{ab} + \inv{2} \left( T_{ba} - T_{ba} \right) \\
+        &= \inv{2} \left( T_{ab} + T_{ba} + T_{ab} - T_{ba} \right) \\
+        &= \inv{2} \left( T_{ab} + T_{ba} \right) + \inv{2} \left( T_{ab} - T_{ba} \right) \\
+        &= T_{(ab)} + T_{[ab]} \: ,
+\end{split}
+\end{align}
+altså summen af en symmetrisk og en antisymmetrisk kovariant tensor.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 16 -- Metrisk tensor er en tensor}
+\subsection{(S) Opgave 16 -- Metrisk tensor er en tensor}
 \setcounter{subsection}{16}
 \setcounter{equation}{0}
 
@@ -637,6 +718,11 @@ Argumentér for at den metriske tensor rent faktisk er en tensor.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Besvarelse}
+
+En tensor er et objekt, som transformerer som en tensor. Mere specifikt transformerer en rang-$X$ tensor under $X$ Jacobianer, så f.eks. en rang-2-tensor vil transformerer som
+\begin{align}
+    F'^{ab} &= J^a_c J^b_d F^{cd} = \pdif{x'^a}{x^c} \pdif{x'^b}{x^d} F^{cd} \: .
+\end{align}
 
 \ldots
 
