@@ -548,33 +548,82 @@ da $\pdif{x^v}{x^u} \pdif{x^u}{x^v} = 1$. Dermed har vi vist den ønskede transf
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 11 -- Er partielle afledede af en skalar tensorer?}
+\subsection{Opgave 11 -- Er partielle afledede af en skalar tensorer?}
 \setcounter{subsection}{11}
 \setcounter{equation}{0}
 
-Er $\partial \phi / \partial x^a$, hvor $\phi$ er en skalar (en tensor af rang $0$), en tensor? Er $\partial^2 \phi / (\partial x^a \partial x^b)$ en tensor?
+\paragraph{a)} Er $\partial \phi / \partial x^a$, hvor $\phi$ er en skalar (en tensor af rang $0$), en tensor?
+\paragraph{b)} Er $\partial^2 \phi / (\partial x^a \partial x^b)$, hvor $\phi$ er en skalar (en tensor af rang $0$), en tensor?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Besvarelse}
 
-\ldots
+En tensor er et objekt, som transformerer som en tensor. Mere specifikt transformerer en rang-$X$ tensor under $X$ Jacobianer, $J^a_b \equiv \partial x'^a / \partial x^b$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{a)}
+
+Her vil vi vise, at $\partial \phi / \partial x^a$, hvor $\phi$ er en skalar (en tensor af rang $0$), er en tensor ar rang 1. Til dette vil vi benytte rang-1-tensortransformationerne
+\begin{align}
+    C^a &= \pdif{x^a}{x'^b} C'^b = (J^{-1})^a_b C'^b
+        \qquad \text{og} \qquad
+    C_a = \pdif{x'^b}{x^a} C'_b = J^b_a C'_b
+\end{align}
+fra ligningerne 5 og 6 på ugeseddel 3, \cite[ligning 5--6]{ugeseddel3}.
+
+Det kan her ses, at hvis vi opskriver $\partial \phi / \partial x'^b$, så får vi
+\begin{align}
+    \pdif{\phi}{x^a} &= \pdif{\phi}{x'^b} \pdif{x'^b}{x^a}
+        = J^b_a \pdif{\phi}{x'^b} \: ,
+\end{align}
+hvor vi har brugt kædereglen, $\dd f/\dd x = (\dd f/\dd r) (\dd r/\dd x)$.
+
+Dermed er det vist, at $\partial \phi / \partial x^a$, hvor $\phi$ er en skalar (en tensor af rang $0$), transformerer som en kovariant tensor af rang 1, hvorfor $\partial \phi / \partial x^a$ er en kovariant tensor af rang 1. Grundet at $\partial \phi / \partial x^a$ transformerer som en kovariant vektor, selvom der differentieres med hensyn til $x^a$, da defineres denne som $\partial_a \equiv \partial \phi / \partial x^a$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{b)}
+
+Det kan her ses, at hvis vi opskriver $\partial^2 \phi / (\partial x^a \partial x^b)$, så får vvi
+\begin{align}
+    \frac{\partial^2 \phi}{\partial x^a\, \partial x^b} &= \frac{\partial^2 \phi}{\partial x'^c\, \partial x'^d} \pdif{x'^c}{x^a} \pdif{x'^d}{x^b}
+        = J^c_a J^d_b \pdif{x'^d}{x^b} \frac{\partial^2 \phi}{\partial x'^c\, \partial x'^d} \: ,
+\end{align}
+hvor vi har brugt kædereglen, $\dd f/\dd x = (\dd f/\dd r) (\dd r/\dd x)$. Dette er på formen for transformationen af en rang-2-tensor,
+\begin{align}
+    F'_{ab} &= J^c_a J^d_b F_{cd} = \pdif{x'^c}{x^a} \pdif{x'^d}{x^b} F^{cd} \: ,
+\end{align}
+hvorfor $\partial^2 \phi / (\partial x^a \partial x^b)$, hvor $\phi$ er en skalar (en tensor af rang $0$), transformerer som en kovariant rang-2-tensor, hvorfor $\partial^2 \phi / (\partial x^a \partial x^b)$ er en kovariant rang-2-tensor.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 12 -- Symmetri af tensor bevares ved koordinatskifte}
+\subsection{Opgave 12 -- Symmetri af tensor bevares ved koordinatskifte}
 \setcounter{subsection}{12}
 \setcounter{equation}{0}
 
-Argumnetér for at hvis en kovariant (aka. med indeks nede) rang-2-tensor er symmetrisk i ét koordinatsystem, så er den symmetrisk i alle tilladte koordinatsystemer.
+Argumentér for at hvis en kovariant (aka. med indeks nede) rang-2-tensor er symmetrisk i ét koordinatsystem, så er den symmetrisk i alle tilladte koordinatsystemer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Besvarelse}
 
-\ldots
+Jeg vil her benytte, at den kovariante rang-1-tensortransformation er
+\begin{align}
+    B'_a = \pdif{x^b}{x'^a} B_b = (J^{-1})^b_a C_b
+\end{align}
+fra ligning 6 på ugeseddel 3, \cite[ligning 6]{ugeseddel3}, da en rang-2-tensor transformerer som produktet af to rang-1-tensorer. Kigger vi nu på en rang-2-tensor $A_{ab}$ med symmetri $A_{ab} = \alpha A_{ba}$ for $\alpha = \{-1,\, 1\}$ (altså enten antisymmetrisk eller symmetrisk), og vi opskriver den transformerede af denne, $A'_{ab}$, da ser vi, at
+\begin{align}
+    A'_{ab} &= \pdif{x^c}{x'^a} \pdif{x^d}{x'^b} A_{cd}
+        = \pdif{x^c}{x'^a} \pdif{x^d}{x'^b} \alpha A_{dc}
+        = \alpha \pdif{x^c}{x'^a} \pdif{x^d}{x'^b} A_{dc}
+        = \alpha A'_{ba} \: ,
+\end{align}
+hvor vi har brugt symmetrien af $A_{ab}$. Det kan altså ses, at hvis $A_{ab}$ er symmetrisk ($\alpha = 1$), da vil dens koordinattransformerede tensor også være det, og ligeså for $A_{ab}$ værende antisymmetrisk ($\alpha = -1$), da vil dens koordinattransformerede tensor også være det. Det vil altså sige, at symmetrien af en tensor bevares ved koordinatskifte til et tillad koordinatsystem.
 
 
 
@@ -613,7 +662,7 @@ fra ligningerne 5 og 6 på ugeseddel 3, \cite[ligning 5--6]{ugeseddel3}, da en h
 \begin{align}
     T^a_{bc} &= A^a_{bc} + \alpha B^a_{bc}
         \qquad \text{og} \qquad
-    T'^a_{bc} &= A'^a_{bc} + \alpha B'^a_{bc} \: ,
+    T'^a_{bc} = A'^a_{bc} + \alpha B'^a_{bc} \: ,
 \end{align}
 hvor vi har indført konstanten $\alpha$, der blot er et tal i $\{-1,\, 1\}$, og kigger vi nu på transformationen, så får vi
 \begin{align}
@@ -641,8 +690,6 @@ Argumentér for at produktet af to tensorer også er en tensor.
 
 \subsubsection{Besvarelse}
 
-\ldots
-
 En tensor er et objekt, som transformerer som en tensor. Mere specifikt transformerer en rang-$X$ tensor under $X$ Jacobianer, så f.eks. en rang-2-tensor vil transformerer som
 \begin{align}
     F'^{ab} &= J^a_c J^b_d F^{cd} = \pdif{x'^a}{x^c} \pdif{x'^b}{x^d} F^{cd} \: .
@@ -657,7 +704,7 @@ hvor vi har benyttet rang-1-tensortransformationen
 \begin{align}
     C'^a &= \pdif{x'^a}{x^b} C^b
 \end{align}
-fra ligningerne 5 og 6 på ugeseddel 3, \cite[ligning 5--6]{ugeseddel3}.
+fra ligning 5 på ugeseddel 3, \cite[ligning 5]{ugeseddel3}.
 
 
 
