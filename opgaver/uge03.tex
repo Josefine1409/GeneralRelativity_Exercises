@@ -389,7 +389,7 @@ Indser vi nu, at $\Gamma^a_{bc} = g^{ad}\, \vv{e}_d\, \pdif{\vv{e}_b}{x^c} = \vv
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 7 -- Kroneckers delta}
+\subsection{(S) Opgave 7 -- Kroneckers delta}
 \setcounter{subsection}{7}
 \setcounter{equation}{0}
 
@@ -416,14 +416,26 @@ Kroneckers delta $\delta^a_b$ er defineret som
 
 \paragraph{a)}
 
-\ldots
+Dette kan bevises ved at dele summen over $b$ op i to dele: Tilfældet hvor $b = a$ og tilfældene hvor $b \ne a$. Huskes der nu på definitionen af Kroneckers delta, da får vi
+\begin{align}
+    \delta^a_b X^b &= \sum_b \delta^a_b X^b
+        = \delta^a_a X^a + \sum_{b \ne a} \delta^a_b X^b
+        = 1 \cdot X^a + \sum_{b \ne a} 0 \cdot X^b
+        = X^a \: .
+\end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{b)}
 
-\ldots
+Som i \textbf{a)} kan dette bevisen ved at dele summen over nu $a$ op i to dele: Tilfældet hvor $a = b$ og tilfældene hvor $a \ne b$. Huskes der nu på definitionen af Kroneckers delta, da får vi
+\begin{align}
+    \delta^a_b X_a &= \sum_a \delta^a_b X_a
+        = \delta^b_b X_b + \sum_{a \ne b} \delta^a_b X_a
+        = 1 \cdot X_b + \sum_{a \ne b} 0 \cdot X_a
+        = X_b \: .
+\end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -431,6 +443,14 @@ Kroneckers delta $\delta^a_b$ er defineret som
 \paragraph{c)}
 
 \ldots
+
+% \begin{align}
+%     \delta^a_b &= \pdif{x^a}{x^b}
+%         = \pdif{x^a}{x'^d} \pdif{x'^d}{x^b}
+%         = \pdif{x^a}{x'^c} \pdif{x'^c}{x'^d} \pdif{x'^d}{x^b}
+%         = \pdif{x^a}{x'^c}  \pdif{x'^d}{x^b} \pdif{x'^c}{x'^d}
+%         = (J^{-})^a_c J^d_b \delta'^c_d \: .
+% \end{align}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -450,7 +470,7 @@ Kroneckers delta $\delta^a_b$ er defineret som
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 8 -- Udledning af kovariant afledede af tensor}
+\subsection{Opgave 8 -- Udledning af kovariant afledede af tensor}
 \setcounter{subsection}{8}
 \setcounter{equation}{0}
 
@@ -460,7 +480,29 @@ En tensor, $F^{ab}$, er et objekt som transformerer som et ydre produkt, $A^a B^
 
 \subsubsection{Besvarelse}
 
-\ldots
+Den kovariante afledede af en vektor er
+\begin{align}
+    \DD A^a &= \dd A^a + \Gamma^a_{bc} A^b\, \dd x^c \: .
+\end{align}
+Vi ved, at vi kan skrive tensoren som et ydre produkt af to vektorer, så
+\begin{align}
+    F^{ab} &= A^a B^b \: ,
+\end{align}
+hvormed vi kan benytte Leibniz regel, $\DD(A^a B^b) = \DD(A^a)B^b + A^a \DD (B^b)$, til at beregne den kovariante afledede
+\begin{align}
+\begin{split}
+    \DD F^{ab} &= \DD(A^a B^b) \\
+        &= \DD(A^a)B^b + A^a \DD (B^b) \\
+        &= \left( \dd A^a + \Gamma^a_{cd} A^c\, \dd x^d \right) B^b + A^a \left( \dd B^b + \Gamma^b_{cd} B^c\, \dd x^d \right) \\
+        &= \left( \dd A^a \right) B^b + \Gamma^a_{cd} A^c B^b\, \dd x^d + A^a \left( \dd B^b \right) + \Gamma^b_{cd} A^a B^c\, \dd x^d \\
+        &= \dd \left( A^a B^b \right) + \Gamma^a_{cd} A^c B^b\, \dd x^d + \Gamma^b_{cd} A^a B^c\, \dd x^d \\
+        &= \dd F^{ab} + \Gamma^a_{cd} F^{cb}\, \dd x^d + \Gamma^b_{cd} F^{ac}\, \dd x^d \: .
+\end{split}
+\end{align}
+Dette er altså transformationsreglen for den kovariante afledede, altså
+\begin{align}
+    \DD F^{ab} &= \dd F^{ab} + \Gamma^a_{cd} F^{cb}\, \dd x^d + \Gamma^b_{cd} F^{ac}\, \dd x^d \: .
+\end{align}
 
 
 
