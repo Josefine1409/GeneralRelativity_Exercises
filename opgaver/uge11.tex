@@ -15,7 +15,7 @@
 \setcounter{equation}{0}
 
 Udled bevægelsesligningen
-\begin{align}
+\begin{align} \label{eq:Uge11_Opg1_EquationOfMotion}
     \dd t &= - \sqf{r}{r_s} \inv{1 - \frac{r_s}{r}}\, \dd r
 \end{align}
 for et objekt i et radiært frit fald fra uendelig ind mod et sort hul ved at benytte de geodætiske ligninger i Schwarzschildmetrikken.
@@ -32,19 +32,73 @@ Hints: Find $\dd t / \dd s$ fra $t$-geodætligningen. Find $\dd r / \dd s$ fra $
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 2 -- Fritfaldende objekt i Schwarzschildmetrikken}
+\subsection{Opgave 2 -- Fritfaldende objekt i Schwarzschildmetrikken}
 \setcounter{subsection}{2}
 \setcounter{equation}{0}
 
 Et objekt falder frit og radiært mod centrum i Schwarzschildmetrikken. Hvad er dets koordinathastighed $\dd r / \dd t$ ved radius $r$? Hvad er den lokalmålte hastighed for samme $r$?
 
-Hint: I Schwarzschildmetrikken er den lokalmålte radiære afstand givet som $\dd \hat{r} = (1 - 2M/r)^{-1} \dd r^2$ og den lokalmålte tid er givet som $\dd \hat{t} = (1 - 2M/r) \dd t^2$
+Hint: I Schwarzschildmetrikken er den lokalmålte radiære afstand givet som $\dd \hat{r}^2 = (1 - 2M/r)^{-1} \dd r^2$ og den lokalmålte tid er givet som $\dd \hat{t}^2 = (1 - 2M/r) \dd t^2$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection*{Besvarelse}
 
-\ldots
+Beægelsesligningen for et objekt i frit og radiært fald mod centrum i Schwarzschildmetrikken er \cref{eq:Uge11_Opg1_EquationOfMotion},
+\begin{align} 
+    \dd t &= - \sqf{r}{r_s} \inv{1 - \frac{r_s}{r}}\, \dd r \: ,
+\end{align}
+og isolerer vi nu koordinathastigheden $\dd r / \dd t$ fås
+\begin{align}
+    \dif{r}{t} &= -\, \inv{\sqrt{\dfrac{r}{r_s}}\, \inv{1 - \frac{r_s}{r}}}
+        = -\, \dfrac{1 - \frac{r_s}{r}}{\sqrt{\dfrac{r}{r_s}}}
+        = - \left( 1 - \frac{r_s}{r} \right) \sqf{r_s}{r}
+        = \left( \frac{r_s}{r} - 1 \right) \sqf{r_s}{r} \: .
+\end{align}
+\\
+
+For nu at finde den lokaltmålte hastighed ved samme $r$, da benytter vi at den lokaltmålte radiære afstand og lokaltmålte tid er givet som
+\begin{align}
+    \dd \hat{r}^2 &= \left( 1 - \frac{2M}{r} \right)^{-1} \dd r^2
+        \qquad \text{og} \qquad
+    \dd \hat{t}^2 = \left( 1 - \frac{2M}{r} \right) \dd t^2 \: ,
+\end{align}
+hvori vi isolerer $\dd r$ og $\dd t$,
+\begin{align}
+    \begin{split}
+        \dd \hat{t}^2 &= \left( 1 - \frac{2M}{r} \right) \dd t^2
+        \quad \Rightarrow \quad
+        \dd t^2 = \left( 1 - \frac{2M}{r} \right)^{-1} \dd \hat{t}^2
+        \quad \Rightarrow \quad
+        \dd t = \dfrac{\dd \hat{t}}{\sqrt{1 - \frac{2M}{r}}} \: , \quad \text{og}
+    \end{split} \\
+    \begin{split}
+        \dd \hat{r}^2 &= \left( 1 - \frac{2M}{r} \right)^{-1} \dd r^2
+        \quad \Rightarrow \quad
+        \dd r^2 = \left( 1 - \frac{2M}{r} \right) \dd \hat{r}^2
+        \quad \Rightarrow \quad
+        \dd r = \sqrt{1 - \frac{2M}{r}}\, \dd \hat{r} \: ,
+    \end{split}
+\end{align}
+hvorefter disse indsættes i formlen for koordinathastigheden, og der isoleres for $\dd \hat{r} / \dd \hat{t}$
+\begin{align}
+\begin{split}
+    \left( \frac{r_s}{r} - 1 \right) \sqf{r_s}{r} &= \dif{r}{t} \\
+        &= \dfrac{\sqrt{1 - \frac{2M}{r}}\, \dd \hat{r}}{\inv{\sqrt{1 - \frac{2M}{r}}}\,\dd \hat{t}} \\
+        &= \left( 1 - \frac{2M}{r} \right) \dif{\hat{r}}{\hat{t}} \\
+    \Rightarrow
+    \dif{\hat{r}}{\hat{t}} &= \left( \frac{r_s}{r} - 1 \right) \sqf{r_s}{r} \left( 1 - \frac{2M}{r} \right)^{-1} \\
+        &= \left( \frac{r_s}{r} - 1 \right) \sqf{r_s}{r} \left( 1 - \frac{r_s}{r} \right)^{-1} \\
+        &= \left( \frac{r_s}{r} - 1 \right) \sqf{r_s}{r} \left( - \left[ \frac{r_s}{r} -1 \right] \right)^{-1} \\
+        &= - \sqf{r_s}{r} \: ,
+\end{split}
+\end{align}
+da vi har sat $G = c = 1$, hvorfor Schwarzschildradien er $r_s = 2GM/c^2 = 2M$.
+Dermed er den lokaltmålte koordinathastighed
+\begin{align}
+    \dif{\hat{r}}{\hat{t}} &= - \sqf{r_s}{r}
+\end{align}
+for afstanden $r$.
 
 
 
@@ -109,17 +163,24 @@ Beregn egentiden (eng: proper time) det tager for et Lemaitreur at falde fra den
 
 \subsubsection*{Besvarelse}
 
-Egentiden, som det tager for et Lamaitreur at falde fra en radius $r_1$ til en mindre radius $r_2$, er givet ved \cite[ligning 8]{ugeseddel11}
+Egentiden, som det tager for et Lamaitreur at falde fra en radius $r_1$ til en mindre radius $r_2$, er givet ved \cite[ligning 8]{ugeseddel11} (hvor vi har indsat $c$'et, som på ugesedlen ikke er der, da det står i naturlige enheder)
 \begin{align}
-    \Delta \tau &= \frac{2}{3} \pfrac{r_1^{3/2} - r_2^{3/2}}{r_s^{1/2}} \: ,
+    \Delta \tau &= \frac{2}{3c} \pfrac{r_1^{3/2} - r_2^{3/2}}{r_s^{1/2}} \: ,
 \end{align}
-så hvis vi indsætter $r_1$ værende den gravitationelle radius, $r_1 = r_s = 2GM_\odot/c^2$, hvor $M_\odot$ er solens masse, og $r_2$ værende centrum af det sorte hul, $r_2 = 0$, så får vi
+så hvis vi indsætter $r_1$ værende den gravitationelle radius, $r_1 = r_s = 2GM/c^2$, hvor $M$ er massen af det sorte hul, og $r_2$ værende centrum af det sorte hul, $r_2 = 0$, så får vi
 \begin{align}
-    \Delta \tau &= \frac{2}{3} \pfrac{r_s^{3/2} - 0^{3/2}}{r_s^{1/2}} 
-        = \frac{2}{3} \pfrac{r_s^{3/2}}{r_s^{1/2}}
-        = \frac{2}{3} r_s
-        = \frac{2}{3}\, \frac{2GM_\odot}{c^2}
-        = \frac{4GM_\odot}{3c^2} \: .
+    \Delta \tau &= \frac{2}{3c} \pfrac{r_s^{3/2} - 0^{3/2}}{r_s^{1/2}} 
+        = \frac{2}{3c} \pfrac{r_s^{3/2}}{r_s^{1/2}}
+        = \frac{2}{3c} r_s
+        = \frac{2}{3c}\, \frac{2GM}{c^2}
+        = \frac{4GM}{3c^3} \: .
+\end{align}
+
+For et sort hul med masse som solen, da er $M = M_{\astrosun} = \SI{1.989E30}{\kilo\gram}$, gravitationskonstanten er $G = \SI{6.67408E-11}{\cubic\meter\per\kilo\gram\per\square\second}$ og lysets hastighed er $c = \SI{2.99792458E8}{\meter\per\second}$ (tallene er fundet på Google/Wikipedia d. 15. januar 2021). Dermed får vi
+\begin{align}
+    \Delta \tau &= \frac{4GM_{\astrosun}}{3c^3}
+        = \frac{4 \cdot \SI{6.67408E-11}{\cubic\meter\per\kilo\gram\per\square\second} \cdot \SI{1.989E30}{\kilo\gram}}{3 \cdot \left(\SI{2.99792458E8}{\meter\per\second}\right)^3}
+        = \SI{6.569}{\micro\second} \: .
 \end{align}
 
 

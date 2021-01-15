@@ -20,9 +20,9 @@ Vores ${}^\eta_\eta$-Friedmanligning er skrevet for den $\eta$-afledede, $a' \do
 
 \subsubsection*{Besvarelse}
 
-${}^\eta_\eta$-komponenten af Friedmanligningen for det lukkede univers er \cite[ligning 15]{ugeseddel12}
+${}^\eta_\eta$-komponenten af Friedmanligningen for det lukkede ($+$) og åbne ($-$) univers er \cite[ligning 15 og 23]{ugeseddel12}
 \begin{align}
-    \frac{3}{a^4} \left( a^2 + a'^2 \right) &= \kappa \epsilon \: .
+    \frac{3}{a^4} \left( a^2 \pm a'^2 \right) &= \kappa \epsilon \: .
 \end{align}
 Vi ved også, at $\dd t = a \dd \eta$, \cite[ligning 11]{ugeseddel12}, hvorfor
 \begin{align}
@@ -30,16 +30,16 @@ Vi ved også, at $\dd t = a \dd \eta$, \cite[ligning 11]{ugeseddel12}, hvorfor
         = \pdif{a}{t}\, \pdif{t}{\eta}
         = \dot{a} a \: ,
 \end{align}
-hvorfor vi får ${}^t_t$-komponenten af Friedmanligningen for det lukkede univers til
+hvorfor vi får ${}^t_t$-komponenten af Friedmanligningen for det lukkede ($+$) og åbne ($-$) univers til
 \begin{align}
 \begin{split}
-    \kappa \epsilon &= \frac{3}{a^4} \left( a^2 + a'^2 \right) \\
-        &= \frac{3}{a^4} \left( a^2 + \left[ \dt{a} a \right]^2 \right) \\
-        &= \frac{3}{a^4} \left( a^2 + a^2 \dt{a}^2 \right) \\
-        &= \frac{3 a^2}{a^4} \left( 1 + \dt{a}^2 \right) \\
-        &= \frac{3}{a^2} \left( 1 + \dt{a}^2 \right) \: . \\
+    \kappa \epsilon &= \frac{3}{a^4} \left( a^2 \pm a'^2 \right) \\
+        &= \frac{3}{a^4} \left( a^2 \pm \left[ \dt{a} a \right]^2 \right) \\
+        &= \frac{3}{a^4} \left( a^2 \pm a^2 \dt{a}^2 \right) \\
+        &= \frac{3 a^2}{a^4} \left( 1 \pm \dt{a}^2 \right) \\
+        &= \frac{3}{a^2} \left( 1 \pm \dt{a}^2 \right) \: . \\
     \Rightarrow
-    \pfrac{\dt{a}}{a}^2 &= \frac{\kappa \epsilon}{3} - \inv{a^2} \: .
+    \pfrac{\dt{a}}{a}^2 &= \pm \frac{\kappa \epsilon}{3} \mp \inv{a^2} \: .
 \end{split}
 \end{align}
 
@@ -312,7 +312,7 @@ Vi benytter nu at Riccitensoren er givet ved Riemanntensoren, som igen er givet 
     R_{ab} &= R^d_{adb}
         = \Gamma^d_{ab,d} - \Gamma^d_{ad,b} + \Gamma^d_{ed} \Gamma^e_{ab} - \Gamma^d_{eb} \Gamma^e_{ad} \: ,
 \end{align}
-hvorved vi får
+hvorved vi får\\
 \begin{subequations}
 \begin{align}
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -465,7 +465,7 @@ hvilket er energibevarelsesligningen, som vi skulle vise.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{(M) Opgave 4 -- Tidsudvikling af masse- og strålingsdominerede Euklidiske universer}
+\subsection{(S) Opgave 4 -- Tidsudvikling af masse- og strålingsdominerede Euklidiske universer}
 \setcounter{subsection}{4}
 \setcounter{equation}{0}
 
@@ -517,7 +517,265 @@ Hints:
 
 \subsubsection*{Besvarelse}
 
-\ldots
+Det flade (Euklidiske) og isotope univers har metrikken
+\begin{align}
+    \dd s^2 &= \dd t^2 - a^2(t) \left( \dd x^2 + \dd y^2 + \dd z^2 \right) \: ,
+\end{align}
+hvorfor
+\begin{align}
+    g_{tt} &= 1 \: , \quad \text{og} \quad
+    g_{xx} = g_{yy} = g_{zz} = - a^2(t) \: ,
+\end{align}
+mens alle andre kominationer af $g_{ab} = 0$, da $\dd s^2 = \sum_{a,b} g_{ab}\, \dd x^a\, \dd x^b$.
+
+Først beregner vi Christoffelsymbolerne, hvilket gøres ved
+\begin{align}
+    \Gamma_{abc} &= \inv{2} \left[ g_{ab,c} - g_{bc,a} + g_{ca,b} \right] \: .
+\end{align}
+Christoffelsymbolerne bliver derved
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = t, b = t, c = t
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^t_{tt} &= g^{tt} \Gamma_{ttt}
+            = \frac{g^{tt}}{2} \left[ g_{tt,t} - g_{tt,t} + g_{tt,t} \right]
+            = \frac{g^{tt}}{2} g_{tt,t}
+            = \inv{2 \cdot 1} \pdif{1}{t} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = t, b = t, c = r
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^t_{tr} &= g^{tt} \Gamma_{ttr}
+            = \frac{g^{tt}}{2} \left[ g_{tt,r} - g_{tr,t} + g_{rt,t} \right]
+            = \frac{g^{tt}}{2} g_{tt,r}
+            = \inv{2 \cdot 1} \pdif{1}{r} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = t, b = r, c = r
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^t_{rr} &= g^{tt} \Gamma_{trr}
+            = \frac{g^{tt}}{2} \left[ g_{tr,r} - g_{rr,t} + g_{rt,r} \right]
+            = - \frac{g^{tt}}{2} g_{rr,t}
+            = - \inv{2 \cdot 1} \pdif{(- a^2)}{t} \\
+            &= a \dt{a} \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = r, b = r, c = r
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^r_{rr} &= g^{rr} \Gamma_{rrr}
+            = \frac{g^{rr}}{2} \left[ g_{rr,r} - g_{rr,r} + g_{rr,r} \right]
+            = \frac{g^{rr}}{2} g_{rr,r}
+            = \inv{2 (- a^2)} \pdif{(- a^2)}{r} \\
+            &= 0 \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = r, b = t, c = r
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^r_{tr} &= g^{rr} \Gamma_{rtr}
+            = \frac{g^{rr}}{2} \left[ g_{rt,r} - g_{tr,r} + g_{rr,t} \right]
+            = \frac{g^{rr}}{2} g_{rr,t}
+            = \inv{2 (- a^2)} \pdif{(- a^2)}{t} \\
+            &= \frac{\dt{a}}{a} \: ,
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % a = r, b = t, c = t
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        \Gamma^r_{tt} &= g^{rr} \Gamma_{rtt}
+            = \frac{g^{rr}}{2} \left[ g_{rt,t} - g_{tt,r} + g_{tr,t} \right]
+            = - \frac{g^{rr}}{2} g_{tt,r}
+            = \inv{2 (- a^2)} \pdif{1}{r} \\
+            &= 0 \: ,
+    \end{split}
+\end{align}
+\end{subequations}
+hvor vi har benytte $r \in \{x,\, y,\, z\}$, da $g_{xx} = g_{yy} = g_{zz}$. Christoffelsymbolerne med alle forskellige indeks ($a \ne b \ne c \ne a$) giver $0$, da kun $g_{aa} \ne 0$, f.eks. $\Gamma^r_{r' t} \:\: \forall r' \ne r$. Yderligere vides det, at $\Gamma_{abc} = \Gamma_{acb}$, hvilket giver de resterende Christoffelsymboler.
+Dermed har vi at de eneste ikkeforsvindende Christoffelsymboler er
+\begin{align}
+    \Gamma^x_{tx} &= \Gamma^y_{ty} = \Gamma^z_{tz} = \frac{\dt{a}}{a} \: ,
+        \quad \text{og} \quad
+    \Gamma^t_{xx} = \Gamma^t_{yy} = \Gamma^t_{zz} = a \dt{a} \: .
+\end{align}
+
+Som det næste ønsker vi at beregne Riccitensoren, hvilken er givet ved Riemanntensoren, som igen er givet ved Christoffelsymbolerne, som
+\begin{align}
+    R_{ab} &= R^d_{adb}
+        = \Gamma^d_{ab,d} - \Gamma^d_{ad,b} + \Gamma^d_{ed} \Gamma^e_{ab} - \Gamma^d_{eb} \Gamma^e_{ad} \: ,
+\end{align}
+hvorved vi får
+\begin{subequations}
+\begin{align}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % tt
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^t_t &= g^{tt} R_{tt}  \\
+            &= g^{tt} R^d_{t d t} \\
+            &= g^{tt} \left( \Gamma^d_{tt,d} - \Gamma^d_{td,t} + \Gamma^d_{ed} \Gamma^e_{tt} - \Gamma^d_{et} \Gamma^e_{td} \right) \\
+            &= g^{tt} \Bigg( \left[ \Gamma^t_{tt,t} + 3\Gamma^r_{tt,r} \right] - \left[ \Gamma^t_{tt,t} + 3\Gamma^r_{tr,t} \right] \\
+                &\qquad\quad + \left[ \left\{ \Gamma^t_{tt} \Gamma^t_{tt} + 3 \Gamma^t_{rt} \Gamma^r_{tt} \right\} + 3 \left\{ \Gamma^r_{tr} \Gamma^t_{tt} + \sum_{r_i} \Gamma^r_{r_i r} \Gamma^{r_i}_{tt} \right\} \right] \\
+                &\qquad\quad - \left[ \left\{ \Gamma^t_{tt} \Gamma^t_{tt} + 3 \Gamma^t_{rt} \Gamma^r_{tt} \right\} + 3 \left\{ \Gamma^r_{tt} \Gamma^t_{tr} + \sum_{r_i} \Gamma^r_{r_i t} \Gamma^{r_i}_{tr} \right\}  \right] \Bigg) \\
+            &= g^{tt} \left( - 3\Gamma^r_{tr,t} - 3 \Gamma^r_{rt} \Gamma^r_{tr} \right) \\
+            &= \inv{1} \left[ - 3 \pfrac{\dt{a}}{a}_{,t} - 3 \pfrac{\dt{a}}{a} \pfrac{\dt{a}}{a} \right] \\
+            &= - 3 \left[ \frac{\ddt{a}}{a} - \frac{\dt{a}^2}{a^2} + \frac{\dt{a}^2}{a^2} \right] \\
+            &= - 3 \frac{\ddt{a}}{a} \: .
+    \end{split} \\
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % rr
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{split}
+        R^r_r &= g^{rr} R_{rr} \\
+            &= g^{rr} R^d_{rdr} \\
+            &= g^{rr} \left( \Gamma^d_{rr,d} - \Gamma^d_{rd,r} + \Gamma^d_{ed} \Gamma^e_{rr} - \Gamma^d_{er} \Gamma^e_{rd} \right) \\
+            &= g^{rr} \Bigg( \left[ \Gamma^t_{rr,t} + \sum_{r_i} \Gamma^{r_i}_{rr,r_i} \right] - \left[ \Gamma^t_{rt,r} + \sum_{r_i} \Gamma^{r_i}_{r r_i,r} \right] \\
+                &\qquad\quad + \left[ \left\{ \Gamma^t_{tt} \Gamma^t_{rr} + \sum_{r_i} \Gamma^t_{r_i t} \Gamma^{r_i}_{rr} \right\} + \sum_{r_i} \left\{ \Gamma^{r_i}_{t r_i} \Gamma^t_{rr} + \sum_{r'} \Gamma^{r_i}_{r' r_i} \Gamma^{r'}_{rr} \right\} \right] \\
+                &\qquad\quad - \left[ \left\{ \Gamma^t_{tr} \Gamma^t_{rt} + \sum_{r_i} \Gamma^t_{r_i r} \Gamma^{r_i}_{rt} \right\} + \sum_{r_i} \left\{ \Gamma^{r_i}_{tr} \Gamma^t_{r r_i} + \sum_{r'} \Gamma^{r_i}_{r' r} \Gamma^{r'}_{r r_i} \right\} \right] \Bigg) \\
+            &= g^{rr} \left( \Gamma^t_{rr,t} + \sum_{r_i} \left[ \Gamma^{r_i}_{t r_i} \Gamma^t_{rr} \right] - \Gamma^t_{rr} \Gamma^r_{rt} - \Gamma^r_{tr} \Gamma^t_{rr} \right) \\
+            &= g^{rr} \left( \Gamma^t_{rr,t} + 3 \Gamma^r_{tr} \Gamma^t_{rr} - \Gamma^t_{rr} \Gamma^r_{rt} - \Gamma^r_{tr} \Gamma^t_{rr} \right) \\
+            &= g^{rr} \left( \Gamma^t_{rr,t} + \Gamma^r_{tr} \Gamma^t_{rr} \right) \\
+            &= \inv{-a^2} \left[ \left( a \dt{a} \right)_{,t} + \pfrac{\dt{a}}{a} \left( a \dt{a} \right) \right] \\
+            &= \inv{-a^2} \left[ \left( \dt{a}^2 + a \ddt{a} \right) + \dt{a}^2 \right] \\
+            &= - \frac{\ddt{a}}{a} - 2\frac{\dt{a}^2}{a^2} \: .
+    \end{split}
+\end{align}
+\end{subequations}
+
+Vi kan nu beregne Ricciskalaren ved
+\begin{align}
+    R &= g^{ab} R_{ab} \: ,
+\end{align}
+hvorved vi får
+\begin{align}
+\begin{split}
+    R &= g^{aa} R_{aa} \\
+        &= g^{tt} R_{tt} + 3 g^{rr} R_{rr} \\
+        &= R^t_t + 3 R^r_r \\
+        &= 3 \frac{\ddt{a}}{a} + 3 \left[ - \frac{\ddt{a}}{a} - 2 \frac{\dt{a}^2}{a^2} \right] \\
+        &= - 3 \frac{\ddt{a}}{a} - 3\frac{\ddt{a}}{a} - 6\frac{\dt{a}^2}{a^2} \\
+        &= - 6 \left[ \frac{\ddt{a}}{a} + \frac{\dt{a}^2}{a^2} \right] \: ,
+\end{split}
+\end{align}
+da kun $g^{aa} \ne 0$.
+
+Dermed har vi, at Riccitensoren er
+\begin{align}
+    R^t_t &= - 3 \frac{\ddt{a}}{a} \: ,
+        \quad \text{og} \quad
+    R^x_x = R^y_y = R^z_z = - \frac{\ddt{a}}{a} - 2 \frac{\dt{a}^2}{a^2} \: ,
+\end{align}
+og Ricciskalaren er
+\begin{align}
+    R &= - 6 \left[ \frac{\ddt{a}}{a} + \frac{\dt{a}^2}{a^2} \right] \: .
+\end{align}
+
+Einsteinligningen er givet ved \cite[ligning 33]{ugeseddel7},
+\begin{align}
+    R_{ab} - \inv{2} R g_{ab} &= \kappa T_{ab} \: ,
+\end{align}
+hvorved ${}^t_t$-komponenten bliver
+\begin{align}
+    R^t_t - g^{tt} \inv{2} R g_{tt}
+        &= g^{tt} R_{tt} - g^{tt} \inv{2} R g_{tt}
+        = g^{tt} \kappa T_{tt}
+        = \kappa T^t_t \: ,
+\end{align}
+og siden vi ønsker denne nedskrevet for et univers som værende en perfekt væske, da skal vi se på, hvordan Einsteinligningen ser ud i Friedmannuniverset. Stress-energitensoren for en perfekt væske er
+\begin{align}
+    T_{ab} &= (\epsilon + p) u_a u_b - p g_{ab} \: ,
+\end{align}
+hvor $\epsilon$ er restenergidensiteten, $p$ er trykket og $u_a = \dd x_a / \dd s$. Vi ved at
+\begin{align}
+\begin{split}
+    \dd s^2 &= g_{ab}\, \dd x^a\, \dd x^b
+        = g^{ab}\, \dd x_a\, \dd x_b
+        = \inv{g_{ab}}\, \dd x_a\, \dd x_b \\
+    \Rightarrow
+    1 &= \inv{g_{ab}}\, \dif{x_a}{s}\, \dif{x_b}{s}
+        = \inv{g_{ab}}\, u_a u_b \\
+    \Rightarrow
+    g_{ab} &= u_a u_b \: ,
+\end{split}
+\end{align}
+hvorfor
+\begin{align}
+    T_{ab} &= (\epsilon + p) g_{ab} - p g_{ab}
+        = \epsilon g_{ab} \: ,
+\end{align}
+og indsætter vi dette i Einsteinligningen, så får vi
+\begin{align}
+\begin{split}
+    R^t_t - g^{tt} \inv{2} R g_{tt} &= g^{tt} \kappa \epsilon g_{tt} \\
+        \Rightarrow \kappa \epsilon &= - 3 \frac{\ddt{a}}{a} - \inv{2} \left( - 6 \left[ \frac{\ddt{a}}{a} + \frac{\dt{a}^2}{a^2} \right] \right) \\
+            &= - 3 \frac{\ddt{a}}{a} + 3 \left[ \frac{\ddt{a}}{a} + \frac{\dt{a}^2}{a^2} \right] \\
+            &= - 3 \frac{\ddt{a}}{a} + 3 \frac{\ddt{a}}{a} + 3 \frac{\dt{a}^2}{a^2} \\
+            &= 3 \frac{\dt{a}^2}{a^2} \: .
+\end{split}
+\end{align}
+${}^t_t$-komponenten af Einsteinligningen for en perfekt væske er dermed
+\begin{align}
+    3 \frac{\dt{a}^2}{a^2} &= \kappa \epsilon \: .
+\end{align}
+
+Som det næste benytter vi energibevarelsesligningen, som siger at
+\begin{align}
+    \dd E &= - p\, \dd V \: .
+\end{align}
+Energien af et volumen er $E = \epsilon V$, hvorved vi får
+\begin{align}
+\begin{split}
+    - p\, \dd V &= \dd E
+        = \dd (\epsilon V)
+        = V\, \dd \epsilon + \epsilon\, \dd V \\
+    \Rightarrow
+    \frac{\dd V}{V} &= - \frac{\dd \epsilon}{\epsilon + p} \: ,
+\end{split}
+\end{align}
+og betragter vi nu et volumen af størrelse $V = a^3$, da får vi $\dd V = 3 a^2\, \dd a$, så
+\begin{align}
+\begin{split}
+    - \frac{\dd \epsilon}{\epsilon + p} &= \frac{\dd V}{V}
+        = \frac{3 a^2\, \dd a}{a^3}
+        = \frac{3}{a}\, \dd a \\
+    \Rightarrow
+    - \int \frac{\dd \epsilon}{\epsilon + p} &= \int \frac{3}{a}\, \dd a
+        = 3 \int \inv{a}\, \dd a
+        = 3 \ln(a) \: .
+\end{split}
+\end{align}
+Energibevarelsesligningen er altså
+\begin{align}
+    3 \ln(a) = - \int \frac{\dd \epsilon}{(\epsilon + p)} \: .
+\end{align}
+\\
+
+Vi betragter nu et massedomineret univers.
+
+
+==============================================
+==============================================
+
+\begin{enumerate}
+    \item Integrer ligningerne for et massedomineret univers ($p = 0$, $\epsilon = \mu$)
+        \begin{align}
+            \mu a^3 &= \text{konst} \: ,
+                \quad \text{og} \quad
+            a \propto t^{2/3} \: .
+        \end{align}
+    \item Integrer ligningerne for et strålingsdomineret univers ($p = \epsilon / 3$)
+        \begin{align}
+            \epsilon a^4 &= \text{konst} \: ,
+                \quad \text{og} \quad
+            a \propto t^{1/2} \: .
+        \end{align}
+\end{enumerate}
 
 
 

@@ -3,6 +3,7 @@
 
 % SI-units
 \usepackage[number-unit-product = \text{ }, inter-unit-product =\cdot, expproduct = \cdot]{siunitx} % SI-units
+\sisetup{locale = DE} % Tysk, men minder om den danske opsætning
     \sisetup{range-units = brackets, range-phrase = --} % Intervaller med enheder som (<x_min> - <xmax>)<enhed>
     \DeclareSIUnit\year{yr}	% Definer enheden år, skrevet "yr", som \year
 
@@ -30,3 +31,6 @@
 
 % For pænt at skrive isotoper
 \usepackage{isotope} % \isotope[A][Z]{Atombogstav(er)}
+
+% Astrosymboler som Solens symbol (astrosun ligner odot) - der skal dog skrives f.eks. M_{\astrosun} i stedet for M_\astrosun
+\usepackage{wasysym}
